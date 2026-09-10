@@ -3,101 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rede credenciada Nossa Saúde — Campos Gerais | Mazza Broker</title>
-<meta name="description" content="Consulte a rede credenciada da Nossa Saúde nas 9 cidades dos Campos Gerais: hospitais, clínicas, laboratórios e médicos por especialidade, por plano.">
-<meta name="theme-color" content="#12233F">
-<meta property="og:title" content="Rede credenciada Nossa Saúde — Campos Gerais">
-<meta property="og:description" content="Hospitais, clínicas, laboratórios e médicos credenciados em Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí, Prudentópolis e Piraí do Sul.">
+<title>Rede Credenciada Nossa Saúde — Campos Gerais | Mazza Broker</title>
+<meta name="description" content="Baixe a rede credenciada da Nossa Saúde da sua cidade: hospitais, laboratórios, exames de imagem, clínicas e médicos em Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí, Prudentópolis e Piraí do Sul.">
+<meta name="theme-color" content="#0D2A4F">
+<meta property="og:title" content="Rede Credenciada Nossa Saúde — Campos Gerais">
+<meta property="og:description" content="A rede da Nossa Saúde nas 9 cidades dos Campos Gerais, com PDF pronto para baixar por cidade.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2312233F'/><path d='M50 78C36 66 24 56 24 44a15 15 0 0 1 26-10 15 15 0 0 1 26 10c0 12-12 22-26 34z' fill='%23EE6B22'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230D2A4F'/><rect y='0' width='100' height='11' fill='%232733C4'/><path d='M50 80C35 67 23 57 23 44a15 15 0 0 1 27-9 15 15 0 0 1 27 9c0 13-12 23-27 36z' fill='%239A7513'/></svg>">
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-<header class="topo">
+<header class="capa">
   <div class="wrap">
-    <div class="marca">Mazza Broker · Corretora de saúde</div>
-    <h1>Rede credenciada <em>Nossa Saúde</em></h1>
-    <p class="lead">Campos Gerais / PR — 9 cidades. Veja onde você é atendido: hospitais, clínicas,
-       laboratórios, exames de imagem e médicos por especialidade.</p>
+    <div class="eyebrow"><i></i>CAMPOS GERAIS · PARANÁ</div>
+    <h1>Rede Credenciada<em>Nossa Saúde</em></h1>
+    <div class="regua"></div>
+    <p class="lead">Todos os planos da operadora somados numa lista só. Escolha a sua cidade,
+       baixe o PDF e consulte hospitais, laboratórios, exames de imagem, clínicas e médicos.</p>
     <div class="kpis" id="kpis"></div>
+    <div class="assina">
+      <span class="tag"><b>Mazza</b><i>B R O K E R</i></span>
+      <div class="quem"><b id="aQuem"></b><span id="aContato"></span></div>
+    </div>
   </div>
 </header>
 
 <nav class="abas"><div class="wrap">
-  <button class="aba on" data-aba="rede">Rede credenciada</button>
-  <button class="aba" data-aba="comparativo">Comparar redes</button>
-  <button class="aba" data-aba="planos">Qual é o meu plano?</button>
-  <button class="aba" data-aba="sobre">Sobre / downloads</button>
+  <button class="aba on" data-aba="cidades">Baixar por cidade</button>
+  <button class="aba" data-aba="buscar">Buscar na rede</button>
+  <button class="aba" data-aba="sobre">Sobre</button>
 </div></nav>
 
-<!-- ------------------------------------------------ rede -->
-<section id="pane-rede" class="pane">
+<section id="pane-cidades" class="pane"><div class="wrap">
+  <h2 class="sec"><i></i>Baixe a rede da sua cidade</h2>
+  <p class="sub">Um PDF por cidade, no padrão dos materiais da Mazza Broker: rede em números,
+     hospitais, exames por natureza, clínicas e médicos por especialidade.</p>
+  <div class="grade-cid" id="gradeCid"></div>
+
+  <h2 class="sec"><i></i>A região inteira</h2>
+  <p class="sub">As nove cidades num documento só, com as tabelas separadas por cidade dentro de
+     cada especialidade.</p>
+  <div class="grade-extra" id="gradeExtra"></div>
+
+  <h2 class="sec"><i></i>A rede em números</h2>
+  <div class="scroll"><table class="tab" id="tabCid"></table></div>
+
+  <h2 class="sec"><i></i>Exames e diagnóstico</h2>
+  <p class="sub">Quantos prestadores realizam cada natureza de exame em cada cidade.</p>
+  <div class="scroll"><table class="tab" id="tabExames"></table></div>
+</div></section>
+
+<section id="pane-buscar" class="pane" hidden>
   <div class="barra"><div class="wrap">
     <input type="search" id="q" placeholder="Buscar hospital, laboratório, médico, especialidade, bairro…">
-    <select id="fplano" title="Filtrar pela rede do seu plano"></select>
     <select id="fcidade"><option value="">Todas as cidades</option></select>
     <select id="fesp"><option value="">Todas as especialidades</option></select>
     <button class="btn" id="limpar">Limpar</button>
     <div class="chips" id="chips"></div>
   </div></div>
   <div class="wrap">
-    <p class="aviso-rede" id="avisoRede" hidden></p>
     <div class="cont" id="cont"></div>
     <div id="lista"></div>
   </div>
 </section>
 
-<!-- ------------------------------------------------ comparativo -->
-<section id="pane-comparativo" class="pane" hidden>
-  <div class="wrap">
-    <h2 class="tit">Comparativo por rede credenciada</h2>
-    <p class="sub">Cada produto da Nossa Saúde usa uma rede. Nos Campos Gerais existem três.
-       A tabela mostra quais prestadores cada uma alcança.</p>
-    <div id="cardsRede" class="cards-rede"></div>
-
-    <h3 class="tit3">Cobertura por cidade</h3>
-    <div class="scroll"><table id="tabCid" class="tab"></table></div>
-
-    <h3 class="tit3">Hospitais e pronto-socorro</h3>
-    <div class="scroll"><table id="tabHosp" class="tab"></table></div>
-
-    <h3 class="tit3" id="tituloDif">Onde as redes se diferenciam</h3>
-    <p class="sub" id="subDif"></p>
-    <div class="scroll"><table id="tabDif" class="tab"></table></div>
-
-    <h3 class="tit3" id="tituloRestrita" hidden>Redes de cobertura reduzida</h3>
-    <div id="restritas"></div>
-  </div>
-</section>
-
-<!-- ------------------------------------------------ planos -->
-<section id="pane-planos" class="pane" hidden>
-  <div class="wrap">
-    <h2 class="tit">Qual é o meu plano?</h2>
-    <p class="sub">Procure o nome ou o código que aparece na sua carteirinha ou na proposta.
-       O site mostra qual rede credenciada aquele plano usa.</p>
-    <input type="search" id="qplano" class="busca-larga" placeholder="Ex.: VIDA NOVA CG, CAPITA, MILLENIUM, VNCG2301…">
-    <div class="scroll"><table id="tabPlanos" class="tab"></table></div>
-  </div>
-</section>
-
-<!-- ------------------------------------------------ sobre -->
-<section id="pane-sobre" class="pane" hidden>
-  <div class="wrap">
-    <h2 class="tit">Sobre este material</h2>
-    <div class="sec" id="secSobre"></div>
-    <h3 class="tit3">Materiais para baixar</h3>
-    <div class="downloads" id="downloads"></div>
-  </div>
-</section>
+<section id="pane-sobre" class="pane" hidden><div class="wrap">
+  <h2 class="sec"><i></i>Sobre este material</h2>
+  <div class="texto" id="txtSobre"></div>
+  <h2 class="sec"><i></i>Todos os downloads</h2>
+  <div class="grade-extra" id="gradeTodos"></div>
+</div></section>
 
 <footer class="rodape"><div class="wrap">
-  <div>
-    <b>Mazza Broker</b>
-    <div id="rodapeContato"></div>
-  </div>
-  <p class="mini" id="rodapeFonte"></p>
+  <span class="tag"><b>Mazza</b><i>B R O K E R</i></span>
+  <div class="quem"><b id="rQuem"></b><span id="rContato"></span></div>
+  <p class="mini" id="rFonte"></p>
 </div></footer>
 
 <a class="whats" id="btnWhats" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">

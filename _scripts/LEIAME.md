@@ -1,27 +1,35 @@
 # Pipeline — rede credenciada Nossa Saúde (Campos Gerais)
 
 Rodar dentro desta pasta `_scripts`. Precisa de `requests`, `pdfplumber`, `openpyxl`, `reportlab`
-(e `pymupdf` só para conferir os PDFs).
+(e `pymupdf` só se quiser rasterizar os PDFs para conferir).
+
+## Fluxo normal (rede única, todos os planos somados)
 
 ```bash
-# 1. mapeia os 328 planos da operadora -> rede credenciada de cada um  (planos_redes.json)
-python map_planos.py
+python scrape.py "" TODOS   # 1 PDF oficial por cidade, sem filtro de plano  -> pdfs/
+python build_unico.py       # parseia os PDFs                                -> dados_unico.json
+python gen_cidades.py       # 9 PDFs de cidade + o PDF da região             -> 02 - COMPARATIVOS + site
+python gen_xlsx2.py         # a planilha                                     -> 01 - REDE CREDENCIADA + site
+python gen_site2.py         # o site estático                                -> ./site
+python gen_resumo2.py       # RESUMO.md
+```
 
-# 2. descobre quais redes chegam ao Paraná (1 PDF oficial por rede x UF, em pdfs_rede/)
-UFS=PR python scrape_all.py
+Depois copiar `site/` para a raiz do repositório e dar `git push` — o GitHub Pages republica sozinho.
 
-# 3. baixa a rede das 9 cidades, por rede credenciada, usando um plano representativo
-#    de cada uma (rep_planos.json) -> pdfs_cg/
-python scrape_cg2.py
+**Ordem importa:** `gen_site2.py` recria a pasta `site/` preservando `site/arquivos/`. Se rodar do
+zero, rode `gen_site2.py` primeiro e depois `gen_cidades.py` / `gen_xlsx2.py`, que copiam os
+arquivos para dentro do site.
 
-# 4. parseia os PDFs -> dados_multi.json
-python build_data2.py
+## Fluxo opcional (conferir rede por rede)
 
-# 5. gera as entregas
-python gen_site.py     # site estático em ./site  (copiar para a raiz do repositório)
-python gen_xlsx.py     # planilha -> 01 - REDE CREDENCIADA + site/arquivos
-python gen_pdf.py      # os dois PDFs -> 02 - COMPARATIVOS + site/arquivos
-python gen_resumo.py   # RESUMO.md
+Serve para saber qual rede credenciada cada plano usa — útil quando o cliente pergunta se o
+prestador X atende o plano dele.
+
+```bash
+python map_planos.py        # 328 planos -> rede de cada um   -> planos_redes.json
+UFS=PR python scrape_all.py # 1 PDF por rede x UF             -> pdfs_rede/
+python scrape_cg2.py        # rede x cidade (plano represent.) -> pdfs_cg/
+python build_data2.py       # -> dados_multi.json
 ```
 
 ## Como o site da operadora funciona
@@ -37,11 +45,12 @@ Depois disso:
 
 - `POST /comum/imprimirRedeCredenciada.php?idsessao=` com os campos do `#form1` devolve
   `<SCRIPT>document.location='../temp/<hash>.pdf'</SCRIPT>` → baixar esse PDF. É o caminho rápido:
-  um request devolve a rede inteira, sem paginação (`/comum/listaRedeCredenciada.php` pagina de 5 em 5).
+  um request devolve a consulta inteira, sem paginação (`/comum/listaRedeCredenciada.php` pagina
+  de 5 em 5).
 - `POST /comum/buscaRede.php` com `{plano, local:'rede', rede:''}` devolve as redes credenciadas
   daquele plano — é o que dá o mapa plano → rede.
-- Filtrar por `cidade=''` traz o estado inteiro; filtrar por `plano` é ligeiramente mais completo
-  que filtrar por `tipoRede` (o filtro de rede perdeu 1 prestador em Ponta Grossa na conferência).
+- `cidade=''` traz o estado inteiro. Filtrar por `plano` é ligeiramente mais completo que filtrar
+  por `tipoRede`.
 
 ## Formato do PDF oficial
 
@@ -55,5 +64,18 @@ RUA X, 123 - COMPLEMENTO
 BAIRRO - CIDADE - PR - CEP: 00000-000
 ```
 
-Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso o regex usa
-`(?:CNPJ|C[A-Z]{2,8})`.
+Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso o regex de
+`parse.py` usa `(?:CNPJ|C[A-Z]{2,8})`.
+
+## Arquivos deste diretório
+
+| Arquivo | O que faz |
+|---|---|
+| `scrape.py` | sessão no site da operadora + download do PDF oficial |
+| `parse.py` | lê o PDF oficial e devolve os prestadores estruturados |
+| `textutil.py` | caixa alta da operadora → Título Com Acentos |
+| `build_unico.py` | monta `dados_unico.json` (rede única) |
+| `pdfamil.py` | motor de layout dos PDFs (padrão visual da corretora) |
+| `gen_cidades.py` | gera os PDFs por cidade e o da região |
+| `gen_xlsx2.py` / `gen_site2.py` / `gen_resumo2.py` | planilha, site e resumo |
+| `map_planos.py`, `scrape_all.py`, `scrape_cg2.py`, `build_data2.py` | trilha rede-a-rede |

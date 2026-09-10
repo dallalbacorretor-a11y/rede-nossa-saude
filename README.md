@@ -1,18 +1,20 @@
-# Rede credenciada Nossa Saúde — Campos Gerais
+# Rede Credenciada Nossa Saúde — Campos Gerais
 
 Site estático com a rede credenciada da **Nossa Saúde** nas 9 cidades dos Campos Gerais / PR:
 Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí, Prudentópolis e
 Piraí do Sul.
 
+**No ar em:** https://dallalbacorretor-a11y.github.io/rede-nossa-saude/
+
 Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 · alan.vinicius@mazzabroker.com.br
 
 ## O que tem
 
-- Busca por hospital, clínica, laboratório, médico, especialidade ou bairro
-- Filtro pela **rede credenciada do plano do cliente** (3 redes chegam à região)
-- Comparativo entre as redes: cobertura por cidade, hospitais e onde elas se diferenciam
-- Tabela "Qual é o meu plano?" com os 147 planos da operadora e a rede de cada um
-- XLSX e PDFs para download
+- **Um PDF por cidade** para baixar e mandar pro cliente, no padrão visual dos materiais da
+  corretora: rede em números, hospitais, exames por natureza, clínicas e médicos por especialidade
+- PDF da região inteira e planilha XLSX com uma aba por cidade
+- Busca por hospital, laboratório, médico, especialidade ou bairro
+- Tabelas de cobertura por cidade e por natureza de exame
 
 ## Números
 
@@ -20,22 +22,26 @@ Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 |---|---|
 | Prestadores | 328 |
 | Cidades | 9 |
-| Redes credenciadas na região | 3 |
-| Planos mapeados | 147 |
-| Consulta | 10/09/2026 |
+| Hospitais para internação | 9 |
+| Laboratórios e imagem | 38 |
+| Consulta | 10 de setembro de 2026 |
 
-## Fonte e validade
+## Todos os planos numa lista só
 
-Fonte: Rede Credenciada oficial da Nossa Saúde (prestador.nossasaude.com.br), consulta em 10/09/2026.
+A operadora tem produtos que usam redes credenciadas diferentes. Este material soma todos eles:
+se um prestador aparece aqui, é credenciado da Nossa Saúde naquela cidade por algum plano.
 
-> A rede credenciada é definida e alterada exclusivamente pela operadora. Confirme no portal da Nossa Saúde antes de contratar ou de utilizar o serviço.
+> A rede credenciada é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano específico.
 
-## Como publicar / atualizar
+Rede Credenciada oficial da Nossa Saúde (prestador.nossasaude.com.br), consultada em 10 de setembro de 2026, sem filtro de plano.
 
-O site é estático: `index.html`, `estilo.css`, `app.js` e `dados.js` (os dados ficam em
-`window.DADOS` dentro do `dados.js`). Não precisa de build.
+## Estrutura
 
-Para atualizar a rede, rodar os scripts em `_scripts/` (ver `_scripts/LEIAME.md`) e regerar
-`dados.js` com `python gen_site.py`.
+```
+index.html      estilo.css      app.js      dados.js     (window.DADOS)
+arquivos/       xlsx, PDF da região
+arquivos/cidades/   um PDF por cidade
+_scripts/       pipeline que baixa a rede e regera tudo (ver _scripts/LEIAME.md)
+```
 
-GitHub Pages: Settings → Pages → Source: `Deploy from a branch` → branch `main`, pasta `/ (root)`.
+Sem build: é HTML/CSS/JS puro. GitHub Pages em `main`, pasta raiz.

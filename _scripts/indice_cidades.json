@@ -1,0 +1,65 @@
+[
+ {
+  "cidade": "Ponta Grossa",
+  "arquivo": "Rede Nossa Saude - Ponta Grossa.pdf",
+  "slug": "ponta-grossa",
+  "n": 199,
+  "kb": 67
+ },
+ {
+  "cidade": "Telêmaco Borba",
+  "arquivo": "Rede Nossa Saude - Telêmaco Borba.pdf",
+  "slug": "telemaco-borba",
+  "n": 56,
+  "kb": 29
+ },
+ {
+  "cidade": "Jaguariaíva",
+  "arquivo": "Rede Nossa Saude - Jaguariaíva.pdf",
+  "slug": "jaguariaiva",
+  "n": 23,
+  "kb": 16
+ },
+ {
+  "cidade": "Castro",
+  "arquivo": "Rede Nossa Saude - Castro.pdf",
+  "slug": "castro",
+  "n": 12,
+  "kb": 13
+ },
+ {
+  "cidade": "Irati",
+  "arquivo": "Rede Nossa Saude - Irati.pdf",
+  "slug": "irati",
+  "n": 10,
+  "kb": 13
+ },
+ {
+  "cidade": "Palmeira",
+  "arquivo": "Rede Nossa Saude - Palmeira.pdf",
+  "slug": "palmeira",
+  "n": 9,
+  "kb": 11
+ },
+ {
+  "cidade": "Carambeí",
+  "arquivo": "Rede Nossa Saude - Carambeí.pdf",
+  "slug": "carambei",
+  "n": 9,
+  "kb": 12
+ },
+ {
+  "cidade": "Prudentópolis",
+  "arquivo": "Rede Nossa Saude - Prudentópolis.pdf",
+  "slug": "prudentopolis",
+  "n": 6,
+  "kb": 11
+ },
+ {
+  "cidade": "Piraí do Sul",
+  "arquivo": "Rede Nossa Saude - Piraí do Sul.pdf",
+  "slug": "pirai-do-sul",
+  "n": 4,
+  "kb": 10
+ }
+]
