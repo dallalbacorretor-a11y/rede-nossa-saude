@@ -3,103 +3,128 @@ import os, sys, collections
 import common as C
 
 sys.stdout.reconfigure(encoding='utf-8')
-d = C.carregar()
-VN, FORA = d['vncg'], d['fora']
+D = C.carregar()
+ITENS, REDES = D['itens'], D['redes']
+AMPLAS = C.redes_amplas(D)
+IDS_AMPLAS = {r['id'] for r in AMPLAS}
+SITE_URL = 'https://dallalbacorretor-a11y.github.io/rede-nossa-saude/'
+REPO_URL = 'https://github.com/dallalbacorretor-a11y/rede-nossa-saude'
+
 L = []
 w = L.append
+nred = lambda rid, lst=None: sum(1 for i in (lst if lst is not None else ITENS) if rid in i['redes'])
 
-tot = sum(len(VN[c]) for c in C.CIDADES)
-n_cat = {k: sum(1 for c in C.CIDADES for r in VN[c] if r['categoria'] == k) for k in C.CATS}
-
-w('# RESUMO — Rede credenciada Nossa Saúde · %s' % C.PRODUTO_LONGO)
+w('# RESUMO — Rede credenciada Nossa Saúde · Campos Gerais / PR')
 w('')
-w('**Operadora:** %s (CNPJ %s) · **Produto:** %s · **UF:** PR' % (C.OPERADORA, C.OPER_CNPJ, C.PRODUTO))
+w('**Operadora:** %s (CNPJ %s) · **UF:** PR · **Cidades:** %d' % (C.OPERADORA, C.OPER_CNPJ, len(C.CIDADES)))
 w('**Consulta:** %s · **Fonte:** buscador oficial `prestador.nossasaude.com.br/rede/rede.php`' % C.DATA_REF)
+w('**Site publicado:** %s (repositório: %s)' % (SITE_URL, REPO_URL))
 w('')
 w('> %s' % C.AVISO)
 w('')
-w('## Como a rede foi levantada')
+w('## O que foi levantado')
 w('')
-w('1. Entrada pelo site da operadora: **Rede Credenciada → "Listar todas as redes"**, que abre')
-w('   `comum/redeCredenciada.php` (a URL direta redireciona para a home sem a sessão criada nesse passo).')
-w('2. Filtro **Estado = PR** + **Cidade** (uma por vez, as 9 cidades do mapa de cobertura) +')
-w('   **Plano = VIDA NOVA CG**.')
-w('3. Botão *Imprimir* (`comum/imprimirRedeCredenciada.php`) devolve o PDF oficial completo, sem')
-w('   paginação — é o arquivo guardado em `03 - MATERIAIS ORIGINAIS`. A listagem em tela pagina de 5')
-w('   em 5 e é bem mais lenta de varrer.')
-w('4. Os PDFs foram parseados (`pdfplumber`) para xlsx / PDFs de apresentação / HTML.')
+w('Todos os **328 planos ativos** da Nossa Saúde foram mapeados para a rede credenciada que cada um')
+w('usa. A operadora tem 26 redes cadastradas; **18** são usadas por algum plano e, dessas, apenas')
+w('**%d chegam aos Campos Gerais**. Todo o material é organizado por rede, não por plano — planos da' % len(REDES))
+w('mesma rede enxergam exatamente os mesmos prestadores (verificado prestador a prestador).')
 w('')
-w('## Achado importante: os 12 planos VIDA NOVA CG têm a MESMA rede')
+w('| Rede | Prestadores | Planos | Cidades atendidas |')
+w('|---|---:|---:|---|')
+for r in REDES:
+    w('| **%s** | %d | %d | %s |' % (r['nome'], nred(r['id']), len(r['planos']),
+                                     ', '.join(C.cidades_da_rede(D, r['id']))))
 w('')
-w('Foram baixadas e comparadas as redes dos 12 códigos da linha, prestador a prestador, em Ponta')
-w('Grossa (a cidade com mais rede): **diferença zero**. Individual/familiar, empresarial e adesão,')
-w('QC ou QP, coparticipação 30% ou 50% — todos enxergam exatamente os mesmos credenciados.')
-w('Por isso o material tem **uma coluna só de rede**, e não uma coluna por plano.')
-w('')
-w('| Código | Plano | Contratação | Registro ANS |')
-w('|---|---|---|---|')
-for cod, nome, tipo, ans in C.PLANOS:
-    w('| %s | %s | %s | %s |' % (cod, nome, tipo, ans))
-w('')
-w('Legenda: **QC** = quarto coletivo (enfermaria) · **QP** = quarto privativo (apartamento) ·')
-w('**CCP30 / CCP50** = coparticipação de 30% ou 50% · **L200** = Líder 200.')
+for r in REDES:
+    w('- **%s** — %s' % (r['nome'], r['desc']))
 w('')
 w('## A rede em números')
 w('')
-w('| Cidade | Hospitais | Clínicas | Labs e Imagem | Profissionais | Total |')
-w('|---|---:|---:|---:|---:|---:|')
+w('| Cidade | Hospitais | Clínicas | Labs e Imagem | Profissionais | Total | ' +
+  ' | '.join(r['curto'] for r in REDES) + ' |')
+w('|---|---:|---:|---:|---:|---:|' + '---:|' * len(REDES))
+tot = [0] * 4
 for cid in C.CIDADES:
-    n = [sum(1 for r in VN[cid] if r['categoria'] == k) for k in C.CATS]
-    w('| %s | %d | %d | %d | %d | **%d** |' % (cid, n[0], n[1], n[2], n[3], len(VN[cid])))
-w('| **TOTAL** | **%d** | **%d** | **%d** | **%d** | **%d** |'
-  % (n_cat[C.CATS[0]], n_cat[C.CATS[1]], n_cat[C.CATS[2]], n_cat[C.CATS[3]], tot))
+    recs = [i for i in ITENS if i['cidade'] == cid]
+    n = [sum(1 for x in recs if x['categoria'] == k) for k in C.CATS]
+    tot = [a + b for a, b in zip(tot, n)]
+    w('| %s | %d | %d | %d | %d | **%d** | %s |'
+      % (cid, n[0], n[1], n[2], n[3], len(recs),
+         ' | '.join(str(nred(r['id'], recs)) or '—' for r in REDES)))
+w('| **TOTAL** | **%d** | **%d** | **%d** | **%d** | **%d** | %s |'
+  % (tot[0], tot[1], tot[2], tot[3], len(ITENS),
+     ' | '.join('**%d**' % nred(r['id']) for r in REDES)))
 w('')
-w('## Hospitais e pronto-socorro por cidade')
+w('## Hospitais e pronto-socorro')
 w('')
+w('| Cidade | Hospital | ' + ' | '.join(r['curto'] for r in REDES) + ' |')
+w('|---|---|' + '---|' * len(REDES))
+hosp = sorted([i for i in ITENS if i['categoria'] == C.CATS[0]],
+              key=lambda x: (C.CIDADES.index(x['cidade']), x['nome_exib'].lower()))
+for i in hosp:
+    w('| %s | %s (%s) | %s |' % (i['cidade'], i['nome_exib'], i['tipo'],
+                                 ' | '.join('✔' if r['id'] in i['redes'] else '—' for r in REDES)))
 for cid in C.CIDADES:
-    hs = [r for r in VN[cid] if r['categoria'] == C.CATS[0]]
-    if hs:
-        for r in sorted(hs, key=lambda x: x['nome_exib'].lower()):
-            end = (C.enderecos_txt(r) or ['—'])[0]
-            w('- **%s** — %s (%s) · %s · %s' % (cid, r['nome_exib'], r['tipo'], end,
-                                                ' · '.join(C.tels(r)) or 'sem telefone'))
-    else:
-        w('- **%s** — sem hospital credenciado na cidade; referência hospitalar em Ponta Grossa.' % cid)
+    if not any(i['cidade'] == cid for i in hosp):
+        w('| %s | *sem hospital credenciado — referência em Ponta Grossa* | %s |'
+          % (cid, ' | '.join('—' for r in REDES)))
+w('')
+dif = [i for i in ITENS if 0 < len(IDS_AMPLAS & set(i['redes'])) < len(IDS_AMPLAS)]
+w('## %s: as diferenças' % ' x '.join(r['nome'] for r in AMPLAS))
+w('')
+w('As redes que atendem todas as nove cidades são quase iguais — estes **%d prestadores** são toda a' % len(dif))
+w('diferença entre elas.')
+w('')
+w('| Cidade | Prestador | Categoria | ' + ' | '.join(r['curto'] for r in AMPLAS) + ' |')
+w('|---|---|---|' + '---|' * len(AMPLAS))
+for i in sorted(dif, key=lambda x: (C.CIDADES.index(x['cidade']), x['nome_exib'].lower())):
+    w('| %s | %s | %s | %s |' % (i['cidade'], i['nome_exib'], C.CAT_CURTA[i['categoria']],
+                                 ' | '.join('✔' if r['id'] in i['redes'] else '—' for r in AMPLAS)))
 w('')
 w('## Pontos de atenção para a venda')
 w('')
-w('- **Ponta Grossa concentra a rede**: %d dos %d prestadores (%.0f%%). Cliente de Carambeí, Piraí do'
-  % (len(VN['Ponta Grossa']), tot, 100.0 * len(VN['Ponta Grossa']) / tot))
-w('  Sul, Castro e Palmeira resolve consulta e exame simples na cidade, mas depende de Ponta Grossa')
-w('  para hospital e especialidade.')
-w('- **Sem hospital credenciado na cidade:** Castro, Carambeí, Jaguariaíva e Piraí do Sul.')
-w('- **Telêmaco Borba:** o **Hospital Moura** aparece na rede geral da Nossa Saúde mas **não** no')
-w('  VIDA NOVA CG. O hospital do produto na cidade é o **Instituto Doutor Feitosa (IDF)**.')
-w('  Vale conferir antes de prometer.')
-w('- Labs e imagem estão bem distribuídos: só Carambeí e Piraí do Sul têm apenas 1 ponto cada.')
+pg = [i for i in ITENS if i['cidade'] == 'Ponta Grossa']
+w('- **Ponta Grossa concentra a rede**: %d dos %d prestadores (%.0f%%). Cliente das cidades menores'
+  % (len(pg), len(ITENS), 100.0 * len(pg) / len(ITENS)))
+w('  resolve consulta e exame simples na cidade, mas depende de Ponta Grossa para hospital e')
+w('  especialidade.')
+sem_hosp = [c for c in C.CIDADES if not any(i['cidade'] == c for i in hosp)]
+w('- **Sem hospital credenciado na cidade:** %s.' % ', '.join(sem_hosp))
+for r in REDES:
+    if r['id'] in IDS_AMPLAS:
+        continue
+    cids = C.cidades_da_rede(D, r['id'])
+    sem = [c for c in C.CIDADES if c not in cids]
+    w('- **%s tem cobertura reduzida:** só atende em %s. Cliente de %s com um plano dessa rede'
+      % (r['nome'], ', '.join(cids), ', '.join(sem)))
+    w('  não tem atendimento local — são %d planos nessa situação.' % len(r['planos']))
+w('- **Hospital Moura (Telêmaco Borba)** está na Rede Coral mas **não** na Rede Coral CG. Quem vende')
+w('  VIDA NOVA CG na cidade tem o Instituto Doutor Feitosa (IDF) como hospital, não o Moura.')
 w('')
-w('## Credenciados fora do VIDA NOVA CG')
+w('## Como a rede foi levantada')
 w('')
-w('Constam na rede geral da operadora nestas cidades, mas não aparecem no filtro do produto —')
-w('não prometer ao cliente deste plano.')
+w('1. Entrada pelo site da operadora: **Rede Credenciada → "Listar todas as redes"** (a URL direta')
+w('   de `comum/redeCredenciada.php` redireciona para a home sem a sessão criada nesse passo).')
+w('2. `POST comum/buscaRede.php` com cada `plano` devolve a rede credenciada daquele plano —')
+w('   é o que dá o mapa **plano → rede** dos 328 planos.')
+w('3. `POST comum/imprimirRedeCredenciada.php` devolve o **PDF oficial completo** da consulta,')
+w('   sem paginação. Um PDF por (rede × UF) para achar quais redes chegam à região, depois um PDF')
+w('   por (rede × cidade) para as 9 cidades.')
+w('4. Os PDFs foram parseados com `pdfplumber` e viraram xlsx, PDFs de apresentação e o site.')
 w('')
-for cid in C.CIDADES:
-    if FORA[cid]:
-        w('- **%s** — %s' % (cid, ', '.join('%s (%s)' % (r['nome_exib'], r['tipo'])
-                                            for r in sorted(FORA[cid], key=lambda x: x['nome_exib'].lower()))))
+w('Detalhes técnicos e o passo a passo para atualizar: `04 - SITE/_scripts/LEIAME.md`.')
 w('')
 w('## Arquivos gerados')
 w('')
-w('- `01 - REDE CREDENCIADA/Nossa Saúde/REDE NOSSA SAUDE - VIDA NOVA CG - CAMPOS GERAIS.xlsx`')
-w('  — resumo, rede completa, uma aba por cidade e a aba dos que ficam fora do produto.')
-w('- `02 - COMPARATIVOS DE REDE/NOSSA SAUDE - VIDA NOVA CG - CLIENTES (Principais).pdf`')
+w('- `01 - REDE CREDENCIADA/Nossa Saúde/REDE NOSSA SAUDE - CAMPOS GERAIS (todas as redes).xlsx`')
+w('  — resumo, rede completa com colunas por rede, uma aba por cidade, diferenças entre redes,')
+w('  aba da rede de cobertura reduzida e a tabela **planos × rede**.')
+w('- `02 - COMPARATIVOS DE REDE/NOSSA SAUDE - CAMPOS GERAIS - CLIENTES (Principais).pdf`')
 w('  — hospitais, clínicas e laboratórios, sem médicos pessoa física. É o que vai para o cliente.')
-w('- `02 - COMPARATIVOS DE REDE/NOSSA SAUDE - VIDA NOVA CG - Apresentacao COMPLETA.pdf`')
+w('- `02 - COMPARATIVOS DE REDE/NOSSA SAUDE - CAMPOS GERAIS - Guia COMPLETO (todas as redes).pdf`')
 w('  — tudo, com os profissionais agrupados por especialidade dentro de cada cidade.')
-w('- `02 - COMPARATIVOS DE REDE/REDE NOSSA SAUDE - VIDA NOVA CG (interativo).html`')
-w('  — página com busca por prestador, cidade, especialidade e categoria.')
-w('- `03 - MATERIAIS ORIGINAIS .../Nossa Saúde/` — os PDFs oficiais da operadora (VIDA NOVA CG e')
-w('  TODOS OS PLANOS, por cidade) e o mapa de cobertura.')
+w('- `04 - SITE/` — o site estático publicado no GitHub Pages (%s).' % SITE_URL)
+w('- `03 - MATERIAIS ORIGINAIS .../Nossa Saúde/` — os PDFs oficiais da operadora e o mapa de cobertura.')
 w('')
 w('---')
 w('')
