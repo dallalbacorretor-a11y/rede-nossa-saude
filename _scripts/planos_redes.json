@@ -1,0 +1,4355 @@
+{
+ "planos": [
+  [
+   "318670506",
+   "ADCSFA2 - PLANO A2 ADAPTADO - Individual Familiar - Registro ANS: A2"
+  ],
+  [
+   "318694798",
+   "ADCSFA4 - CS-PRE A4 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: A4"
+  ],
+  [
+   "318695780",
+   "ADCSFB2 - CS-PRE B2 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: B2"
+  ],
+  [
+   "320269425",
+   "ADCSFB4 - CS-PRE B4 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: B4"
+  ],
+  [
+   "47861029",
+   "ADEABR - BRONZE - Coletivo Empresarial - Registro ANS: EBR"
+  ],
+  [
+   "47864155",
+   "ADFABR - BRONZE - Individual Familiar - Registro ANS: FBR"
+  ],
+  [
+   "47864199",
+   "ADFAOU - OURO - Individual Familiar - Registro ANS: FOU"
+  ],
+  [
+   "47864532",
+   "ADFAPR - PRATA - Individual Familiar - Registro ANS: FPR"
+  ],
+  [
+   "64110319",
+   "ADU7 - STANDARD - Individual Familiar - Registro ANS: 206"
+  ],
+  [
+   "47828540",
+   "AD3001 - PRINCIPAL - Individual Familiar - Registro ANS: 300001"
+  ],
+  [
+   "47830036",
+   "AD3031 - AMBULATORIAL - Individual Familiar - Registro ANS: 300031"
+  ],
+  [
+   "47830204",
+   "AD3033 - ECONOMICO - Individual Familiar - Registro ANS: 300033"
+  ],
+  [
+   "47836045",
+   "AD3060 - A2 - Individual Familiar - Registro ANS: 300060"
+  ],
+  [
+   "47836117",
+   "AD3100 - A4 - Individual Familiar - Registro ANS: 300100"
+  ],
+  [
+   "47837546",
+   "AD3101 - B4 - Individual Familiar - Registro ANS: 300101"
+  ],
+  [
+   "47837636",
+   "AD3102 - C4 - Individual Familiar - Registro ANS: 300102"
+  ],
+  [
+   "47837809",
+   "AD3141 - B2 - Individual Familiar - Registro ANS: 300141"
+  ],
+  [
+   "20362270",
+   "CA1001 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416613992"
+  ],
+  [
+   "20363099",
+   "CA1002 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416618993"
+  ],
+  [
+   "20362590",
+   "CA1201 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416623990"
+  ],
+  [
+   "20363311",
+   "CA1202 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 701844994"
+  ],
+  [
+   "20365817",
+   "CA2001 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416614991"
+  ],
+  [
+   "20363584",
+   "CA2002 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416619991"
+  ],
+  [
+   "20367244",
+   "CA2201 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416624998"
+  ],
+  [
+   "91",
+   "CSA1302 - - Coletivo por AdesÃ£o - Registro ANS: 474730155"
+  ],
+  [
+   "88",
+   "CSA2301 - - Coletivo por AdesÃ£o - Registro ANS: 474723152"
+  ],
+  [
+   "90",
+   "CSA2302 - - Coletivo por AdesÃ£o - Registro ANS: 474725159"
+  ],
+  [
+   "121",
+   "CSA2501 - - Coletivo por AdesÃ£o - Registro ANS: 474723152"
+  ],
+  [
+   "122",
+   "CSA2502 - - Coletivo por AdesÃ£o - Registro ANS: 474725159"
+  ],
+  [
+   "75",
+   "CSEA4 - - Coletivo Empresarial - Registro ANS: A4 Empresarial"
+  ],
+  [
+   "74",
+   "CSEC4 - - Coletivo Empresarial - Registro ANS: C4 Empresarial"
+  ],
+  [
+   "117",
+   "CSET1301 - - Coletivo Empresarial - Registro ANS: 475070155"
+  ],
+  [
+   "99",
+   "CSET1302 - - Coletivo Empresarial - Registro ANS: 475068153"
+  ],
+  [
+   "124",
+   "CSET1501 - - Coletivo Empresarial - Registro ANS: 475070155"
+  ],
+  [
+   "123",
+   "CSET1502 - - Coletivo Empresarial - Registro ANS: 475068153"
+  ],
+  [
+   "119",
+   "CSET2301 - - Coletivo Empresarial - Registro ANS: 475069151"
+  ],
+  [
+   "118",
+   "CSET2302 - - Coletivo Empresarial - Registro ANS: 475067155"
+  ],
+  [
+   "126",
+   "CSET2501 - - Coletivo Empresarial - Registro ANS: 475069151"
+  ],
+  [
+   "125",
+   "CSET2502 - - Coletivo Empresarial - Registro ANS: 475067155"
+  ],
+  [
+   "73",
+   "CSE0000 - - Coletivo Empresarial - Registro ANS: 706387993"
+  ],
+  [
+   "71",
+   "CSE1001 - - Coletivo Empresarial - Registro ANS: 706391991"
+  ],
+  [
+   "72",
+   "CSE1002 - - Coletivo Empresarial - Registro ANS: 419967997"
+  ],
+  [
+   "96",
+   "CSE1301 - - Coletivo Empresarial - Registro ANS: 475070155"
+  ],
+  [
+   "95",
+   "CSE1302 - - Coletivo Empresarial - Registro ANS: 475068153"
+  ],
+  [
+   "94",
+   "CSE1501 - - Coletivo Empresarial - Registro ANS: 475070155"
+  ],
+  [
+   "69",
+   "CSE2001 - - Coletivo Empresarial - Registro ANS: 706392990"
+  ],
+  [
+   "70",
+   "CSE2002 - - Coletivo Empresarial - Registro ANS: 419968995"
+  ],
+  [
+   "98",
+   "CSE2301 - - Coletivo Empresarial - Registro ANS: 475069151"
+  ],
+  [
+   "97",
+   "CSE2302 - - Coletivo Empresarial - Registro ANS: 475067155"
+  ],
+  [
+   "93",
+   "CSE2501 - - Coletivo Empresarial - Registro ANS: 475069151"
+  ],
+  [
+   "92",
+   "CSE2502 - - Coletivo Empresarial - Registro ANS: 475067155"
+  ],
+  [
+   "87",
+   "CSFA2 - - Individual Familiar - Registro ANS: A2"
+  ],
+  [
+   "83",
+   "CSFA4 - - Individual Familiar - Registro ANS: A4"
+  ],
+  [
+   "84",
+   "CSFB1 - - Individual Familiar - Registro ANS: B1"
+  ],
+  [
+   "86",
+   "CSFB2 - - Individual Familiar - Registro ANS: B2"
+  ],
+  [
+   "85",
+   "CSFB4 - - Individual Familiar - Registro ANS: B4"
+  ],
+  [
+   "81",
+   "CSFH001 - - Individual Familiar - Registro ANS: 706383991"
+  ],
+  [
+   "82",
+   "CSFH002 - - Individual Familiar - Registro ANS: 419961998"
+  ],
+  [
+   "80",
+   "CSF0000 - - Individual Familiar - Registro ANS: 706382992"
+  ],
+  [
+   "120",
+   "CSF1001 - - Individual Familiar - Registro ANS: 474726157"
+  ],
+  [
+   "77",
+   "CSF1002 - - Individual Familiar - Registro ANS: 419963994"
+  ],
+  [
+   "76",
+   "CSF1301 - - Individual Familiar - Registro ANS: 413576998"
+  ],
+  [
+   "127",
+   "CSF1302 - - Individual Familiar - Registro ANS: 419987991"
+  ],
+  [
+   "128",
+   "CSF1501 - - Individual Familiar - Registro ANS: 413576998"
+  ],
+  [
+   "131",
+   "CSF1502 - - Individual Familiar - Registro ANS: 419987991"
+  ],
+  [
+   "78",
+   "CSF2001 - - Individual Familiar - Registro ANS: 706386995"
+  ],
+  [
+   "79",
+   "CSF2002 - - Individual Familiar - Registro ANS: 419964992"
+  ],
+  [
+   "129",
+   "CSF2301 - - Individual Familiar - Registro ANS: 413577996"
+  ],
+  [
+   "130",
+   "CSF2302 - - Individual Familiar - Registro ANS: 419988990"
+  ],
+  [
+   "89",
+   "CSF2501 - - Individual Familiar - Registro ANS: 413577996"
+  ],
+  [
+   "132",
+   "CSF2502 - - Individual Familiar - Registro ANS: 419988990"
+  ],
+  [
+   "20350449",
+   "LA1001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701846991"
+  ],
+  [
+   "20352134",
+   "LA1002 - LABORIUM - Coletivo Empresarial - Registro ANS: 416644992"
+  ],
+  [
+   "20358400",
+   "LA1301 - LABORIUM - Coletivo Empresarial - Registro ANS: 416650997"
+  ],
+  [
+   "20358582",
+   "LA2001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701847999"
+  ],
+  [
+   "20360989",
+   "LA2002 - LABORIUM - Coletivo Empresarial - Registro ANS: 416645991"
+  ],
+  [
+   "20360718",
+   "LA2201 - LABORIUM - Coletivo Empresarial - Registro ANS: 416649993"
+  ],
+  [
+   "20360871",
+   "LA2301 - LABORIUM - Coletivo Empresarial - Registro ANS: 416649993"
+  ],
+  [
+   "20360881",
+   "LU1001 - LUMEN - Individual Familiar - Registro ANS: 416627992"
+  ],
+  [
+   "20361070",
+   "LU1002 - LUMEN - Individual Familiar - Registro ANS: 416626994"
+  ],
+  [
+   "20361310",
+   "LU1201 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "20361386",
+   "LU1202 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "70457766",
+   "LU1211 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "74145508",
+   "LU1212 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "20361399",
+   "LU1301 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "20361466",
+   "LU1302 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "69123855",
+   "LU1311 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "79154493",
+   "LU1312 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "20361474",
+   "LU2001 - LUMEN - Individual Familiar - Registro ANS: 416622991"
+  ],
+  [
+   "20361494",
+   "LU2002 - LUMEN - Individual Familiar - Registro ANS: 416621993"
+  ],
+  [
+   "69124722",
+   "LU2211 - LUMEN - Individual Familiar - Registro ANS: 422765994"
+  ],
+  [
+   "69105601",
+   "LU2311 - LUMEN - Individual Familiar - Registro ANS: 422765994"
+  ],
+  [
+   "70069155",
+   "LU2312 - LUMEN - Individual Familiar - Registro ANS: 416617995"
+  ],
+  [
+   "115712354",
+   "NA0000 - NOSSA VIDA - Coletivo por AdesÃ£o - Registro ANS: 475917166"
+  ],
+  [
+   "130462434",
+   "NE1001 - NOSSA VIDA - Coletivo Empresarial - Registro ANS: 477334169"
+  ],
+  [
+   "100",
+   "NPEBRC - BRONZE - Coletivo Empresarial - Registro ANS: 404061999"
+  ],
+  [
+   "112",
+   "NPEBRS - BRONZE - Coletivo Empresarial - Registro ANS: 404060991"
+  ],
+  [
+   "114",
+   "NPEOUS - OURO - Coletivo Empresarial - Registro ANS: 404068996"
+  ],
+  [
+   "107",
+   "NPEPRC - PRATA - Coletivo Empresarial - Registro ANS: 404065991"
+  ],
+  [
+   "113",
+   "NPEPRS - PRATA - Coletivo Empresarial - Registro ANS: 404064993"
+  ],
+  [
+   "104",
+   "NPFABR - BRONZE - Individual Familiar - Registro ANS: FBR"
+  ],
+  [
+   "105",
+   "NPFAOU - OURO - Individual Familiar - Registro ANS: FOU"
+  ],
+  [
+   "106",
+   "NPFAPR - PRATA - Individual Familiar - Registro ANS: FPR"
+  ],
+  [
+   "109",
+   "NPFBR - BRONZE - Individual Familiar - Registro ANS: 404024994"
+  ],
+  [
+   "111",
+   "NPFOU - OURO - Individual Familiar - Registro ANS: 404036998"
+  ],
+  [
+   "110",
+   "NPFPR - PRATA - Individual Familiar - Registro ANS: 404030999"
+  ],
+  [
+   "115",
+   "NPNVCE - NOVA VIDA - Coletivo Empresarial - Registro ANS: 455976072"
+  ],
+  [
+   "116",
+   "NPNVIF - NOVA VIDA - Individual Familiar - Registro ANS: 455977071"
+  ],
+  [
+   "196082192",
+   "ODCA01 - NOSSA DENTAL - Coletivo por AdesÃ£o - Registro ANS: 480266187"
+  ],
+  [
+   "196082272",
+   "ODCE01 - NOSSA DENTAL - Coletivo Empresarial - Registro ANS: 480268183"
+  ],
+  [
+   "196082449",
+   "ODIF01 - NOSSA DENTAL - Individual Familiar - Registro ANS: 480267185"
+  ],
+  [
+   "29082993",
+   "PCLF01 - BRONZE - Individual Familiar - Registro ANS: 418298997"
+  ],
+  [
+   "29083002",
+   "PCLF02 - AMB HOSP - Individual Familiar - Registro ANS: 406764999"
+  ],
+  [
+   "29083458",
+   "PCLF03 - AMB HOSP - Individual Familiar - Registro ANS: 406766995"
+  ],
+  [
+   "29083017",
+   "PCLF05 - 40622222 AMB + HOSP NOBRE (20) PF POS - Individual Familiar - Registro ANS: 406765997"
+  ],
+  [
+   "29084275",
+   "PCLF10 - PLANO (02) PF PRE 500002 - Coletivo por AdesÃ£o - Registro ANS: 2"
+  ],
+  [
+   "29090894",
+   "PCLF14 - PLANO (14) AMB HOSP OBST - Individual Familiar - Registro ANS: 406764999"
+  ],
+  [
+   "29098369",
+   "PCLF16 - PLANO (19) POS AMBULATORIAL - Individual Familiar - Registro ANS: 418298997"
+  ],
+  [
+   "29099086",
+   "PCLF17 - PLANO POS AMB HOSP ENF - Individual Familiar - Registro ANS: 406764999"
+  ],
+  [
+   "29099305",
+   "PCLF18 - PLANO AMBULATORIAL HOSPITALAR - Individual Familiar - Registro ANS: 406766995"
+  ],
+  [
+   "29099448",
+   "PCLF19 - PLANO (25) POS AMB HOSP COM OBST - Individual Familiar - Registro ANS: 406765997"
+  ],
+  [
+   "29099857",
+   "PCLF22 - PLANO (15) POS - Individual Familiar - Registro ANS: 406767993"
+  ],
+  [
+   "29084493",
+   "PCLJ01 - AMB HOSP - Coletivo por AdesÃ£o - Registro ANS: 406773998"
+  ],
+  [
+   "52928381",
+   "U11 - AMB HOSP - Coletivo Empresarial - Registro ANS: 405310999"
+  ],
+  [
+   "52928519",
+   "U113 - STANDARD - Individual Familiar - Registro ANS: 405278991"
+  ],
+  [
+   "52928534",
+   "U115 - STANDARD - Individual Familiar - Registro ANS: 702335999"
+  ],
+  [
+   "52928417",
+   "U12 - STANDARD - Coletivo Empresarial - Registro ANS: 405310999"
+  ],
+  [
+   "52928439",
+   "U13 - AMBULATORIAL - Individual Familiar - Registro ANS: 405276995"
+  ],
+  [
+   "52928449",
+   "U14 - STANDARD - Coletivo Empresarial - Registro ANS: 702341993"
+  ],
+  [
+   "53520829",
+   "U15PF - STANDARD - Individual Familiar - Registro ANS: 702335999"
+  ],
+  [
+   "52928574",
+   "U21300 - STANDARD - Coletivo Empresarial - Registro ANS: 460537093"
+  ],
+  [
+   "52928555",
+   "U21500 - STANDARD - Coletivo Empresarial - Registro ANS: 702339991"
+  ],
+  [
+   "53504502",
+   "U7PF - STANDARD - Individual Familiar - Registro ANS: 206"
+  ],
+  [
+   "146228729",
+   "VAR001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 479252171"
+  ],
+  [
+   "130196987",
+   "VA1001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 477333161"
+  ],
+  [
+   "21519743",
+   "VA1001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "21519768",
+   "VA1201 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "138660964",
+   "VA1211 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "96415379",
+   "VA1311 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "21529077",
+   "VA2001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 480269181"
+  ],
+  [
+   "122604393",
+   "VA2211 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458195084"
+  ],
+  [
+   "96974551",
+   "VA2311 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458195084"
+  ],
+  [
+   "222549798",
+   "VC1301 - VIDA CARE - Individual Familiar - Registro ANS: 486026208"
+  ],
+  [
+   "222552378",
+   "VC1302 - VIDA CARE - Individual Familiar - Registro ANS: 486025200"
+  ],
+  [
+   "222550235",
+   "VC1501 - VIDA CARE - Individual Familiar - Registro ANS: 486026208"
+  ],
+  [
+   "222552473",
+   "VC1502 - VIDA CARE - Individual Familiar - Registro ANS: 486025200"
+  ],
+  [
+   "222552649",
+   "VC2301 - VIDA CARE - Individual Familiar - Registro ANS: 486024201"
+  ],
+  [
+   "222750202",
+   "VC2302 - VIDA CARE - Individual Familiar - Registro ANS: 486023203"
+  ],
+  [
+   "222552722",
+   "VC2501 - VIDA CARE - Individual Familiar - Registro ANS: 486024201"
+  ],
+  [
+   "222752598",
+   "VC2502 - VIDA CARE - Individual Familiar - Registro ANS: 486023203"
+  ],
+  [
+   "262652930",
+   "VD1001 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 488193211"
+  ],
+  [
+   "385962515",
+   "VD1511 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500834244"
+  ],
+  [
+   "385979358",
+   "VD1512 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500835242"
+  ],
+  [
+   "262653043",
+   "VD2001 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 488194210"
+  ],
+  [
+   "385980695",
+   "VD2511 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500836241"
+  ],
+  [
+   "385981263",
+   "VD2512 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500833246"
+  ],
+  [
+   "34232484",
+   "VE0000 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460430090"
+  ],
+  [
+   "22756818",
+   "VE1001 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 476734169"
+  ],
+  [
+   "22756824",
+   "VE1002 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471711142"
+  ],
+  [
+   "22756859",
+   "VE1201 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098"
+  ],
+  [
+   "64447588",
+   "VE1211 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098"
+  ],
+  [
+   "64447605",
+   "VE1212 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193"
+  ],
+  [
+   "22756866",
+   "VE1301 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098"
+  ],
+  [
+   "64447814",
+   "VE1311 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098"
+  ],
+  [
+   "64447832",
+   "VE1312 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193"
+  ],
+  [
+   "197879581",
+   "VE1511 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098"
+  ],
+  [
+   "402085839",
+   "VE1512 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193"
+  ],
+  [
+   "22756877",
+   "VE2001 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 478837171"
+  ],
+  [
+   "22756888",
+   "VE2002 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471703141"
+  ],
+  [
+   "22756908",
+   "VE2201 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091"
+  ],
+  [
+   "22756912",
+   "VE2202 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140"
+  ],
+  [
+   "64447849",
+   "VE2211 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091"
+  ],
+  [
+   "64447869",
+   "VE2212 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140"
+  ],
+  [
+   "64447887",
+   "VE2311 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091"
+  ],
+  [
+   "64447918",
+   "VE2312 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140"
+  ],
+  [
+   "197880407",
+   "VE2511 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091"
+  ],
+  [
+   "402088031",
+   "VE2512 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140"
+  ],
+  [
+   "222752716",
+   "VJ1301 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486022205"
+  ],
+  [
+   "222753204",
+   "VJ1302 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486021207"
+  ],
+  [
+   "222753108",
+   "VJ1501 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486022205"
+  ],
+  [
+   "222753255",
+   "VJ1502 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486021207"
+  ],
+  [
+   "222753298",
+   "VJ2301 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486027206"
+  ],
+  [
+   "222753548",
+   "VJ2302 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486020209"
+  ],
+  [
+   "222753488",
+   "VJ2501 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486027206"
+  ],
+  [
+   "222753679",
+   "VJ2502 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486020209"
+  ],
+  [
+   "103139124",
+   "VL0210 - VIDA LEVE - Individual Familiar - Registro ANS: 458194086"
+  ],
+  [
+   "20338136",
+   "VL1001 - VIDA LEVE - Individual Familiar - Registro ANS: 476735167"
+  ],
+  [
+   "20340345",
+   "VL1002 - VIDA LEVE - Individual Familiar - Registro ANS: 471702143"
+  ],
+  [
+   "20341023",
+   "VL1101 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "20341523",
+   "VL1102 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144"
+  ],
+  [
+   "20341711",
+   "VL1201 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "20341894",
+   "VL1202 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144"
+  ],
+  [
+   "134638946",
+   "VL121C - VIDA LEVE - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "64528350",
+   "VL1211 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080"
+  ],
+  [
+   "64528377",
+   "VL1212 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144"
+  ],
+  [
+   "20342279",
+   "VL1301 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "20342604",
+   "VL1302 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144"
+  ],
+  [
+   "134679453",
+   "VL131C - VIDA LEVE - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "64528402",
+   "VL1311 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080"
+  ],
+  [
+   "64528446",
+   "VL1312 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144"
+  ],
+  [
+   "27279661",
+   "VL2001 - VIDA LEVE - Individual Familiar - Registro ANS: 471709141"
+  ],
+  [
+   "27279765",
+   "VL2002 - VIDA LEVE - Individual Familiar - Registro ANS: 471705148"
+  ],
+  [
+   "111403005",
+   "VL2211 - VIDA LEVE - Individual Familiar - Registro ANS: 471706146"
+  ],
+  [
+   "111403145",
+   "VL2212 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144"
+  ],
+  [
+   "25280490",
+   "VL2302 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144"
+  ],
+  [
+   "111403088",
+   "VL2311 - VIDA LEVE - Individual Familiar - Registro ANS: 471706146"
+  ],
+  [
+   "111403382",
+   "VL2312 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144"
+  ],
+  [
+   "284161768",
+   "VNA2301 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492564225"
+  ],
+  [
+   "284163676",
+   "VNA2302 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492570220"
+  ],
+  [
+   "284125622",
+   "VNA2501 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492564225"
+  ],
+  [
+   "284165558",
+   "VNA2502 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492570220"
+  ],
+  [
+   "413168400",
+   "VNCGA2301 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504406255"
+  ],
+  [
+   "413169149",
+   "VNCGA2302 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504407253"
+  ],
+  [
+   "413171178",
+   "VNCGA2501 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504406255"
+  ],
+  [
+   "413170171",
+   "VNCGA2502 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504407253"
+  ],
+  [
+   "379586000",
+   "VNCGE2301 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500378244"
+  ],
+  [
+   "379609031",
+   "VNCGE2302 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500379242"
+  ],
+  [
+   "386300707",
+   "VNCGE2501 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500378244"
+  ],
+  [
+   "386301611",
+   "VNCGE2502 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500379242"
+  ],
+  [
+   "413161025",
+   "VNCG2301 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504405257"
+  ],
+  [
+   "413163457",
+   "VNCG2302 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504411251"
+  ],
+  [
+   "413165274",
+   "VNCG2501 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504405257"
+  ],
+  [
+   "413167844",
+   "VNCG2502 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504411251"
+  ],
+  [
+   "376455005",
+   "VNCSE2301 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499992244"
+  ],
+  [
+   "376461258",
+   "VNCSE2302 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499993242"
+  ],
+  [
+   "376231474",
+   "VNCS2301 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499996247"
+  ],
+  [
+   "376452910",
+   "VNCS2302 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499995249"
+  ],
+  [
+   "333993557",
+   "VNE2001 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 496440233"
+  ],
+  [
+   "334082712",
+   "VNE2002 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 496439230"
+  ],
+  [
+   "283435178",
+   "VNE2301 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492566221"
+  ],
+  [
+   "284130582",
+   "VNE2302 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492565223"
+  ],
+  [
+   "284125257",
+   "VNE2501 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492566221"
+  ],
+  [
+   "284152210",
+   "VNE2502 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492565223"
+  ],
+  [
+   "375186645",
+   "VNGPE2301 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499992244"
+  ],
+  [
+   "375190018",
+   "VNGPE2302 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499993242"
+  ],
+  [
+   "375190500",
+   "VNGP0300 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499994241"
+  ],
+  [
+   "375190908",
+   "VNGP2301 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499996247"
+  ],
+  [
+   "375191307",
+   "VNGP2302 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499995249"
+  ],
+  [
+   "381996925",
+   "VNOA2201 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500906245"
+  ],
+  [
+   "381997106",
+   "VNOA2202 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500905247"
+  ],
+  [
+   "381997364",
+   "VNOA2401 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500906245"
+  ],
+  [
+   "381997546",
+   "VNOA2402 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500905247"
+  ],
+  [
+   "381993577",
+   "VNOE2201 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500908241"
+  ],
+  [
+   "381995627",
+   "VNOE2202 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500907243"
+  ],
+  [
+   "381996302",
+   "VNOE2401 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500908241"
+  ],
+  [
+   "381996642",
+   "VNOE2402 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500907243"
+  ],
+  [
+   "283432987",
+   "VN1301 - VIDA NOVA - Individual Familiar - Registro ANS: 492571228"
+  ],
+  [
+   "284045901",
+   "VN1302 - VIDA NOVA - Individual Familiar - Registro ANS: 492569226"
+  ],
+  [
+   "284039319",
+   "VN1501 - VIDA NOVA - Individual Familiar - Registro ANS: 492571228"
+  ],
+  [
+   "284128729",
+   "VN1502 - VIDA NOVA - Individual Familiar - Registro ANS: 492569226"
+  ],
+  [
+   "283433907",
+   "VN2301 - VIDA NOVA - Individual Familiar - Registro ANS: 492568228"
+  ],
+  [
+   "284046916",
+   "VN2302 - VIDA NOVA - Individual Familiar - Registro ANS: 492567220"
+  ],
+  [
+   "284048801",
+   "VN2501 - VIDA NOVA - Individual Familiar - Registro ANS: 492568228"
+  ],
+  [
+   "284130046",
+   "VN2502 - VIDA NOVA - Individual Familiar - Registro ANS: 492567220"
+  ],
+  [
+   "413686200",
+   "VPLA2301 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504410253"
+  ],
+  [
+   "413689504",
+   "VPLA2302 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504404259"
+  ],
+  [
+   "413691556",
+   "VPLA2501 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504410253"
+  ],
+  [
+   "413691781",
+   "VPLA2502 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504404259"
+  ],
+  [
+   "413682473",
+   "VPLE2301 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504408251"
+  ],
+  [
+   "413684889",
+   "VPLE2302 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504409250"
+  ],
+  [
+   "413685257",
+   "VPLE2501 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504408251"
+  ],
+  [
+   "413685792",
+   "VPLE2502 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504409250"
+  ],
+  [
+   "342550899",
+   "VPVA2501 - VIDA PLENA VALE - Coletivo por AdesÃ£o - Registro ANS: 497203231"
+  ],
+  [
+   "342561243",
+   "VPVA2502 - VIDA PLENA VALE - Coletivo por AdesÃ£o - Registro ANS: 497202233"
+  ],
+  [
+   "413677345",
+   "VPVE2301 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497200237"
+  ],
+  [
+   "413679166",
+   "VPVE2302 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497201235"
+  ],
+  [
+   "342550879",
+   "VPVE2501 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497200237"
+  ],
+  [
+   "342570941",
+   "VPVE2502 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497201235"
+  ],
+  [
+   "17",
+   "110001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701843996"
+  ],
+  [
+   "19",
+   "110042 - LABORIUM - Coletivo Empresarial - Registro ANS: 701846991"
+  ],
+  [
+   "21",
+   "110044 - LABORIUM - Coletivo Empresarial - Registro ANS: 701847999"
+  ],
+  [
+   "23",
+   "110241 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416618993"
+  ],
+  [
+   "25",
+   "110242 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416613992"
+  ],
+  [
+   "26",
+   "110243 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416619991"
+  ],
+  [
+   "27",
+   "110244 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416614991"
+  ],
+  [
+   "28",
+   "300001 - PRINCIPAL - Individual Familiar - Registro ANS: 300001"
+  ],
+  [
+   "31",
+   "300005 - PRINCIPAL - Individual Familiar - Registro ANS: 300005"
+  ],
+  [
+   "38",
+   "300033 - ECONOMICO - Individual Familiar - Registro ANS: 300033"
+  ],
+  [
+   "40",
+   "300040 - A1 - Individual Familiar - Registro ANS: 300040"
+  ],
+  [
+   "43",
+   "300041 - B1 - Individual Familiar - Registro ANS: 300041"
+  ],
+  [
+   "45",
+   "300060 - A2 - Individual Familiar - Registro ANS: 300060"
+  ],
+  [
+   "62",
+   "300100 - A4 - Individual Familiar - Registro ANS: 300100"
+  ],
+  [
+   "63",
+   "300101 - B4 - Individual Familiar - Registro ANS: 300101"
+  ],
+  [
+   "64",
+   "300102 - C4 - Individual Familiar - Registro ANS: 300102"
+  ],
+  [
+   "156464",
+   "300121 - B1 - Individual Familiar - Registro ANS: 300121"
+  ],
+  [
+   "65",
+   "300141 - B2 - Individual Familiar - Registro ANS: 300141"
+  ],
+  [
+   "49",
+   "310022 - MILLENIUM - Individual Familiar - Registro ANS: 701839998"
+  ],
+  [
+   "51",
+   "310031 - LUMEN - Individual Familiar - Registro ANS: 416626994"
+  ],
+  [
+   "24142",
+   "310032 - LUMEN - Individual Familiar - Registro ANS: 416627992"
+  ],
+  [
+   "54",
+   "310034 - LUMEN - Individual Familiar - Registro ANS: 416622991"
+  ],
+  [
+   "55",
+   "310041 - MILLENIUM - Individual Familiar - Registro ANS: 701840991"
+  ],
+  [
+   "4",
+   "310042 - MILLENIUM - Individual Familiar - Registro ANS: 701841990"
+  ],
+  [
+   "56",
+   "310043 - MILLENIUM - Individual Familiar - Registro ANS: 416611996"
+  ],
+  [
+   "57",
+   "310044 - MILLENIUM - Individual Familiar - Registro ANS: 701842998"
+  ],
+  [
+   "58",
+   "310052 - MILLENIUM - Individual Familiar - Registro ANS: 422767991"
+  ],
+  [
+   "12710868",
+   "3101CR - B4 - Individual Familiar - Registro ANS: 300101"
+  ],
+  [
+   "12544873",
+   "410041 - MILLENIUM - Individual Familiar - Registro ANS: 701840991"
+  ],
+  [
+   "12544851",
+   "410042 - MILLENIUM - Individual Familiar - Registro ANS: 701841990"
+  ],
+  [
+   "12544900",
+   "410043 - MILLENIUM - Individual Familiar - Registro ANS: 416611996"
+  ],
+  [
+   "12545073",
+   "410051 - MILLENIUM - Individual Familiar - Registro ANS: 701840991"
+  ],
+  [
+   "12545047",
+   "410052 - MILLENIUM - Individual Familiar - Registro ANS: 422767991"
+  ],
+  [
+   "12545118",
+   "410054 - MILLENIUM - Individual Familiar - Registro ANS: 422768999"
+  ],
+  [
+   "11373170",
+   "510002 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080"
+  ],
+  [
+   "15420434",
+   "510101 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "14389093",
+   "700001 - VIDA LEVE LITORAL - Coletivo por AdesÃ£o - Registro ANS: 458192080"
+  ],
+  [
+   "14389296",
+   "700101 - VIDA LEVE LITORAL - Coletivo por AdesÃ£o - Registro ANS: 458193088"
+  ],
+  [
+   "14447107",
+   "710001 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458194086"
+  ],
+  [
+   "14447134",
+   "710101 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458189080"
+  ],
+  [
+   "14447137",
+   "710201 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 471709141"
+  ],
+  [
+   "14520991",
+   "710301 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 471702143"
+  ],
+  [
+   "14520081",
+   "711001 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458194086"
+  ],
+  [
+   "14520117",
+   "711101 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458188081"
+  ],
+  [
+   "13631467",
+   "800001 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "13547447",
+   "800002 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "13650237",
+   "800003 - LUMEN - Individual Familiar - Registro ANS: 416617995"
+  ],
+  [
+   "13631515",
+   "800201 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "13610754",
+   "800202 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "13631588",
+   "800301 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "13609566",
+   "800302 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "422323560",
+   "999 - DUPLICAR - Individual Familiar - Registro ANS:"
+  ],
+  [
+   "1776",
+   "999910 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416623990"
+  ],
+  [
+   "1786",
+   "999911 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 701844994"
+  ],
+  [
+   "24188",
+   "999915 - LUMEN - Individual Familiar - Registro ANS: 416612994"
+  ],
+  [
+   "24203",
+   "999916 - LUMEN - Individual Familiar - Registro ANS: 416616997"
+  ],
+  [
+   "24224",
+   "999917 - LUMEN - Individual Familiar - Registro ANS: 416617995"
+  ],
+  [
+   "24239",
+   "999918 - LUMEN - Individual Familiar - Registro ANS: 422765994"
+  ],
+  [
+   "1743",
+   "999996 - MILLENIUM - Individual Familiar - Registro ANS: 701840991"
+  ],
+  [
+   "1753",
+   "999997 - MILLENIUM - Individual Familiar - Registro ANS: 422768999"
+  ]
+ ],
+ "estados": [
+  [
+   "MG",
+   "Minas Gerais"
+  ],
+  [
+   "PR",
+   "ParanÃ¡"
+  ],
+  [
+   "SC",
+   "Santa Catarina"
+  ],
+  [
+   "SP",
+   "SÃ£o Paulo"
+  ]
+ ],
+ "mapa": {
+  "318670506": {
+   "plano": "ADCSFA2 - PLANO A2 ADAPTADO - Individual Familiar - Registro ANS: A2",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "318694798": {
+   "plano": "ADCSFA4 - CS-PRE A4 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: A4",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "318695780": {
+   "plano": "ADCSFB2 - CS-PRE B2 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: B2",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "320269425": {
+   "plano": "ADCSFB4 - CS-PRE B4 LIDER 200 ADAPTADO - Individual Familiar - Registro ANS: B4",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "47861029": {
+   "plano": "ADEABR - BRONZE - Coletivo Empresarial - Registro ANS: EBR",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ],
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "47864155": {
+   "plano": "ADFABR - BRONZE - Individual Familiar - Registro ANS: FBR",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ],
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "47864199": {
+   "plano": "ADFAOU - OURO - Individual Familiar - Registro ANS: FOU",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ],
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "47864532": {
+   "plano": "ADFAPR - PRATA - Individual Familiar - Registro ANS: FPR",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ],
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "64110319": {
+   "plano": "ADU7 - STANDARD - Individual Familiar - Registro ANS: 206",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "47828540": {
+   "plano": "AD3001 - PRINCIPAL - Individual Familiar - Registro ANS: 300001",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "47830036": {
+   "plano": "AD3031 - AMBULATORIAL - Individual Familiar - Registro ANS: 300031",
+   "redes": [
+    [
+     "68808208",
+     "REDE MARROM"
+    ]
+   ]
+  },
+  "47830204": {
+   "plano": "AD3033 - ECONOMICO - Individual Familiar - Registro ANS: 300033",
+   "redes": [
+    [
+     "68808208",
+     "REDE MARROM"
+    ]
+   ]
+  },
+  "47836045": {
+   "plano": "AD3060 - A2 - Individual Familiar - Registro ANS: 300060",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "47836117": {
+   "plano": "AD3100 - A4 - Individual Familiar - Registro ANS: 300100",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "47837546": {
+   "plano": "AD3101 - B4 - Individual Familiar - Registro ANS: 300101",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "47837636": {
+   "plano": "AD3102 - C4 - Individual Familiar - Registro ANS: 300102",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "47837809": {
+   "plano": "AD3141 - B2 - Individual Familiar - Registro ANS: 300141",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "20362270": {
+   "plano": "CA1001 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416613992",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20363099": {
+   "plano": "CA1002 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416618993",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20362590": {
+   "plano": "CA1201 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416623990",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20363311": {
+   "plano": "CA1202 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 701844994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20365817": {
+   "plano": "CA2001 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416614991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20363584": {
+   "plano": "CA2002 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416619991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20367244": {
+   "plano": "CA2201 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416624998",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "91": {
+   "plano": "CSA1302 - - Coletivo por AdesÃ£o - Registro ANS: 474730155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "88": {
+   "plano": "CSA2301 - - Coletivo por AdesÃ£o - Registro ANS: 474723152",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "90": {
+   "plano": "CSA2302 - - Coletivo por AdesÃ£o - Registro ANS: 474725159",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "121": {
+   "plano": "CSA2501 - - Coletivo por AdesÃ£o - Registro ANS: 474723152",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "122": {
+   "plano": "CSA2502 - - Coletivo por AdesÃ£o - Registro ANS: 474725159",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "75": {
+   "plano": "CSEA4 - - Coletivo Empresarial - Registro ANS: A4 Empresarial",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "74": {
+   "plano": "CSEC4 - - Coletivo Empresarial - Registro ANS: C4 Empresarial",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "117": {
+   "plano": "CSET1301 - - Coletivo Empresarial - Registro ANS: 475070155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "99": {
+   "plano": "CSET1302 - - Coletivo Empresarial - Registro ANS: 475068153",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "124": {
+   "plano": "CSET1501 - - Coletivo Empresarial - Registro ANS: 475070155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "123": {
+   "plano": "CSET1502 - - Coletivo Empresarial - Registro ANS: 475068153",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "119": {
+   "plano": "CSET2301 - - Coletivo Empresarial - Registro ANS: 475069151",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "118": {
+   "plano": "CSET2302 - - Coletivo Empresarial - Registro ANS: 475067155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "126": {
+   "plano": "CSET2501 - - Coletivo Empresarial - Registro ANS: 475069151",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "125": {
+   "plano": "CSET2502 - - Coletivo Empresarial - Registro ANS: 475067155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "73": {
+   "plano": "CSE0000 - - Coletivo Empresarial - Registro ANS: 706387993",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "71": {
+   "plano": "CSE1001 - - Coletivo Empresarial - Registro ANS: 706391991",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "72": {
+   "plano": "CSE1002 - - Coletivo Empresarial - Registro ANS: 419967997",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "96": {
+   "plano": "CSE1301 - - Coletivo Empresarial - Registro ANS: 475070155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "95": {
+   "plano": "CSE1302 - - Coletivo Empresarial - Registro ANS: 475068153",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "94": {
+   "plano": "CSE1501 - - Coletivo Empresarial - Registro ANS: 475070155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "69": {
+   "plano": "CSE2001 - - Coletivo Empresarial - Registro ANS: 706392990",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "70": {
+   "plano": "CSE2002 - - Coletivo Empresarial - Registro ANS: 419968995",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "98": {
+   "plano": "CSE2301 - - Coletivo Empresarial - Registro ANS: 475069151",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "97": {
+   "plano": "CSE2302 - - Coletivo Empresarial - Registro ANS: 475067155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "93": {
+   "plano": "CSE2501 - - Coletivo Empresarial - Registro ANS: 475069151",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "92": {
+   "plano": "CSE2502 - - Coletivo Empresarial - Registro ANS: 475067155",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "87": {
+   "plano": "CSFA2 - - Individual Familiar - Registro ANS: A2",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "83": {
+   "plano": "CSFA4 - - Individual Familiar - Registro ANS: A4",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "84": {
+   "plano": "CSFB1 - - Individual Familiar - Registro ANS: B1",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "86": {
+   "plano": "CSFB2 - - Individual Familiar - Registro ANS: B2",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "85": {
+   "plano": "CSFB4 - - Individual Familiar - Registro ANS: B4",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "81": {
+   "plano": "CSFH001 - - Individual Familiar - Registro ANS: 706383991",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "82": {
+   "plano": "CSFH002 - - Individual Familiar - Registro ANS: 419961998",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "80": {
+   "plano": "CSF0000 - - Individual Familiar - Registro ANS: 706382992",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "120": {
+   "plano": "CSF1001 - - Individual Familiar - Registro ANS: 474726157",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "77": {
+   "plano": "CSF1002 - - Individual Familiar - Registro ANS: 419963994",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "76": {
+   "plano": "CSF1301 - - Individual Familiar - Registro ANS: 413576998",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "127": {
+   "plano": "CSF1302 - - Individual Familiar - Registro ANS: 419987991",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "128": {
+   "plano": "CSF1501 - - Individual Familiar - Registro ANS: 413576998",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "131": {
+   "plano": "CSF1502 - - Individual Familiar - Registro ANS: 419987991",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "78": {
+   "plano": "CSF2001 - - Individual Familiar - Registro ANS: 706386995",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "79": {
+   "plano": "CSF2002 - - Individual Familiar - Registro ANS: 419964992",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "129": {
+   "plano": "CSF2301 - - Individual Familiar - Registro ANS: 413577996",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "130": {
+   "plano": "CSF2302 - - Individual Familiar - Registro ANS: 419988990",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "89": {
+   "plano": "CSF2501 - - Individual Familiar - Registro ANS: 413577996",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "132": {
+   "plano": "CSF2502 - - Individual Familiar - Registro ANS: 419988990",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "20350449": {
+   "plano": "LA1001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701846991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20352134": {
+   "plano": "LA1002 - LABORIUM - Coletivo Empresarial - Registro ANS: 416644992",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20358400": {
+   "plano": "LA1301 - LABORIUM - Coletivo Empresarial - Registro ANS: 416650997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20358582": {
+   "plano": "LA2001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701847999",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20360989": {
+   "plano": "LA2002 - LABORIUM - Coletivo Empresarial - Registro ANS: 416645991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20360718": {
+   "plano": "LA2201 - LABORIUM - Coletivo Empresarial - Registro ANS: 416649993",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20360871": {
+   "plano": "LA2301 - LABORIUM - Coletivo Empresarial - Registro ANS: 416649993",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20360881": {
+   "plano": "LU1001 - LUMEN - Individual Familiar - Registro ANS: 416627992",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361070": {
+   "plano": "LU1002 - LUMEN - Individual Familiar - Registro ANS: 416626994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361310": {
+   "plano": "LU1201 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361386": {
+   "plano": "LU1202 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "70457766": {
+   "plano": "LU1211 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "74145508": {
+   "plano": "LU1212 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361399": {
+   "plano": "LU1301 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361466": {
+   "plano": "LU1302 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "69123855": {
+   "plano": "LU1311 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "79154493": {
+   "plano": "LU1312 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361474": {
+   "plano": "LU2001 - LUMEN - Individual Familiar - Registro ANS: 416622991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "20361494": {
+   "plano": "LU2002 - LUMEN - Individual Familiar - Registro ANS: 416621993",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "69124722": {
+   "plano": "LU2211 - LUMEN - Individual Familiar - Registro ANS: 422765994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "69105601": {
+   "plano": "LU2311 - LUMEN - Individual Familiar - Registro ANS: 422765994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "70069155": {
+   "plano": "LU2312 - LUMEN - Individual Familiar - Registro ANS: 416617995",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "115712354": {
+   "plano": "NA0000 - NOSSA VIDA - Coletivo por AdesÃ£o - Registro ANS: 475917166",
+   "redes": [
+    [
+     "115808214",
+     "REDE AMARELA"
+    ]
+   ]
+  },
+  "130462434": {
+   "plano": "NE1001 - NOSSA VIDA - Coletivo Empresarial - Registro ANS: 477334169",
+   "redes": [
+    [
+     "115808214",
+     "REDE AMARELA"
+    ]
+   ]
+  },
+  "100": {
+   "plano": "NPEBRC - BRONZE - Coletivo Empresarial - Registro ANS: 404061999",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "112": {
+   "plano": "NPEBRS - BRONZE - Coletivo Empresarial - Registro ANS: 404060991",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "114": {
+   "plano": "NPEOUS - OURO - Coletivo Empresarial - Registro ANS: 404068996",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "107": {
+   "plano": "NPEPRC - PRATA - Coletivo Empresarial - Registro ANS: 404065991",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "113": {
+   "plano": "NPEPRS - PRATA - Coletivo Empresarial - Registro ANS: 404064993",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "104": {
+   "plano": "NPFABR - BRONZE - Individual Familiar - Registro ANS: FBR",
+   "redes": [
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "105": {
+   "plano": "NPFAOU - OURO - Individual Familiar - Registro ANS: FOU",
+   "redes": [
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "106": {
+   "plano": "NPFAPR - PRATA - Individual Familiar - Registro ANS: FPR",
+   "redes": [
+    [
+     "72446576",
+     "REDE BRANCA NAO REGULAMENTADA"
+    ]
+   ]
+  },
+  "109": {
+   "plano": "NPFBR - BRONZE - Individual Familiar - Registro ANS: 404024994",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "111": {
+   "plano": "NPFOU - OURO - Individual Familiar - Registro ANS: 404036998",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "110": {
+   "plano": "NPFPR - PRATA - Individual Familiar - Registro ANS: 404030999",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "115": {
+   "plano": "NPNVCE - NOVA VIDA - Coletivo Empresarial - Registro ANS: 455976072",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "116": {
+   "plano": "NPNVIF - NOVA VIDA - Individual Familiar - Registro ANS: 455977071",
+   "redes": [
+    [
+     "68808198",
+     "REDE BRANCA"
+    ]
+   ]
+  },
+  "196082192": {
+   "plano": "ODCA01 - NOSSA DENTAL - Coletivo por AdesÃ£o - Registro ANS: 480266187",
+   "redes": [
+    [
+     "204157405",
+     "REDE ODONTO"
+    ]
+   ]
+  },
+  "196082272": {
+   "plano": "ODCE01 - NOSSA DENTAL - Coletivo Empresarial - Registro ANS: 480268183",
+   "redes": [
+    [
+     "204157405",
+     "REDE ODONTO"
+    ]
+   ]
+  },
+  "196082449": {
+   "plano": "ODIF01 - NOSSA DENTAL - Individual Familiar - Registro ANS: 480267185",
+   "redes": [
+    [
+     "204157405",
+     "REDE ODONTO"
+    ]
+   ]
+  },
+  "29082993": {
+   "plano": "PCLF01 - BRONZE - Individual Familiar - Registro ANS: 418298997",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29083002": {
+   "plano": "PCLF02 - AMB HOSP - Individual Familiar - Registro ANS: 406764999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29083458": {
+   "plano": "PCLF03 - AMB HOSP - Individual Familiar - Registro ANS: 406766995",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29083017": {
+   "plano": "PCLF05 - 40622222 AMB + HOSP NOBRE (20) PF POS - Individual Familiar - Registro ANS: 406765997",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29084275": {
+   "plano": "PCLF10 - PLANO (02) PF PRE 500002 - Coletivo por AdesÃ£o - Registro ANS: 2",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29090894": {
+   "plano": "PCLF14 - PLANO (14) AMB HOSP OBST - Individual Familiar - Registro ANS: 406764999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29098369": {
+   "plano": "PCLF16 - PLANO (19) POS AMBULATORIAL - Individual Familiar - Registro ANS: 418298997",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29099086": {
+   "plano": "PCLF17 - PLANO POS AMB HOSP ENF - Individual Familiar - Registro ANS: 406764999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29099305": {
+   "plano": "PCLF18 - PLANO AMBULATORIAL HOSPITALAR - Individual Familiar - Registro ANS: 406766995",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29099448": {
+   "plano": "PCLF19 - PLANO (25) POS AMB HOSP COM OBST - Individual Familiar - Registro ANS: 406765997",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29099857": {
+   "plano": "PCLF22 - PLANO (15) POS - Individual Familiar - Registro ANS: 406767993",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "29084493": {
+   "plano": "PCLJ01 - AMB HOSP - Coletivo por AdesÃ£o - Registro ANS: 406773998",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928381": {
+   "plano": "U11 - AMB HOSP - Coletivo Empresarial - Registro ANS: 405310999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928519": {
+   "plano": "U113 - STANDARD - Individual Familiar - Registro ANS: 405278991",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928534": {
+   "plano": "U115 - STANDARD - Individual Familiar - Registro ANS: 702335999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928417": {
+   "plano": "U12 - STANDARD - Coletivo Empresarial - Registro ANS: 405310999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928439": {
+   "plano": "U13 - AMBULATORIAL - Individual Familiar - Registro ANS: 405276995",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928449": {
+   "plano": "U14 - STANDARD - Coletivo Empresarial - Registro ANS: 702341993",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "53520829": {
+   "plano": "U15PF - STANDARD - Individual Familiar - Registro ANS: 702335999",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928574": {
+   "plano": "U21300 - STANDARD - Coletivo Empresarial - Registro ANS: 460537093",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "52928555": {
+   "plano": "U21500 - STANDARD - Coletivo Empresarial - Registro ANS: 702339991",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "53504502": {
+   "plano": "U7PF - STANDARD - Individual Familiar - Registro ANS: 206",
+   "redes": [
+    [
+     "68808204",
+     "REDE CINZA"
+    ]
+   ]
+  },
+  "146228729": {
+   "plano": "VAR001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 479252171",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "130196987": {
+   "plano": "VA1001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 477333161",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "21519743": {
+   "plano": "VA1001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "21519768": {
+   "plano": "VA1201 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "138660964": {
+   "plano": "VA1211 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "96415379": {
+   "plano": "VA1311 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "21529077": {
+   "plano": "VA2001 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 480269181",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "122604393": {
+   "plano": "VA2211 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458195084",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "96974551": {
+   "plano": "VA2311 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458195084",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "222549798": {
+   "plano": "VC1301 - VIDA CARE - Individual Familiar - Registro ANS: 486026208",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222552378": {
+   "plano": "VC1302 - VIDA CARE - Individual Familiar - Registro ANS: 486025200",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222550235": {
+   "plano": "VC1501 - VIDA CARE - Individual Familiar - Registro ANS: 486026208",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222552473": {
+   "plano": "VC1502 - VIDA CARE - Individual Familiar - Registro ANS: 486025200",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222552649": {
+   "plano": "VC2301 - VIDA CARE - Individual Familiar - Registro ANS: 486024201",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222750202": {
+   "plano": "VC2302 - VIDA CARE - Individual Familiar - Registro ANS: 486023203",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222552722": {
+   "plano": "VC2501 - VIDA CARE - Individual Familiar - Registro ANS: 486024201",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222752598": {
+   "plano": "VC2502 - VIDA CARE - Individual Familiar - Registro ANS: 486023203",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "262652930": {
+   "plano": "VD1001 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 488193211",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "385962515": {
+   "plano": "VD1511 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500834244",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "385979358": {
+   "plano": "VD1512 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500835242",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "262653043": {
+   "plano": "VD2001 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 488194210",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "385980695": {
+   "plano": "VD2511 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500836241",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "385981263": {
+   "plano": "VD2512 - VIDA CARE ADESAO - Coletivo por AdesÃ£o - Registro ANS: 500833246",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "34232484": {
+   "plano": "VE0000 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460430090",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756818": {
+   "plano": "VE1001 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 476734169",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756824": {
+   "plano": "VE1002 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471711142",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756859": {
+   "plano": "VE1201 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447588": {
+   "plano": "VE1211 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447605": {
+   "plano": "VE1212 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756866": {
+   "plano": "VE1301 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447814": {
+   "plano": "VE1311 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447832": {
+   "plano": "VE1312 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "197879581": {
+   "plano": "VE1511 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460431098",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "402085839": {
+   "plano": "VE1512 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 483719193",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756877": {
+   "plano": "VE2001 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 478837171",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756888": {
+   "plano": "VE2002 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471703141",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756908": {
+   "plano": "VE2201 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "22756912": {
+   "plano": "VE2202 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447849": {
+   "plano": "VE2211 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447869": {
+   "plano": "VE2212 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447887": {
+   "plano": "VE2311 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64447918": {
+   "plano": "VE2312 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "197880407": {
+   "plano": "VE2511 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 460460091",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "402088031": {
+   "plano": "VE2512 - VIDA LEVE - Coletivo Empresarial - Registro ANS: 471704140",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "222752716": {
+   "plano": "VJ1301 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486022205",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753204": {
+   "plano": "VJ1302 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486021207",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753108": {
+   "plano": "VJ1501 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486022205",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753255": {
+   "plano": "VJ1502 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486021207",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753298": {
+   "plano": "VJ2301 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486027206",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753548": {
+   "plano": "VJ2302 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486020209",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753488": {
+   "plano": "VJ2501 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486027206",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "222753679": {
+   "plano": "VJ2502 - VIDA CARE - Coletivo Empresarial - Registro ANS: 486020209",
+   "redes": [
+    [
+     "227835702",
+     "REDE AMETISTA"
+    ]
+   ]
+  },
+  "103139124": {
+   "plano": "VL0210 - VIDA LEVE - Individual Familiar - Registro ANS: 458194086",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20338136": {
+   "plano": "VL1001 - VIDA LEVE - Individual Familiar - Registro ANS: 476735167",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20340345": {
+   "plano": "VL1002 - VIDA LEVE - Individual Familiar - Registro ANS: 471702143",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20341023": {
+   "plano": "VL1101 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20341523": {
+   "plano": "VL1102 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20341711": {
+   "plano": "VL1201 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20341894": {
+   "plano": "VL1202 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "134638946": {
+   "plano": "VL121C - VIDA LEVE - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64528350": {
+   "plano": "VL1211 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64528377": {
+   "plano": "VL1212 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20342279": {
+   "plano": "VL1301 - VIDA LEVE - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "20342604": {
+   "plano": "VL1302 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "134679453": {
+   "plano": "VL131C - VIDA LEVE - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64528402": {
+   "plano": "VL1311 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "64528446": {
+   "plano": "VL1312 - VIDA LEVE - Individual Familiar - Registro ANS: 471707144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "27279661": {
+   "plano": "VL2001 - VIDA LEVE - Individual Familiar - Registro ANS: 471709141",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "27279765": {
+   "plano": "VL2002 - VIDA LEVE - Individual Familiar - Registro ANS: 471705148",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "111403005": {
+   "plano": "VL2211 - VIDA LEVE - Individual Familiar - Registro ANS: 471706146",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "111403145": {
+   "plano": "VL2212 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "25280490": {
+   "plano": "VL2302 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "111403088": {
+   "plano": "VL2311 - VIDA LEVE - Individual Familiar - Registro ANS: 471706146",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "111403382": {
+   "plano": "VL2312 - VIDA LEVE - Individual Familiar - Registro ANS: 471710144",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "284161768": {
+   "plano": "VNA2301 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492564225",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284163676": {
+   "plano": "VNA2302 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492570220",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284125622": {
+   "plano": "VNA2501 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492564225",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284165558": {
+   "plano": "VNA2502 - VIDA NOVA - Coletivo por AdesÃ£o - Registro ANS: 492570220",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "413168400": {
+   "plano": "VNCGA2301 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504406255",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413169149": {
+   "plano": "VNCGA2302 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504407253",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413171178": {
+   "plano": "VNCGA2501 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504406255",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413170171": {
+   "plano": "VNCGA2502 - VIDA NOVA CG - Coletivo por AdesÃ£o - Registro ANS: 504407253",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "379586000": {
+   "plano": "VNCGE2301 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500378244",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "379609031": {
+   "plano": "VNCGE2302 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500379242",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "386300707": {
+   "plano": "VNCGE2501 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500378244",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "386301611": {
+   "plano": "VNCGE2502 - VIDA NOVA CG - Coletivo Empresarial - Registro ANS: 500379242",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413161025": {
+   "plano": "VNCG2301 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504405257",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413163457": {
+   "plano": "VNCG2302 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504411251",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413165274": {
+   "plano": "VNCG2501 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504405257",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "413167844": {
+   "plano": "VNCG2502 - VIDA NOVA CG - Individual Familiar - Registro ANS: 504411251",
+   "redes": [
+    [
+     "379593581",
+     "REDE CORAL CG"
+    ]
+   ]
+  },
+  "376455005": {
+   "plano": "VNCSE2301 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499992244",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "376461258": {
+   "plano": "VNCSE2302 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499993242",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "376231474": {
+   "plano": "VNCS2301 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499996247",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "376452910": {
+   "plano": "VNCS2302 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499995249",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "333993557": {
+   "plano": "VNE2001 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 496440233",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "334082712": {
+   "plano": "VNE2002 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 496439230",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "283435178": {
+   "plano": "VNE2301 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492566221",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284130582": {
+   "plano": "VNE2302 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492565223",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284125257": {
+   "plano": "VNE2501 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492566221",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284152210": {
+   "plano": "VNE2502 - VIDA NOVA - Coletivo Empresarial - Registro ANS: 492565223",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "375186645": {
+   "plano": "VNGPE2301 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499992244",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "375190018": {
+   "plano": "VNGPE2302 - VIDA NOVA CENTRO SUL - Coletivo Empresarial - Registro ANS: 499993242",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "375190500": {
+   "plano": "VNGP0300 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499994241",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "375190908": {
+   "plano": "VNGP2301 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499996247",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "375191307": {
+   "plano": "VNGP2302 - VIDA NOVA CENTRO SUL - Individual Familiar - Registro ANS: 499995249",
+   "redes": [
+    [
+     "375192146",
+     "REDE AGATA"
+    ]
+   ]
+  },
+  "381996925": {
+   "plano": "VNOA2201 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500906245",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381997106": {
+   "plano": "VNOA2202 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500905247",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381997364": {
+   "plano": "VNOA2401 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500906245",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381997546": {
+   "plano": "VNOA2402 - VIDA NOVA OESTE - Coletivo por AdesÃ£o - Registro ANS: 500905247",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381993577": {
+   "plano": "VNOE2201 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500908241",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381995627": {
+   "plano": "VNOE2202 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500907243",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381996302": {
+   "plano": "VNOE2401 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500908241",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "381996642": {
+   "plano": "VNOE2402 - VIDA NOVA OESTE - Coletivo Empresarial - Registro ANS: 500907243",
+   "redes": [
+    [
+     "383064735",
+     "REDE CORAL OESTE ORIENTADA"
+    ],
+    [
+     "401295872",
+     "REDE CORAL OESTE PREFERENCIAL"
+    ]
+   ]
+  },
+  "283432987": {
+   "plano": "VN1301 - VIDA NOVA - Individual Familiar - Registro ANS: 492571228",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284045901": {
+   "plano": "VN1302 - VIDA NOVA - Individual Familiar - Registro ANS: 492569226",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284039319": {
+   "plano": "VN1501 - VIDA NOVA - Individual Familiar - Registro ANS: 492571228",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284128729": {
+   "plano": "VN1502 - VIDA NOVA - Individual Familiar - Registro ANS: 492569226",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "283433907": {
+   "plano": "VN2301 - VIDA NOVA - Individual Familiar - Registro ANS: 492568228",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284046916": {
+   "plano": "VN2302 - VIDA NOVA - Individual Familiar - Registro ANS: 492567220",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284048801": {
+   "plano": "VN2501 - VIDA NOVA - Individual Familiar - Registro ANS: 492568228",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "284130046": {
+   "plano": "VN2502 - VIDA NOVA - Individual Familiar - Registro ANS: 492567220",
+   "redes": [
+    [
+     "284223248",
+     "REDE CORAL"
+    ]
+   ]
+  },
+  "413686200": {
+   "plano": "VPLA2301 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504410253",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413689504": {
+   "plano": "VPLA2302 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504404259",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413691556": {
+   "plano": "VPLA2501 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504410253",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413691781": {
+   "plano": "VPLA2502 - VIDA PLENA VILLE - Coletivo por AdesÃ£o - Registro ANS: 504404259",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413682473": {
+   "plano": "VPLE2301 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504408251",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413684889": {
+   "plano": "VPLE2302 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504409250",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413685257": {
+   "plano": "VPLE2501 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504408251",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "413685792": {
+   "plano": "VPLE2502 - VIDA PLENA VILLE - Coletivo Empresarial - Registro ANS: 504409250",
+   "redes": [
+    [
+     "413700330",
+     "REDE ESMERALDA VILLE"
+    ]
+   ]
+  },
+  "342550899": {
+   "plano": "VPVA2501 - VIDA PLENA VALE - Coletivo por AdesÃ£o - Registro ANS: 497203231",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "342561243": {
+   "plano": "VPVA2502 - VIDA PLENA VALE - Coletivo por AdesÃ£o - Registro ANS: 497202233",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "413677345": {
+   "plano": "VPVE2301 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497200237",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "413679166": {
+   "plano": "VPVE2302 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497201235",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "342550879": {
+   "plano": "VPVE2501 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497200237",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "342570941": {
+   "plano": "VPVE2502 - VIDA PLENA VALE - Coletivo Empresarial - Registro ANS: 497201235",
+   "redes": [
+    [
+     "343584646",
+     "REDE ESMERALDA PREFERENCIAL"
+    ],
+    [
+     "346095872",
+     "REDE ESMERALDA ORIENTADA"
+    ]
+   ]
+  },
+  "17": {
+   "plano": "110001 - LABORIUM - Coletivo Empresarial - Registro ANS: 701843996",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "19": {
+   "plano": "110042 - LABORIUM - Coletivo Empresarial - Registro ANS: 701846991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "21": {
+   "plano": "110044 - LABORIUM - Coletivo Empresarial - Registro ANS: 701847999",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "23": {
+   "plano": "110241 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416618993",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "25": {
+   "plano": "110242 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416613992",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "26": {
+   "plano": "110243 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416619991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "27": {
+   "plano": "110244 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416614991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "28": {
+   "plano": "300001 - PRINCIPAL - Individual Familiar - Registro ANS: 300001",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "31": {
+   "plano": "300005 - PRINCIPAL - Individual Familiar - Registro ANS: 300005",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "38": {
+   "plano": "300033 - ECONOMICO - Individual Familiar - Registro ANS: 300033",
+   "redes": [
+    [
+     "68808208",
+     "REDE MARROM"
+    ]
+   ]
+  },
+  "40": {
+   "plano": "300040 - A1 - Individual Familiar - Registro ANS: 300040",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "43": {
+   "plano": "300041 - B1 - Individual Familiar - Registro ANS: 300041",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "45": {
+   "plano": "300060 - A2 - Individual Familiar - Registro ANS: 300060",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "62": {
+   "plano": "300100 - A4 - Individual Familiar - Registro ANS: 300100",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "63": {
+   "plano": "300101 - B4 - Individual Familiar - Registro ANS: 300101",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "64": {
+   "plano": "300102 - C4 - Individual Familiar - Registro ANS: 300102",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "156464": {
+   "plano": "300121 - B1 - Individual Familiar - Registro ANS: 300121",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "65": {
+   "plano": "300141 - B2 - Individual Familiar - Registro ANS: 300141",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "49": {
+   "plano": "310022 - MILLENIUM - Individual Familiar - Registro ANS: 701839998",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "51": {
+   "plano": "310031 - LUMEN - Individual Familiar - Registro ANS: 416626994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "24142": {
+   "plano": "310032 - LUMEN - Individual Familiar - Registro ANS: 416627992",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "54": {
+   "plano": "310034 - LUMEN - Individual Familiar - Registro ANS: 416622991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "55": {
+   "plano": "310041 - MILLENIUM - Individual Familiar - Registro ANS: 701840991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "4": {
+   "plano": "310042 - MILLENIUM - Individual Familiar - Registro ANS: 701841990",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "56": {
+   "plano": "310043 - MILLENIUM - Individual Familiar - Registro ANS: 416611996",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "57": {
+   "plano": "310044 - MILLENIUM - Individual Familiar - Registro ANS: 701842998",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "58": {
+   "plano": "310052 - MILLENIUM - Individual Familiar - Registro ANS: 422767991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12710868": {
+   "plano": "3101CR - B4 - Individual Familiar - Registro ANS: 300101",
+   "redes": [
+    [
+     "68287084",
+     "REDE VERMELHA"
+    ]
+   ]
+  },
+  "12544873": {
+   "plano": "410041 - MILLENIUM - Individual Familiar - Registro ANS: 701840991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12544851": {
+   "plano": "410042 - MILLENIUM - Individual Familiar - Registro ANS: 701841990",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12544900": {
+   "plano": "410043 - MILLENIUM - Individual Familiar - Registro ANS: 416611996",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12545073": {
+   "plano": "410051 - MILLENIUM - Individual Familiar - Registro ANS: 701840991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12545047": {
+   "plano": "410052 - MILLENIUM - Individual Familiar - Registro ANS: 422767991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "12545118": {
+   "plano": "410054 - MILLENIUM - Individual Familiar - Registro ANS: 422768999",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "11373170": {
+   "plano": "510002 - VIDA LEVE - Individual Familiar - Registro ANS: 458189080",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "15420434": {
+   "plano": "510101 - VIDA LEVE - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14389093": {
+   "plano": "700001 - VIDA LEVE LITORAL - Coletivo por AdesÃ£o - Registro ANS: 458192080",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14389296": {
+   "plano": "700101 - VIDA LEVE LITORAL - Coletivo por AdesÃ£o - Registro ANS: 458193088",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14447107": {
+   "plano": "710001 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458194086",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14447134": {
+   "plano": "710101 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458189080",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14447137": {
+   "plano": "710201 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 471709141",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14520991": {
+   "plano": "710301 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 471702143",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14520081": {
+   "plano": "711001 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458194086",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "14520117": {
+   "plano": "711101 - VIDA LEVE LITORAL - Individual Familiar - Registro ANS: 458188081",
+   "redes": [
+    [
+     "68287168",
+     "REDE LARANJA"
+    ]
+   ]
+  },
+  "13631467": {
+   "plano": "800001 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13547447": {
+   "plano": "800002 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13650237": {
+   "plano": "800003 - LUMEN - Individual Familiar - Registro ANS: 416617995",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13631515": {
+   "plano": "800201 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13610754": {
+   "plano": "800202 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13631588": {
+   "plano": "800301 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "13609566": {
+   "plano": "800302 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "422323560": {
+   "plano": "999 - DUPLICAR - Individual Familiar - Registro ANS:",
+   "redes": []
+  },
+  "1776": {
+   "plano": "999910 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 416623990",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "1786": {
+   "plano": "999911 - CAPITA - Coletivo por AdesÃ£o - Registro ANS: 701844994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "24188": {
+   "plano": "999915 - LUMEN - Individual Familiar - Registro ANS: 416612994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "24203": {
+   "plano": "999916 - LUMEN - Individual Familiar - Registro ANS: 416616997",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "24224": {
+   "plano": "999917 - LUMEN - Individual Familiar - Registro ANS: 416617995",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "24239": {
+   "plano": "999918 - LUMEN - Individual Familiar - Registro ANS: 422765994",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "1743": {
+   "plano": "999996 - MILLENIUM - Individual Familiar - Registro ANS: 701840991",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  },
+  "1753": {
+   "plano": "999997 - MILLENIUM - Individual Familiar - Registro ANS: 422768999",
+   "redes": [
+    [
+     "68808209",
+     "REDE AZUL"
+    ]
+   ]
+  }
+ }
+}

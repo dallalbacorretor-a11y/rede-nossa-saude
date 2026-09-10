@@ -1,0 +1,126 @@
+{
+ "redes": [
+  [
+   "375192146",
+   "REDE AGATA"
+  ],
+  [
+   "115808214",
+   "REDE AMARELA"
+  ],
+  [
+   "115986901",
+   "REDE AMARELA COMPLEMENTAR"
+  ],
+  [
+   "227835702",
+   "REDE AMETISTA"
+  ],
+  [
+   "68808209",
+   "REDE AZUL"
+  ],
+  [
+   "68808198",
+   "REDE BRANCA"
+  ],
+  [
+   "72446576",
+   "REDE BRANCA NAO REGULAMENTADA"
+  ],
+  [
+   "68808204",
+   "REDE CINZA"
+  ],
+  [
+   "284223248",
+   "REDE CORAL"
+  ],
+  [
+   "379593581",
+   "REDE CORAL CG"
+  ],
+  [
+   "464200313",
+   "REDE CORAL CG ADICIONAL"
+  ],
+  [
+   "389290344",
+   "REDE CORAL CG COMPLEMENTAR"
+  ],
+  [
+   "383064735",
+   "REDE CORAL OESTE ORIENTADA"
+  ],
+  [
+   "401295872",
+   "REDE CORAL OESTE PREFERENCIAL"
+  ],
+  [
+   "381860185",
+   "REDE ESMERALDA FASSPI"
+  ],
+  [
+   "346095872",
+   "REDE ESMERALDA ORIENTADA"
+  ],
+  [
+   "343584646",
+   "REDE ESMERALDA PREFERENCIAL"
+  ],
+  [
+   "413700330",
+   "REDE ESMERALDA VILLE"
+  ],
+  [
+   "464168175",
+   "REDE ESMERALDA VILLE ADICIONAL"
+  ],
+  [
+   "69698523",
+   "REDE ESTRUTURAL"
+  ],
+  [
+   "68287168",
+   "REDE LARANJA"
+  ],
+  [
+   "464225800",
+   "REDE LARANJA ADICIONAL"
+  ],
+  [
+   "68808208",
+   "REDE MARROM"
+  ],
+  [
+   "463874423",
+   "REDE NEXO SIX"
+  ],
+  [
+   "204157405",
+   "REDE ODONTO"
+  ],
+  [
+   "68287084",
+   "REDE VERMELHA"
+  ]
+ ],
+ "estados": [
+  [
+   "MG",
+   "Minas Gerais"
+  ],
+  [
+   "PR",
+   "ParanÃ¡"
+  ],
+  [
+   "SC",
+   "Santa Catarina"
+  ],
+  [
+   "SP",
+   "SÃ£o Paulo"
+  ]
+ ]
+}
