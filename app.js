@@ -67,23 +67,24 @@
     $('#sbMail').href = 'mailto:' + c.mail;
     $('#sbMail').textContent = c.mail;
     $('#rdRegistro').textContent = m.razao + ' · CNPJ ' + m.cnpj;
-    const dif = c.nome !== PADRAO.nome;
+    const dif = c.nome !== PADRAO.nome || c.tel !== PADRAO.tel || c.mail !== PADRAO.mail;
     const av = $('#avisoPdf');
     av.hidden = !dif;
     if (dif) {
-      av.innerHTML = 'Os guias em PDF abaixo estão assinados por <strong>' + esc(PADRAO.nome) +
-        '</strong>. Para gerá-los no seu nome, altere <code>corretor.json</code> e rode os ' +
-        'geradores de novo — está explicado no <code>LEIAME.md</code> do repositório.';
+      av.innerHTML = 'Os guias abaixo saem assinados por <strong>' + esc(c.nome) + '</strong> — ' +
+        esc(c.tel) + ' · ' + esc(c.mail) + '. O nome é aplicado no PDF no momento do download.';
     }
   }
 
   const dlg = $('#dlgCorretor'), form = $('#formCorretor');
-  $('#btnEditar').addEventListener('click', () => {
+  const abrirEditor = () => {
     form.nome.value = corretor.nome; form.cargo.value = corretor.cargo;
     form.tel.value = corretor.tel; form.mail.value = corretor.mail;
     $('#dlgNota').textContent = '';
     dlg.showModal();
-  });
+  };
+  $('#btnEditar').addEventListener('click', abrirEditor);
+  $('#btnEditarTopo').addEventListener('click', abrirEditor);
   form.addEventListener('submit', e => {
     e.preventDefault();
     const c = limpo({nome: form.nome.value, cargo: form.cargo.value,
@@ -110,6 +111,79 @@
   });
 
   aplicar(lido());
+
+  /* ---------------- o PDF sai com os dados de quem está usando ---------------- */
+  let mapaAssinaturas = null;
+  const ehPadrao = c => c.nome === PADRAO.nome && c.cargo === PADRAO.cargo &&
+                        c.tel === PADRAO.tel && c.mail === PADRAO.mail;
+  // as fontes padrão do PDF cobrem Latin-1; troca o que não couber
+  const paraLatin1 = s => (s || '').normalize('NFC').replace(/[^\x20-\xFF]/g,
+    ch => ch.normalize('NFD').replace(/[\u0300-\u036f]/g, '') || '?');
+
+  async function assinaturas() {
+    if (!mapaAssinaturas) {
+      const r = await fetch('assinaturas.json');
+      mapaAssinaturas = await r.json();
+    }
+    return mapaAssinaturas;
+  }
+
+  function valorDo(campo, c) {
+    if (campo === 'nome') return c.nome;
+    if (campo === 'cargo') return c.cargo.toUpperCase();
+    if (campo === 'tel') return c.tel;
+    if (campo === 'mail') return c.mail;
+    if (campo === 'contato') return c.tel + '   \u00b7   ' + c.mail;
+    return '';
+  }
+
+  const hex = h => {
+    const n = parseInt(h.slice(1), 16);
+    return PDFLib.rgb(((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255);
+  };
+
+  async function baixarAssinado(url, arquivo, c) {
+    const mapa = await assinaturas();
+    const marcas = (mapa.marcas || {})[arquivo];
+    const bytes = await (await fetch(url)).arrayBuffer();
+    if (!marcas || !marcas.length || !window.PDFLib) {
+      return new Blob([bytes], {type: 'application/pdf'});
+    }
+    const doc = await PDFLib.PDFDocument.load(bytes);
+    const fonte = await doc.embedFont(PDFLib.StandardFonts.Helvetica);
+    const pgs = doc.getPages();
+    for (const m of marcas) {
+      const pg = pgs[m.pagina];
+      if (!pg) continue;
+      pg.drawRectangle({x: m.x - 1, y: m.y - m.tam * 0.28, width: m.largura,
+                        height: m.tam * 1.18, color: hex(m.fundo)});
+      pg.drawText(paraLatin1(valorDo(m.campo, c)),
+                  {x: m.x, y: m.y, size: m.tam, font: fonte, color: hex(m.cor)});
+    }
+    return new Blob([await doc.save()], {type: 'application/pdf'});
+  }
+
+  document.addEventListener('click', async e => {
+    const a = e.target.closest('a[download]');
+    if (!a) return;
+    const arquivo = a.getAttribute('download') || '';
+    if (!arquivo.toLowerCase().endsWith('.pdf') || ehPadrao(corretor)) return;
+    e.preventDefault();
+    if (a.classList.contains('baixando')) return;
+    a.classList.add('baixando');
+    try {
+      const blob = await baixarAssinado(a.getAttribute('href'), arquivo, corretor);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url; link.download = arquivo;
+      document.body.appendChild(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+    } catch (err) {
+      window.location.href = a.getAttribute('href');   // se algo falhar, baixa o original
+    } finally {
+      a.classList.remove('baixando');
+    }
+  });
 
   /* ---------------- mapa de satélite ---------------- */
   const sat = D.sat, pr = D.pr;

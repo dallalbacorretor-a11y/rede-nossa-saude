@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="estilo.css?v=2d3ad8db">
+<link rel="stylesheet" href="estilo.css?v=838be47f">
 </head>
 <body>
 
@@ -42,6 +42,7 @@
   <a href="#exames">Exames</a>
   <a href="#buscar">Buscar</a>
   <a href="#sobre">Sobre</a>
+  <button class="nav-editar" id="btnEditarTopo" type="button">Meus dados</button>
   <a class="nav-zap" id="navZap" href="#" target="_blank" rel="noopener">Falar comigo</a>
 </div></nav>
 
@@ -126,7 +127,7 @@
   <form method="dialog" id="formCorretor">
     <h2>Quem assina este material</h2>
     <p class="dlg-sub">A corretora é sempre <strong>Mazza Broker</strong>. Troque abaixo os dados do
-      corretor — ficam salvos neste navegador.</p>
+      corretor: valem para a página e também para os guias em PDF, que saem assinados com eles.</p>
     <label>Nome<input name="nome" type="text" required maxlength="60" autocomplete="name"></label>
     <label>Função<input name="cargo" type="text" maxlength="40"></label>
     <label>Telefone / WhatsApp<input name="tel" type="text" maxlength="24" inputmode="tel"></label>
@@ -146,7 +147,8 @@
   <span>Falar comigo</span>
 </a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <script src="dados.js?v=53e28e42"></script>
-<script src="app.js?v=f1f2b436"></script>
+<script src="app.js?v=745e75f1"></script>
 </body>
 </html>

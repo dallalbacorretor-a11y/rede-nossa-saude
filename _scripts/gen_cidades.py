@@ -198,14 +198,20 @@ def sec_final(f, escopo):
     f.tag_mazza(ML + 22, f.y - 58, 26)
     c.setFillColor(NAVY_CL); c.setFont(SANB, 7.6)
     c.drawString(ML + 130, f.y - 26, CORRETOR_CARGO.upper())
+    f.registrar('cargo', ML + 130, f.y - 26, 7.6, '#C9A08F', '#332D2B', 260, )
     c.setFillColor(__import__('reportlab').lib.colors.white); c.setFont(SAN, 11)
     c.drawString(ML + 130, f.y - 42, CORRETOR)
+    f.registrar('nome', ML + 130, f.y - 42, 11, '#FFFFFF', '#332D2B', 320)
     c.setFillColor(NAVY_CL); c.setFont(SAN, 9)
     c.drawString(ML + 130, f.y - 58, '%s   ·   %s' % (CORRETOR_TEL, CORRETOR_MAIL))
+    f.registrar('contato', ML + 130, f.y - 58, 9, '#C9A08F', '#332D2B', 360)
     f.y -= 92
 
 
 # ---------------------------------------------------------------- documentos
+ASSINATURAS = {}
+
+
 def pdf_cidade(cid):
     lst = [r for r in ITENS if r['cidade'] == cid]
     nome = 'Nossa Saúde - %s.pdf' % cid
@@ -220,6 +226,7 @@ def pdf_cidade(cid):
     sec_clinicas(f, lst, por_cidade=False)
     sec_medicos(f, lst, por_cidade=False)
     sec_final(f, cid)
+    ASSINATURAS[nome] = f.assinatura
     f.salvar()
     return path, len(lst)
 
@@ -261,6 +268,7 @@ def pdf_regiao():
     sec_clinicas(f, ITENS, por_cidade=True)
     sec_medicos(f, ITENS, por_cidade=True)
     sec_final(f, 'na região')
+    ASSINATURAS[nome] = f.assinatura
     f.salvar()
     return path, len(ITENS)
 
@@ -273,6 +281,7 @@ if __name__ == '__main__':
     for velho in os.listdir(P_CID):
         os.remove(os.path.join(P_CID, velho))
 
+    assinaturas = {}
     indice = []
     for cid in CIDADES:
         p, n = pdf_cidade(cid)
@@ -292,3 +301,11 @@ if __name__ == '__main__':
         shutil.copy2(p, os.path.join(SITE_ARQ, os.path.basename(p)))
     json.dump(indice, open(os.path.join(AQUI, 'indice_cidades.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
+    json.dump({'padrao': {'nome': CORRETOR, 'cargo': CORRETOR_CARGO,
+                          'tel': CORRETOR_TEL, 'mail': CORRETOR_MAIL},
+               'marcas': ASSINATURAS},
+              open(os.path.join(AQUI, 'assinaturas.json'), 'w', encoding='utf-8'),
+              ensure_ascii=False, indent=1)
+    if os.path.isdir(SITE_ARQ):
+        shutil.copy2(os.path.join(AQUI, 'assinaturas.json'),
+                     os.path.join(os.path.dirname(SITE_ARQ), 'assinaturas.json'))

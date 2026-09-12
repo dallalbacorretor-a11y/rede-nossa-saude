@@ -1,0 +1,690 @@
+{
+ "padrao": {
+  "nome": "Alan Vinicius Dall Alba",
+  "cargo": "Corretor de saúde",
+  "tel": "(41) 99547-6715",
+  "mail": "alan.vinicius@mazzabroker.com.br"
+ },
+ "marcas": {
+  "Nossa Saúde - Ponta Grossa.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 26,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 26,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 26,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Telêmaco Borba.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 12,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 12,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 12,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Jaguariaíva.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 7,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 7,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 7,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Castro.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 6,
+    "x": 168,
+    "y": 327.1,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 6,
+    "x": 168,
+    "y": 311.1,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 6,
+    "x": 168,
+    "y": 295.1,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Irati.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 6,
+    "x": 168,
+    "y": 327.1,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 6,
+    "x": 168,
+    "y": 311.1,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 6,
+    "x": 168,
+    "y": 295.1,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Palmeira.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 5,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 5,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 5,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Carambeí.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 6,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 6,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 6,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Prudentópolis.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 5,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 5,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 5,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Piraí do Sul.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 5,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 5,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 5,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ],
+  "Nossa Saúde - Campos Gerais.pdf": [
+   {
+    "campo": "nome",
+    "pagina": 0,
+    "x": 84,
+    "y": 100,
+    "tam": 9,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "mail",
+    "pagina": 0,
+    "x": 84,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 190,
+    "alinha": "esq"
+   },
+   {
+    "campo": "tel",
+    "pagina": 0,
+    "x": 284,
+    "y": 84,
+    "tam": 8.6,
+    "cor": "#C4B5AC",
+    "fundo": "#332D2B",
+    "largura": 150,
+    "alinha": "esq"
+   },
+   {
+    "campo": "cargo",
+    "pagina": 49,
+    "x": 168,
+    "y": 314.5,
+    "tam": 7.6,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 260,
+    "alinha": "esq"
+   },
+   {
+    "campo": "nome",
+    "pagina": 49,
+    "x": 168,
+    "y": 298.5,
+    "tam": 11,
+    "cor": "#FFFFFF",
+    "fundo": "#332D2B",
+    "largura": 320,
+    "alinha": "esq"
+   },
+   {
+    "campo": "contato",
+    "pagina": 49,
+    "x": 168,
+    "y": 282.5,
+    "tam": 9,
+    "cor": "#C9A08F",
+    "fundo": "#332D2B",
+    "largura": 360,
+    "alinha": "esq"
+   }
+  ]
+ }
+}

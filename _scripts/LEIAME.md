@@ -17,10 +17,15 @@ Abra **`corretor.json`** nesta pasta, troque os dados e rode de novo os geradore
 
 A corretora **Mazza Broker** é fixa (está em `corretor.py`) e não muda.
 
-No site publicado dá para trocar sem rodar nada: o cartão de contato tem o botão **Editar meus
-dados**, que guarda no navegador e gera um link `?c=...` para mandar a outro corretor. Os PDFs, por
-serem arquivos prontos, continuam com o nome de quem os gerou — para mudar neles, é pelo
-`corretor.json`.
+No site publicado dá para trocar sem rodar nada: **Meus dados** (na barra de navegação ou no cartão
+de contato) guarda os dados no navegador e gera um link `?c=...` para mandar a outro corretor.
+**Os PDFs acompanham**: no momento do download o site reescreve a assinatura dentro do arquivo,
+usando `assinaturas.json` (mapa de onde cada dado foi impresso, gerado junto com os PDFs) e a
+biblioteca pdf-lib. Se o navegador não conseguir carregar a biblioteca, o download cai no arquivo
+original, com o nome de quem gerou.
+
+O `corretor.json` continua sendo o caminho para mudar de vez — inclusive nos arquivos que ficam no
+computador, fora do site.
 
 
 Rodar dentro desta pasta `_scripts`. Precisa de `requests`, `pdfplumber`, `openpyxl`, `reportlab`

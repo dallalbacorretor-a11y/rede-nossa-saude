@@ -101,7 +101,13 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
   color:var(--texto-2);text-decoration:none;padding:15px 13px;white-space:nowrap;
   border-bottom:2px solid transparent}
 .navegacao a:hover{color:var(--texto);border-bottom-color:var(--ouro)}
-.nav-zap{margin-left:auto;color:var(--royal)!important}
+.nav-editar{margin-left:auto;font:inherit;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--texto-2);background:none;
+  border:1px solid var(--regra-forte);border-radius:2px;padding:7px 13px;cursor:pointer;
+  white-space:nowrap;margin-right:4px}
+.nav-editar:hover{border-color:var(--laranja);color:var(--laranja)}
+.nav-zap{color:var(--royal)!important}
+.baixando{opacity:.55;pointer-events:none}
 
 /* ---------- atlas ---------- */
 .atlas{padding:52px 0 64px}

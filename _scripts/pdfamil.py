@@ -73,6 +73,15 @@ class Folha:
         self.pg = 0
         self.y = 0
         self._cols = None
+        self.assinatura = []   # onde os dados do corretor foram impressos (para troca no site)
+
+    def registrar(self, campo, x, y, tam, cor, fundo, largura, alinha='esq'):
+        """Guarda a posicao de um dado do corretor. Coordenadas com origem embaixo,
+        iguais as do PDF, para o navegador poder redesenhar por cima."""
+        self.assinatura.append({
+            'campo': campo, 'pagina': self.pg, 'x': round(x, 1), 'y': round(y, 1),
+            'tam': tam, 'cor': cor, 'fundo': fundo, 'largura': round(largura, 1), 'alinha': alinha,
+        })
 
     # ------------------------------------------------------------ marca
     def tag_mazza(self, x, y, h=34, escala=1.0):
@@ -133,9 +142,12 @@ class Folha:
         self.tag_mazza(x, 120, 34)
         c.setFillColor(white); c.setFont(SAN, 9)
         c.drawString(x, 100, contato[0])
+        self.registrar('nome', x, 100, 9, '#FFFFFF', '#332D2B', 260)
         c.setFillColor(HexColor('#C4B5AC')); c.setFont(SAN, 8.6)
         c.drawString(x, 84, contato[1])
+        self.registrar('mail', x, 84, 8.6, '#C4B5AC', '#332D2B', 190)
         c.drawString(x + 200, 84, contato[2])
+        self.registrar('tel', x + 200, 84, 8.6, '#C4B5AC', '#332D2B', 150)
         c.showPage()
 
     # ------------------------------------------------------------ moldura
