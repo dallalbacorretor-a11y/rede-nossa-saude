@@ -11,12 +11,15 @@ P02 = os.path.join(BASE, '02 - COMPARATIVOS DE REDE')
 P_CID = os.path.join(BASE, '02 - COMPARATIVOS DE REDE', 'Rede por cidade')
 SITE_ARQ = os.path.join(AQUI, 'site', 'arquivos')
 
+import corretor as CO
+
 OPERADORA = 'Nossa Saúde'
 OPER_CNPJ = '02.862.447/0001-03'
 REGIAO = 'Campos Gerais'
-CORRETOR = 'Alan Vinicius Dall Alba'
-CORRETOR_TEL = '(41) 99547-6715'
-CORRETOR_MAIL = 'alan.vinicius@mazzabroker.com.br'
+CORRETOR = CO.NOME
+CORRETOR_CARGO = CO.CARGO
+CORRETOR_TEL = CO.TEL
+CORRETOR_MAIL = CO.MAIL
 DATA_LONGA = '10 de setembro de 2026'
 FONTE_CAPA = ('Levantado na rede credenciada oficial da Nossa Saúde em ' + DATA_LONGA +
               ', considerando todos os planos da operadora.')
@@ -194,7 +197,7 @@ def sec_final(f, escopo):
     c.setFillColor(OURO); c.rect(ML, f.y - 78, 3.4, 78, stroke=0, fill=1)
     f.tag_mazza(ML + 22, f.y - 58, 26)
     c.setFillColor(NAVY_CL); c.setFont(SANB, 7.6)
-    c.drawString(ML + 130, f.y - 26, 'CORRETOR DE SAÚDE')
+    c.drawString(ML + 130, f.y - 26, CORRETOR_CARGO.upper())
     c.setFillColor(__import__('reportlab').lib.colors.white); c.setFont(SAN, 11)
     c.drawString(ML + 130, f.y - 42, CORRETOR)
     c.setFillColor(NAVY_CL); c.setFont(SAN, 9)

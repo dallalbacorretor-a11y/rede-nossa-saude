@@ -2,6 +2,7 @@
 """Site da rede credenciada — atlas com imagem de satélite e galeria de guias."""
 import os, sys, json, shutil, re, math, hashlib
 from urllib.parse import quote
+import corretor as CO
 sys.stdout.reconfigure(encoding='utf-8')
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -15,8 +16,8 @@ ITENS, CIDADES, EXAMES = D['itens'], D['cidades'], D['exames']
 META = {
     'operadora': 'Nossa Saúde', 'razao': 'Nossa Saúde Operadora de Planos Privados de Saúde',
     'cnpj': '02.862.447/0001-03', 'data': '10 de setembro de 2026',
-    'corretor': 'Alan Vinicius Dall Alba', 'tel': '(41) 99547-6715', 'whats': '5541995476715',
-    'mail': 'alan.vinicius@mazzabroker.com.br',
+    'corretora': CO.CORRETORA,
+    'corretor': CO.NOME, 'cargo': CO.CARGO, 'tel': CO.TEL, 'whats': CO.WHATS, 'mail': CO.MAIL,
     'satelite': SAT['atribuicao'],
     'fonte': ('Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada em '
               '10 de setembro de 2026 sem filtro de plano.'),
@@ -155,7 +156,7 @@ INDEX = r"""<!doctype html>
   <div class="wrap topo">
     <div class="marca">
       <span class="selo">Mazza<i>Broker</i></span>
-      <span class="registro">Corretora de saúde · Alan Vinicius Dall Alba</span>
+      <span class="registro" id="registroTopo"></span>
     </div>
     <a class="fone" id="foneTopo" href="#"></a>
   </div>
@@ -197,6 +198,7 @@ INDEX = r"""<!doctype html>
     <p>Um documento por cidade, pronto para mandar no WhatsApp: hospitais, exames por natureza,
       clínicas e médicos por especialidade. Clique na capa para baixar.</p>
   </div>
+  <p class="aviso-pdf" id="avisoPdf" hidden></p>
   <div class="galeria" id="galeria"></div>
   <p class="extra-planilha" id="extraPlanilha"></p>
 </div></section>
@@ -241,10 +243,11 @@ INDEX = r"""<!doctype html>
   <aside class="cartao-contato">
     <span class="selo grande">Mazza<i>Broker</i></span>
     <p class="quem" id="sbQuem"></p>
-    <p class="funcao">Corretor de saúde</p>
+    <p class="funcao" id="sbCargo"></p>
     <a class="botao" id="sbZap" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     <a class="link-mail" id="sbMail" href="#"></a>
     <p class="mini" id="sbFonte"></p>
+    <button class="editar" id="btnEditar" type="button">Editar meus dados</button>
   </aside>
 </div></section>
 
@@ -252,6 +255,25 @@ INDEX = r"""<!doctype html>
   <p id="rdRegistro"></p>
   <p class="mini" id="rdAviso"></p>
 </div></footer>
+
+<dialog id="dlgCorretor" class="dlg">
+  <form method="dialog" id="formCorretor">
+    <h2>Quem assina este material</h2>
+    <p class="dlg-sub">A corretora é sempre <strong>Mazza Broker</strong>. Troque abaixo os dados do
+      corretor — ficam salvos neste navegador.</p>
+    <label>Nome<input name="nome" type="text" required maxlength="60" autocomplete="name"></label>
+    <label>Função<input name="cargo" type="text" maxlength="40"></label>
+    <label>Telefone / WhatsApp<input name="tel" type="text" maxlength="24" inputmode="tel"></label>
+    <label>E-mail<input name="mail" type="email" maxlength="80" autocomplete="email"></label>
+    <div class="dlg-acoes">
+      <button class="botao" value="salvar" type="submit">Salvar</button>
+      <button class="botao secundario" value="padrao" type="button" id="btnPadrao">Voltar ao padrão</button>
+      <button class="botao secundario" value="cancelar" type="button" id="btnFechar">Fechar</button>
+    </div>
+    <button class="dlg-link" type="button" id="btnLink">Copiar link com estes dados</button>
+    <p class="dlg-nota" id="dlgNota"></p>
+  </form>
+</dialog>
 
 <a class="zap" id="zapFlutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4l-.6-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4H9z"/></svg>
@@ -583,6 +605,33 @@ input[type=search]::placeholder{color:var(--texto-3)}
 .rodape p{margin:0}
 .rodape .mini{font-size:11.5px;color:#8A7B73;margin-top:10px;max-width:90ch;line-height:1.6}
 .rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#C9B9B0}
+.editar{margin-top:18px;width:100%;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;background:transparent;color:var(--ouro-cl);cursor:pointer;
+  border:1px solid rgba(255,255,255,.28);padding:10px 12px}
+.editar:hover{border-color:var(--ouro-cl);background:rgba(255,255,255,.05)}
+.aviso-pdf{margin:0 0 20px;font-size:13.5px;color:var(--texto-2);background:var(--laranja-suave);
+  border-left:3px solid var(--laranja);padding:12px 15px;line-height:1.45}
+
+.dlg{border:none;padding:0;max-width:430px;width:calc(100% - 32px);background:var(--superficie);
+  color:var(--texto);box-shadow:var(--sombra-alta);border-top:4px solid var(--laranja)}
+.dlg::backdrop{background:rgba(38,28,22,.55)}
+.dlg form{padding:26px 28px 24px;display:flex;flex-direction:column;gap:13px}
+.dlg h2{font-family:var(--serif);font-size:25px;font-weight:400;letter-spacing:-.02em}
+.dlg-sub{margin:0;font-size:13.5px;color:var(--texto-2);line-height:1.5}
+.dlg-sub strong{color:var(--texto)}
+.dlg label{display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--texto-3)}
+.dlg input{font:inherit;font-family:var(--sans);font-size:15px;text-transform:none;letter-spacing:0;
+  color:var(--texto);background:var(--papel-2);border:1px solid var(--regra-forte);padding:10px 12px;
+  border-radius:2px}
+.dlg input:focus{outline:2px solid var(--laranja);outline-offset:1px}
+.dlg-acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.dlg-acoes .botao{flex:1 1 auto;justify-content:center;padding:11px 14px;font-size:13.5px}
+.dlg-link{background:none;border:none;padding:4px 0;text-align:left;cursor:pointer;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--royal)}
+.dlg-nota{margin:0;font-size:12.5px;color:var(--texto-3);min-height:18px}
+
 .zap{position:fixed;right:18px;bottom:18px;z-index:50;display:inline-flex;align-items:center;
   gap:9px;background:#1FA855;color:#fff;text-decoration:none;padding:12px 17px;border-radius:40px;
   box-shadow:0 6px 22px -6px rgba(0,0,0,.5);font-size:14px;font-weight:600}
@@ -619,8 +668,6 @@ APP = r"""(function () {
   const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const plural = (n, s, p) => n + ' ' + (n === 1 ? s : p);
-  const zap = 'https://wa.me/' + m.whats + '?text=' +
-    encodeURIComponent('Olá Alan! Vi o atlas da rede Nossa Saúde e quero saber mais.');
 
   D.itens.forEach(i => {
     i._b = norm([i.n, i.rz, i.t, i.doc, i.e.join(' '), i.end.join(' '), i.cc.join(' '), i.c].join(' '));
@@ -628,13 +675,105 @@ APP = r"""(function () {
   const total = D.itens.length;
   const porCidade = c => D.cidades.find(x => x.nome === c);
 
-  $('#foneTopo').href = zap;
-  $('#foneTopo').textContent = m.tel;
-  $('#navZap').href = zap;
-  $('#zapFlutuante').href = zap;
   $('#carimbo').textContent = m.razao + ' · CNPJ ' + m.cnpj + ' — ' + total +
     ' prestadores levantados em ' + m.data + ', somando todos os planos da operadora.';
   $('#creditoSat').textContent = 'Imagens de satélite: ' + m.satelite;
+
+  /* ---------------- quem assina (a corretora é fixa) ---------------- */
+  const PADRAO = {nome: m.corretor, cargo: m.cargo, tel: m.tel, mail: m.mail};
+  const CHAVE = 'corretor.nossasaude.cg';
+  let corretor = Object.assign({}, PADRAO);
+
+  const soDigitos = s => (s || '').replace(/\D/g, '');
+  const paraWhats = tel => {
+    const d = soDigitos(tel);
+    if (!d) return m.whats;
+    return d.length <= 11 ? '55' + d : d;
+  };
+  const limpo = o => ({
+    nome: (o.nome || '').trim().slice(0, 60) || PADRAO.nome,
+    cargo: (o.cargo || '').trim().slice(0, 40) || PADRAO.cargo,
+    tel: (o.tel || '').trim().slice(0, 24) || PADRAO.tel,
+    mail: (o.mail || '').trim().slice(0, 80) || PADRAO.mail,
+  });
+
+  function guardar(c) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(c)); } catch (e) { /* modo privado */ }
+  }
+  function lido() {
+    const p = new URLSearchParams(location.search).get('c');
+    if (p) {
+      try { return limpo(JSON.parse(decodeURIComponent(escape(atob(p.replace(/-/g, '+').replace(/_/g, '/')))))); }
+      catch (e) { /* link inválido, segue o padrão */ }
+    }
+    try {
+      const s = localStorage.getItem(CHAVE);
+      if (s) return limpo(JSON.parse(s));
+    } catch (e) { /* modo privado */ }
+    return Object.assign({}, PADRAO);
+  }
+  const paraLink = c => location.origin + location.pathname + '?c=' +
+    btoa(unescape(encodeURIComponent(JSON.stringify(c)))).replace(/\+/g, '-').replace(/\//g, '_');
+
+  function aplicar(c) {
+    corretor = c;
+    const zapUrl = 'https://wa.me/' + paraWhats(c.tel) + '?text=' +
+      encodeURIComponent('Olá ' + c.nome.split(' ')[0] +
+        '! Vi o atlas da rede Nossa Saúde e quero saber mais.');
+    $('#foneTopo').href = zapUrl;
+    $('#foneTopo').textContent = c.tel;
+    $('#navZap').href = zapUrl;
+    $('#zapFlutuante').href = zapUrl;
+    $('#registroTopo').textContent = c.cargo + ' · ' + c.nome;
+    $('#sbQuem').textContent = c.nome;
+    $('#sbCargo').textContent = c.cargo;
+    $('#sbZap').href = zapUrl;
+    $('#sbMail').href = 'mailto:' + c.mail;
+    $('#sbMail').textContent = c.mail;
+    $('#rdRegistro').textContent = m.razao + ' · CNPJ ' + m.cnpj;
+    const dif = c.nome !== PADRAO.nome;
+    const av = $('#avisoPdf');
+    av.hidden = !dif;
+    if (dif) {
+      av.innerHTML = 'Os guias em PDF abaixo estão assinados por <strong>' + esc(PADRAO.nome) +
+        '</strong>. Para gerá-los no seu nome, altere <code>corretor.json</code> e rode os ' +
+        'geradores de novo — está explicado no <code>LEIAME.md</code> do repositório.';
+    }
+  }
+
+  const dlg = $('#dlgCorretor'), form = $('#formCorretor');
+  $('#btnEditar').addEventListener('click', () => {
+    form.nome.value = corretor.nome; form.cargo.value = corretor.cargo;
+    form.tel.value = corretor.tel; form.mail.value = corretor.mail;
+    $('#dlgNota').textContent = '';
+    dlg.showModal();
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const c = limpo({nome: form.nome.value, cargo: form.cargo.value,
+                     tel: form.tel.value, mail: form.mail.value});
+    guardar(c); aplicar(c); dlg.close();
+  });
+  $('#btnPadrao').addEventListener('click', () => {
+    try { localStorage.removeItem(CHAVE); } catch (e) { /* modo privado */ }
+    history.replaceState(null, '', location.pathname);
+    aplicar(Object.assign({}, PADRAO));
+    dlg.close();
+  });
+  $('#btnFechar').addEventListener('click', () => dlg.close());
+  $('#btnLink').addEventListener('click', async () => {
+    const c = limpo({nome: form.nome.value, cargo: form.cargo.value,
+                     tel: form.tel.value, mail: form.mail.value});
+    const url = paraLink(c);
+    try {
+      await navigator.clipboard.writeText(url);
+      $('#dlgNota').textContent = 'Link copiado. Quem abrir por ele vê a página com esses dados.';
+    } catch (e) {
+      $('#dlgNota').textContent = url;
+    }
+  });
+
+  aplicar(lido());
 
   /* ---------------- mapa de satélite ---------------- */
   const sat = D.sat, pr = D.pr;
@@ -876,13 +1015,8 @@ APP = r"""(function () {
     <h3>Fonte</h3>
     <p>${esc(m.fonte)} Imagens de satélite: ${esc(m.satelite)}.</p>`;
 
-  $('#sbQuem').textContent = m.corretor;
-  $('#sbZap').href = zap;
-  $('#sbMail').href = 'mailto:' + m.mail;
-  $('#sbMail').textContent = m.mail;
   $('#sbFonte').textContent = 'Material informativo. A contratação e as condições de cada plano ' +
     'seguem as regras da operadora e da ANS.';
-  $('#rdRegistro').textContent = m.razao + ' · CNPJ ' + m.cnpj;
   $('#rdAviso').textContent = m.fonte + ' ' + m.aviso;
 })();
 """

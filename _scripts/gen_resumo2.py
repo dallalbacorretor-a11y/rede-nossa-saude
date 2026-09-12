@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, sys, json, collections
 sys.stdout.reconfigure(encoding='utf-8')
+import corretor as CO
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 BASE = r'C:\Users\Dalla\OneDrive\Desktop\NOSSA SAÚDE\ESTUDO CAMPOS GERAIS'
@@ -37,8 +38,8 @@ w('da Nossa Saúde naquela cidade por algum plano da operadora. É a visão que 
 w('primeiro — "o que a Nossa Saúde tem aqui na minha cidade".')
 w('')
 w('Entrega principal: **um PDF por cidade**, no padrão visual dos materiais Amil da corretora')
-w('(capa navy, "a sua rede em números", hospitais, exames por natureza, clínicas e médicos por')
-w('especialidade). Mais o PDF da região inteira, a planilha e o site com download por cidade.')
+w('(capa nas cores da operadora, "a sua rede em números", hospitais, exames por natureza,')
+w('clínicas e médicos por especialidade). Mais o PDF da região, a planilha e o site.')
 w('')
 w('## A rede em números')
 w('')
@@ -52,7 +53,7 @@ for cid in CIDADES:
          sum(1 for i in lst if i['categoria'] == CATS[1]),
          sum(1 for i in lst if i['categoria'] == CATS[3])]
     tot = [a + b for a, b in zip(tot, n)]
-    w('| %s | %s | %s | %s | %s | **%d** | `Rede Nossa Saude - %s.pdf` |'
+    w('| %s | %s | %s | %s | %s | **%d** | `Nossa Saúde - %s.pdf` |'
       % (cid, n[0] or '—', n[1] or '—', n[2] or '—', n[3] or '—', len(lst), cid))
 w('| **TOTAL** | **%d** | **%d** | **%d** | **%d** | **%d** | |' % (tot[0], tot[1], tot[2], tot[3], len(ITENS)))
 w('')
@@ -114,7 +115,7 @@ w('python scrape.py "" TODOS      # baixa o PDF oficial de cada cidade, sem filt
 w('python build_unico.py          # parseia -> dados_unico.json')
 w('python gen_cidades.py          # os 9 PDFs de cidade + o PDF da região')
 w('python gen_xlsx2.py            # a planilha')
-w('python gen_site2.py            # o site')
+w('python gen_site4.py            # o site')
 w('```')
 w('')
 w('Depois é só `git add -A && git commit && git push` na pasta `04 - SITE` — o GitHub Pages')
@@ -122,16 +123,26 @@ w('republica sozinho.')
 w('')
 w('## Arquivos')
 w('')
-w('- `01 - REDE CREDENCIADA/Nossa Saúde/REDE NOSSA SAUDE - CAMPOS GERAIS.xlsx` — rede completa,')
+w('- `01 - REDE CREDENCIADA/Nossa Saúde/Nossa Saúde - Campos Gerais.xlsx` — rede completa,')
 w('  resumo e uma aba por cidade.')
 w('- `02 - COMPARATIVOS DE REDE/Rede por cidade/` — **os 9 PDFs por cidade** (é o que vai pro cliente).')
-w('- `02 - COMPARATIVOS DE REDE/Rede Nossa Saude - Campos Gerais (9 cidades).pdf` — a região inteira.')
+w('- `02 - COMPARATIVOS DE REDE/Nossa Saúde - Campos Gerais.pdf` — a região inteira.')
 w('- `03 - MATERIAIS ORIGINAIS .../Nossa Saúde/` — PDFs oficiais da operadora e o mapa de cobertura.')
 w('- `04 - SITE/` — o site publicado no GitHub Pages.')
 w('')
+w('## Quem assina o material')
+w('')
+w('O nome do corretor sai de `04 - SITE/_scripts/corretor.json`. Edite o arquivo e rode os')
+w('geradores de novo — site, PDFs, planilha e este resumo saem no nome novo. A corretora')
+w('**%s** é fixa e não muda.' % CO.CORRETORA)
+w('')
+w('No site ainda dá para trocar sem regerar nada: o cartão de contato tem o botão')
+w('**Editar meus dados**, que guarda no navegador e monta um link personalizado para mandar a')
+w('outro corretor. Os PDFs, por serem arquivos prontos, continuam com o nome de quem os gerou.')
+w('')
 w('---')
 w('')
-w('Mazza Broker · Alan Vinicius Dall Alba · (41) 99547-6715 · alan.vinicius@mazzabroker.com.br')
+w('%s · %s · %s · %s' % (CO.CORRETORA, CO.NOME, CO.TEL, CO.MAIL))
 
 open(os.path.join(P01, 'RESUMO.md'), 'w', encoding='utf-8').write('\n'.join(L) + '\n')
 print('OK', os.path.join(P01, 'RESUMO.md'))

@@ -4,8 +4,6 @@
   const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const plural = (n, s, p) => n + ' ' + (n === 1 ? s : p);
-  const zap = 'https://wa.me/' + m.whats + '?text=' +
-    encodeURIComponent('Olá Alan! Vi o atlas da rede Nossa Saúde e quero saber mais.');
 
   D.itens.forEach(i => {
     i._b = norm([i.n, i.rz, i.t, i.doc, i.e.join(' '), i.end.join(' '), i.cc.join(' '), i.c].join(' '));
@@ -13,13 +11,105 @@
   const total = D.itens.length;
   const porCidade = c => D.cidades.find(x => x.nome === c);
 
-  $('#foneTopo').href = zap;
-  $('#foneTopo').textContent = m.tel;
-  $('#navZap').href = zap;
-  $('#zapFlutuante').href = zap;
   $('#carimbo').textContent = m.razao + ' · CNPJ ' + m.cnpj + ' — ' + total +
     ' prestadores levantados em ' + m.data + ', somando todos os planos da operadora.';
   $('#creditoSat').textContent = 'Imagens de satélite: ' + m.satelite;
+
+  /* ---------------- quem assina (a corretora é fixa) ---------------- */
+  const PADRAO = {nome: m.corretor, cargo: m.cargo, tel: m.tel, mail: m.mail};
+  const CHAVE = 'corretor.nossasaude.cg';
+  let corretor = Object.assign({}, PADRAO);
+
+  const soDigitos = s => (s || '').replace(/\D/g, '');
+  const paraWhats = tel => {
+    const d = soDigitos(tel);
+    if (!d) return m.whats;
+    return d.length <= 11 ? '55' + d : d;
+  };
+  const limpo = o => ({
+    nome: (o.nome || '').trim().slice(0, 60) || PADRAO.nome,
+    cargo: (o.cargo || '').trim().slice(0, 40) || PADRAO.cargo,
+    tel: (o.tel || '').trim().slice(0, 24) || PADRAO.tel,
+    mail: (o.mail || '').trim().slice(0, 80) || PADRAO.mail,
+  });
+
+  function guardar(c) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(c)); } catch (e) { /* modo privado */ }
+  }
+  function lido() {
+    const p = new URLSearchParams(location.search).get('c');
+    if (p) {
+      try { return limpo(JSON.parse(decodeURIComponent(escape(atob(p.replace(/-/g, '+').replace(/_/g, '/')))))); }
+      catch (e) { /* link inválido, segue o padrão */ }
+    }
+    try {
+      const s = localStorage.getItem(CHAVE);
+      if (s) return limpo(JSON.parse(s));
+    } catch (e) { /* modo privado */ }
+    return Object.assign({}, PADRAO);
+  }
+  const paraLink = c => location.origin + location.pathname + '?c=' +
+    btoa(unescape(encodeURIComponent(JSON.stringify(c)))).replace(/\+/g, '-').replace(/\//g, '_');
+
+  function aplicar(c) {
+    corretor = c;
+    const zapUrl = 'https://wa.me/' + paraWhats(c.tel) + '?text=' +
+      encodeURIComponent('Olá ' + c.nome.split(' ')[0] +
+        '! Vi o atlas da rede Nossa Saúde e quero saber mais.');
+    $('#foneTopo').href = zapUrl;
+    $('#foneTopo').textContent = c.tel;
+    $('#navZap').href = zapUrl;
+    $('#zapFlutuante').href = zapUrl;
+    $('#registroTopo').textContent = c.cargo + ' · ' + c.nome;
+    $('#sbQuem').textContent = c.nome;
+    $('#sbCargo').textContent = c.cargo;
+    $('#sbZap').href = zapUrl;
+    $('#sbMail').href = 'mailto:' + c.mail;
+    $('#sbMail').textContent = c.mail;
+    $('#rdRegistro').textContent = m.razao + ' · CNPJ ' + m.cnpj;
+    const dif = c.nome !== PADRAO.nome;
+    const av = $('#avisoPdf');
+    av.hidden = !dif;
+    if (dif) {
+      av.innerHTML = 'Os guias em PDF abaixo estão assinados por <strong>' + esc(PADRAO.nome) +
+        '</strong>. Para gerá-los no seu nome, altere <code>corretor.json</code> e rode os ' +
+        'geradores de novo — está explicado no <code>LEIAME.md</code> do repositório.';
+    }
+  }
+
+  const dlg = $('#dlgCorretor'), form = $('#formCorretor');
+  $('#btnEditar').addEventListener('click', () => {
+    form.nome.value = corretor.nome; form.cargo.value = corretor.cargo;
+    form.tel.value = corretor.tel; form.mail.value = corretor.mail;
+    $('#dlgNota').textContent = '';
+    dlg.showModal();
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const c = limpo({nome: form.nome.value, cargo: form.cargo.value,
+                     tel: form.tel.value, mail: form.mail.value});
+    guardar(c); aplicar(c); dlg.close();
+  });
+  $('#btnPadrao').addEventListener('click', () => {
+    try { localStorage.removeItem(CHAVE); } catch (e) { /* modo privado */ }
+    history.replaceState(null, '', location.pathname);
+    aplicar(Object.assign({}, PADRAO));
+    dlg.close();
+  });
+  $('#btnFechar').addEventListener('click', () => dlg.close());
+  $('#btnLink').addEventListener('click', async () => {
+    const c = limpo({nome: form.nome.value, cargo: form.cargo.value,
+                     tel: form.tel.value, mail: form.mail.value});
+    const url = paraLink(c);
+    try {
+      await navigator.clipboard.writeText(url);
+      $('#dlgNota').textContent = 'Link copiado. Quem abrir por ele vê a página com esses dados.';
+    } catch (e) {
+      $('#dlgNota').textContent = url;
+    }
+  });
+
+  aplicar(lido());
 
   /* ---------------- mapa de satélite ---------------- */
   const sat = D.sat, pr = D.pr;
@@ -261,12 +351,7 @@
     <h3>Fonte</h3>
     <p>${esc(m.fonte)} Imagens de satélite: ${esc(m.satelite)}.</p>`;
 
-  $('#sbQuem').textContent = m.corretor;
-  $('#sbZap').href = zap;
-  $('#sbMail').href = 'mailto:' + m.mail;
-  $('#sbMail').textContent = m.mail;
   $('#sbFonte').textContent = 'Material informativo. A contratação e as condições de cada plano ' +
     'seguem as regras da operadora e da ANS.';
-  $('#rdRegistro').textContent = m.razao + ' · CNPJ ' + m.cnpj;
   $('#rdAviso').textContent = m.fonte + ' ' + m.aviso;
 })();

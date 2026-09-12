@@ -317,6 +317,33 @@ input[type=search]::placeholder{color:var(--texto-3)}
 .rodape p{margin:0}
 .rodape .mini{font-size:11.5px;color:#8A7B73;margin-top:10px;max-width:90ch;line-height:1.6}
 .rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#C9B9B0}
+.editar{margin-top:18px;width:100%;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;background:transparent;color:var(--ouro-cl);cursor:pointer;
+  border:1px solid rgba(255,255,255,.28);padding:10px 12px}
+.editar:hover{border-color:var(--ouro-cl);background:rgba(255,255,255,.05)}
+.aviso-pdf{margin:0 0 20px;font-size:13.5px;color:var(--texto-2);background:var(--laranja-suave);
+  border-left:3px solid var(--laranja);padding:12px 15px;line-height:1.45}
+
+.dlg{border:none;padding:0;max-width:430px;width:calc(100% - 32px);background:var(--superficie);
+  color:var(--texto);box-shadow:var(--sombra-alta);border-top:4px solid var(--laranja)}
+.dlg::backdrop{background:rgba(38,28,22,.55)}
+.dlg form{padding:26px 28px 24px;display:flex;flex-direction:column;gap:13px}
+.dlg h2{font-family:var(--serif);font-size:25px;font-weight:400;letter-spacing:-.02em}
+.dlg-sub{margin:0;font-size:13.5px;color:var(--texto-2);line-height:1.5}
+.dlg-sub strong{color:var(--texto)}
+.dlg label{display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--texto-3)}
+.dlg input{font:inherit;font-family:var(--sans);font-size:15px;text-transform:none;letter-spacing:0;
+  color:var(--texto);background:var(--papel-2);border:1px solid var(--regra-forte);padding:10px 12px;
+  border-radius:2px}
+.dlg input:focus{outline:2px solid var(--laranja);outline-offset:1px}
+.dlg-acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.dlg-acoes .botao{flex:1 1 auto;justify-content:center;padding:11px 14px;font-size:13.5px}
+.dlg-link{background:none;border:none;padding:4px 0;text-align:left;cursor:pointer;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--royal)}
+.dlg-nota{margin:0;font-size:12.5px;color:var(--texto-3);min-height:18px}
+
 .zap{position:fixed;right:18px;bottom:18px;z-index:50;display:inline-flex;align-items:center;
   gap:9px;background:#1FA855;color:#fff;text-decoration:none;padding:12px 17px;border-radius:40px;
   box-shadow:0 6px 22px -6px rgba(0,0,0,.5);font-size:14px;font-weight:600}

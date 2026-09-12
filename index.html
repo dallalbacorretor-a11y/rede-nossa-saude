@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="estilo.css?v=7927c622">
+<link rel="stylesheet" href="estilo.css?v=2d3ad8db">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
   <div class="wrap topo">
     <div class="marca">
       <span class="selo">Mazza<i>Broker</i></span>
-      <span class="registro">Corretora de saúde · Alan Vinicius Dall Alba</span>
+      <span class="registro" id="registroTopo"></span>
     </div>
     <a class="fone" id="foneTopo" href="#"></a>
   </div>
@@ -64,6 +64,7 @@
     <p>Um documento por cidade, pronto para mandar no WhatsApp: hospitais, exames por natureza,
       clínicas e médicos por especialidade. Clique na capa para baixar.</p>
   </div>
+  <p class="aviso-pdf" id="avisoPdf" hidden></p>
   <div class="galeria" id="galeria"></div>
   <p class="extra-planilha" id="extraPlanilha"></p>
 </div></section>
@@ -108,10 +109,11 @@
   <aside class="cartao-contato">
     <span class="selo grande">Mazza<i>Broker</i></span>
     <p class="quem" id="sbQuem"></p>
-    <p class="funcao">Corretor de saúde</p>
+    <p class="funcao" id="sbCargo"></p>
     <a class="botao" id="sbZap" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     <a class="link-mail" id="sbMail" href="#"></a>
     <p class="mini" id="sbFonte"></p>
+    <button class="editar" id="btnEditar" type="button">Editar meus dados</button>
   </aside>
 </div></section>
 
@@ -120,12 +122,31 @@
   <p class="mini" id="rdAviso"></p>
 </div></footer>
 
+<dialog id="dlgCorretor" class="dlg">
+  <form method="dialog" id="formCorretor">
+    <h2>Quem assina este material</h2>
+    <p class="dlg-sub">A corretora é sempre <strong>Mazza Broker</strong>. Troque abaixo os dados do
+      corretor — ficam salvos neste navegador.</p>
+    <label>Nome<input name="nome" type="text" required maxlength="60" autocomplete="name"></label>
+    <label>Função<input name="cargo" type="text" maxlength="40"></label>
+    <label>Telefone / WhatsApp<input name="tel" type="text" maxlength="24" inputmode="tel"></label>
+    <label>E-mail<input name="mail" type="email" maxlength="80" autocomplete="email"></label>
+    <div class="dlg-acoes">
+      <button class="botao" value="salvar" type="submit">Salvar</button>
+      <button class="botao secundario" value="padrao" type="button" id="btnPadrao">Voltar ao padrão</button>
+      <button class="botao secundario" value="cancelar" type="button" id="btnFechar">Fechar</button>
+    </div>
+    <button class="dlg-link" type="button" id="btnLink">Copiar link com estes dados</button>
+    <p class="dlg-nota" id="dlgNota"></p>
+  </form>
+</dialog>
+
 <a class="zap" id="zapFlutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4l-.6-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4H9z"/></svg>
   <span>Falar comigo</span>
 </a>
 
-<script src="dados.js?v=b5350d83"></script>
-<script src="app.js?v=4540748b"></script>
+<script src="dados.js?v=53e28e42"></script>
+<script src="app.js?v=f1f2b436"></script>
 </body>
 </html>

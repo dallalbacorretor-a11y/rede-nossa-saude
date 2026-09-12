@@ -1,5 +1,28 @@
 # Pipeline — rede credenciada Nossa Saúde (Campos Gerais)
 
+## Trocar o nome do corretor
+
+Abra **`corretor.json`** nesta pasta, troque os dados e rode de novo os geradores (`gen_cidades.py`,
+`gen_xlsx2.py`, `gen_site4.py`, `gen_resumo2.py`). Site, PDFs, planilha e resumo saem no nome novo.
+
+```json
+{
+ "nome": "Alan Vinicius Dall Alba",
+ "cargo": "Corretor de saúde",
+ "telefone": "(41) 99547-6715",
+ "whatsapp": "5541995476715",
+ "email": "alan.vinicius@mazzabroker.com.br"
+}
+```
+
+A corretora **Mazza Broker** é fixa (está em `corretor.py`) e não muda.
+
+No site publicado dá para trocar sem rodar nada: o cartão de contato tem o botão **Editar meus
+dados**, que guarda no navegador e gera um link `?c=...` para mandar a outro corretor. Os PDFs, por
+serem arquivos prontos, continuam com o nome de quem os gerou — para mudar neles, é pelo
+`corretor.json`.
+
+
 Rodar dentro desta pasta `_scripts`. Precisa de `requests`, `pdfplumber`, `openpyxl`, `reportlab`
 (e `pymupdf` só se quiser rasterizar os PDFs para conferir).
 
@@ -84,4 +107,5 @@ Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso
 | `baixar_satelite.py` | baixa os tiles do Esri World Imagery e monta a imagem da regiao |
 | `gerar_capas.py` | rasteriza a capa de cada PDF para a galeria do site |
 | `tracar_mapa.py` | traca o contorno do Parana do mapa da operadora -> `mapa_pr.json` |
+| `corretor.py` / `corretor.json` | quem assina o material (a corretora e fixa) |
 | `map_planos.py`, `scrape_all.py`, `scrape_cg2.py`, `build_data2.py` | trilha rede-a-rede |

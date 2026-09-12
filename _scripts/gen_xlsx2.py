@@ -6,6 +6,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 sys.stdout.reconfigure(encoding='utf-8')
+import corretor as CO
 AQUI = os.path.dirname(os.path.abspath(__file__))
 BASE = r'C:\Users\Dalla\OneDrive\Desktop\NOSSA SAÚDE\ESTUDO CAMPOS GERAIS'
 P01 = os.path.join(BASE, '01 - REDE CREDENCIADA', 'Nossa Saúde')
@@ -115,7 +116,7 @@ wb = Workbook()
 # ------------------------------------------------ RESUMO
 ws = wb.active; ws.title = 'RESUMO'
 ws['A1'] = 'REDE CREDENCIADA — NOSSA SAÚDE'; ws['A1'].font = Font(size=18, bold=True, color=NAVY)
-ws['A2'] = 'Campos Gerais / PR · todos os planos somados numa rede só · Mazza Broker'
+ws['A2'] = 'Campos Gerais / PR · todos os planos somados numa rede só · ' + CO.CORRETORA
 ws['A2'].font = Font(size=11, bold=True, color=OURO)
 ws['A3'] = FONTE; ws['A3'].font = F_SUB
 ws['A4'] = AVISO; ws['A4'].font = F_SUB
@@ -158,8 +159,8 @@ for nat in EXAMES:
         c.font = F_B if j == 1 else F_TXT
     r += 1
 r += 2
-ws.cell(row=r, column=1, value='Contato: Alan Vinicius Dall Alba · (41) 99547-6715 · '
-                               'alan.vinicius@mazzabroker.com.br').font = F_SUB
+ws.cell(row=r, column=1, value='Contato: %s · %s · %s · %s'
+        % (CO.NOME, CO.CARGO, CO.TEL, CO.MAIL)).font = F_SUB
 
 # ------------------------------------------------ rede completa + cidades
 ordem_cat = lambda x: (CATS.index(x['categoria']), x['nome_exib'].lower())
