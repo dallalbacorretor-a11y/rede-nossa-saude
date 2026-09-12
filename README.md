@@ -1,4 +1,4 @@
-# Rede Credenciada Nossa Saúde — Campos Gerais
+# Atlas da Rede Nossa Saúde — Campos Gerais
 
 Site estático com a rede credenciada da **Nossa Saúde** nas 9 cidades dos Campos Gerais / PR:
 Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí, Prudentópolis e
@@ -10,11 +10,10 @@ Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 
 ## O que tem
 
-- **Um PDF por cidade** para baixar e mandar pro cliente, no padrão visual dos materiais da
-  corretora: rede em números, hospitais, exames por natureza, clínicas e médicos por especialidade
-- PDF da região inteira e planilha XLSX com uma aba por cidade
-- Busca por hospital, laboratório, médico, especialidade ou bairro
-- Tabelas de cobertura por cidade e por natureza de exame
+- Mapa do Paraná com as nove cidades: clique numa e veja os números e os hospitais dela
+- **Um guia em PDF por cidade** para mandar pro cliente, além do PDF da região e da planilha
+- Mapa de calor de onde fazer cada natureza de exame
+- Busca por prestador, especialidade, bairro ou cidade
 
 ## Números
 
@@ -23,25 +22,22 @@ Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 | Prestadores | 328 |
 | Cidades | 9 |
 | Hospitais para internação | 9 |
-| Laboratórios e imagem | 38 |
 | Consulta | 10 de setembro de 2026 |
 
-## Todos os planos numa lista só
+> A rede é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano específico.
 
-A operadora tem produtos que usam redes credenciadas diferentes. Este material soma todos eles:
-se um prestador aparece aqui, é credenciado da Nossa Saúde naquela cidade por algum plano.
-
-> A rede credenciada é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano específico.
-
-Rede Credenciada oficial da Nossa Saúde (prestador.nossasaude.com.br), consultada em 10 de setembro de 2026, sem filtro de plano.
+Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada em 10 de setembro de 2026 sem filtro de plano.
 
 ## Estrutura
 
 ```
-index.html      estilo.css      app.js      dados.js     (window.DADOS)
-arquivos/       xlsx, PDF da região
-arquivos/cidades/   um PDF por cidade
-_scripts/       pipeline que baixa a rede e regera tudo (ver _scripts/LEIAME.md)
+index.html   estilo.css   app.js   dados.js      (dados em window.DADOS)
+arquivos/            PDF da região e planilha
+arquivos/cidades/    um PDF por cidade
+_scripts/            pipeline que baixa a rede e regera tudo (ver _scripts/LEIAME.md)
 ```
 
-Sem build: é HTML/CSS/JS puro. GitHub Pages em `main`, pasta raiz.
+O contorno do Paraná é traçado a partir do mapa de cobertura da operadora por
+`_scripts/tracar_mapa.py`, e as cidades são posicionadas pelas coordenadas reais.
+
+Sem build: HTML, CSS e JS puros. GitHub Pages em `main`, pasta raiz.
