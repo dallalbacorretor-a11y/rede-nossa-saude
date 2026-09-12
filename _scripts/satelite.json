@@ -1,0 +1,11 @@
+{
+ "norte": -23.98,
+ "sul": -25.78,
+ "oeste": -51.42,
+ "leste": -49.34,
+ "largura": 1515,
+ "altura": 1445,
+ "zoom": 10,
+ "atribuicao": "Esri, Maxar, Earthstar Geographics",
+ "arquivo": "img/campos-gerais-satelite.jpg"
+}

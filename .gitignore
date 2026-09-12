@@ -4,4 +4,5 @@ pdfs_rede/
 pdfs_cg/
 *.pyc
 _t.pdf
-_arquivos_tmp/
+_tmp_arquivos/
+_tmp_img/

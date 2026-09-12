@@ -11,14 +11,16 @@ python build_unico.py       # parseia os PDFs                                -> 
 python gen_cidades.py       # 9 PDFs de cidade + o PDF da região             -> 02 - COMPARATIVOS + site
 python gen_xlsx2.py         # a planilha                                     -> 01 - REDE CREDENCIADA + site
 python tracar_mapa.py       # contorno do PR a partir do mapa da operadora   -> mapa_pr.json
-python gen_site3.py         # o site estático                                -> ./site
+python baixar_satelite.py   # mosaico de satelite da regiao (Esri)           -> site/img
+python gerar_capas.py       # capa de cada guia em JPG                       -> site/img/capas
+python gen_site4.py         # o site estatico                                -> ./site
 python gen_resumo2.py       # RESUMO.md
 ```
 
 Depois copiar `site/` para a raiz do repositório e dar `git push` — o GitHub Pages republica sozinho.
 
-**Ordem importa:** `gen_site3.py` recria a pasta `site/` preservando `site/arquivos/`. Se rodar do
-zero, rode `gen_site3.py` primeiro e depois `gen_cidades.py` / `gen_xlsx2.py`, que copiam os
+**Ordem importa:** `gen_site4.py` recria a pasta `site/` preservando `site/arquivos/`. Se rodar do
+zero, rode `gen_site4.py` primeiro e depois `gen_cidades.py` / `gen_xlsx2.py`, que copiam os
 arquivos para dentro do site.
 
 ## Fluxo opcional (conferir rede por rede)
@@ -78,6 +80,8 @@ Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso
 | `build_unico.py` | monta `dados_unico.json` (rede única) |
 | `pdfamil.py` | motor de layout dos PDFs (padrão visual da corretora) |
 | `gen_cidades.py` | gera os PDFs por cidade e o da região |
-| `gen_xlsx2.py` / `gen_site3.py` / `gen_resumo2.py` | planilha, site e resumo |
+| `gen_xlsx2.py` / `gen_site4.py` / `gen_resumo2.py` | planilha, site e resumo |
+| `baixar_satelite.py` | baixa os tiles do Esri World Imagery e monta a imagem da regiao |
+| `gerar_capas.py` | rasteriza a capa de cada PDF para a galeria do site |
 | `tracar_mapa.py` | traca o contorno do Parana do mapa da operadora -> `mapa_pr.json` |
 | `map_planos.py`, `scrape_all.py`, `scrape_cg2.py`, `build_data2.py` | trilha rede-a-rede |

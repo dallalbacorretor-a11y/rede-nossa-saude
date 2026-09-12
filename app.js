@@ -13,53 +13,60 @@
   const total = D.itens.length;
   const porCidade = c => D.cidades.find(x => x.nome === c);
 
-  /* ---------------- cabeçalho ---------------- */
   $('#foneTopo').href = zap;
   $('#foneTopo').textContent = m.tel;
   $('#navZap').href = zap;
   $('#zapFlutuante').href = zap;
   $('#carimbo').textContent = m.razao + ' · CNPJ ' + m.cnpj + ' — ' + total +
     ' prestadores levantados em ' + m.data + ', somando todos os planos da operadora.';
+  $('#creditoSat').textContent = 'Imagens de satélite: ' + m.satelite;
 
-  /* ---------------- mapa ---------------- */
-  const mp = D.mapa;
-  const maiorCidade = Math.max(...D.cidades.map(c => c.total));
-  const raio = n => 7 + 20 * Math.sqrt(n / maiorCidade);
-  const hub = D.cidades.find(c => c.nome === 'Ponta Grossa');
+  /* ---------------- mapa de satélite ---------------- */
+  const sat = D.sat, pr = D.pr;
+  const maior = Math.max(...D.cidades.map(c => c.total));
+  const raio = n => 12 + 26 * Math.sqrt(n / maior);
+  const hub = porCidade('Ponta Grossa');
   const raios = D.cidades.filter(c => c !== hub)
     .map(c => `<line class="raio" x1="${hub.x}" y1="${hub.y}" x2="${c.x}" y2="${c.y}"></line>`).join('');
   const pontos = D.cidades.map(c => {
-    const r = raio(c.total);
-    const esquerda = c.lado === 'e';
+    const r = raio(c.total), e = c.lado === 'e';
     return `<g class="ponto" data-cidade="${esc(c.nome)}" tabindex="0" role="button"
               aria-label="Ver a rede de ${esc(c.nome)}">
-      <circle class="halo" cx="${c.x}" cy="${c.y}" r="${(r * 2.1).toFixed(1)}"></circle>
+      <circle class="halo" cx="${c.x}" cy="${c.y}" r="${(r * 2).toFixed(1)}"></circle>
       <circle class="disco" cx="${c.x}" cy="${c.y}" r="${r.toFixed(1)}"></circle>
-      <text class="rotulo" x="${(c.x + (esquerda ? -(r + 12) : r + 12)).toFixed(1)}"
-            y="${(c.y + 7).toFixed(1)}" text-anchor="${esquerda ? 'end' : 'start'}">${esc(c.nome)}</text>
+      <text class="rotulo" x="${(c.x + (e ? -(r + 14) : r + 14)).toFixed(1)}"
+            y="${(c.y + 10).toFixed(1)}" text-anchor="${e ? 'end' : 'start'}">${esc(c.nome)}</text>
     </g>`;
   }).join('');
-  $('#svgMapa').innerHTML =
-    `<svg viewBox="${mp.viewBox}" role="img" aria-label="Mapa do Paraná com as nove cidades atendidas">
-       <path class="terra" d="${mp.path}"></path>${raios}${pontos}</svg>`;
+  const cx = pr.caixa;
+  $('#molduraMapa').innerHTML =
+    `<img class="satelite" src="${sat.src}" width="${sat.w}" height="${sat.h}"
+       alt="Imagem de satélite dos Campos Gerais, no Paraná">
+     <div class="vinheta"></div>
+     <svg class="pontos" viewBox="0 0 ${sat.w} ${sat.h}" preserveAspectRatio="none"
+       role="img" aria-label="As nove cidades atendidas sobre o mapa da região">
+       <g>${raios}${pontos}</g>
+     </svg>
+     <div class="localizador">
+       <svg viewBox="${pr.viewBox}" role="img" aria-label="Localização da região no Paraná">
+         <path class="pr" d="${pr.path}"></path>
+         <rect class="caixa" x="${cx.x}" y="${cx.y}" width="${cx.w}" height="${cx.h}"></rect>
+       </svg>
+       <p>Campos Gerais</p>
+     </div>`;
 
   /* ---------------- dossiê ---------------- */
-  let cidadeAtiva = null;
-
   function abrirCidade(nome) {
     const c = porCidade(nome);
     if (!c) return;
-    cidadeAtiva = nome;
     document.querySelectorAll('.ponto').forEach(p =>
       p.classList.toggle('ativo', p.dataset.cidade === nome));
-
     const hosp = c.hospitais.length
       ? `<div class="hospitais"><p class="rotulo">Hospitais na cidade</p><ul>` +
         c.hospitais.map(h => `<li>${esc(h.n)}${h.e ? ` <em>· ${esc(h.e)}</em>` : ''}</li>`).join('') +
         `</ul></div>`
       : `<p class="sem-hosp">Sem hospital credenciado na cidade. Consultas e exames resolvem aqui;
          internação e urgência ficam em Ponta Grossa.</p>`;
-
     $('#dossie').innerHTML = `
       <p class="uf">Paraná · Campos Gerais</p>
       <h2>${esc(c.nome)}</h2>
@@ -76,7 +83,6 @@
       ${hosp}
       <a class="botao" href="${esc(c.pdf)}" download>Baixar o guia de ${esc(c.nome)} <span>PDF · ${c.kb} KB</span></a>`;
   }
-
   document.querySelectorAll('.ponto').forEach(p => {
     p.addEventListener('click', () => abrirCidade(p.dataset.cidade));
     p.addEventListener('keydown', e => {
@@ -85,8 +91,41 @@
   });
   abrirCidade('Ponta Grossa');
 
-  /* ---------------- tabela das cidades ---------------- */
+  /* ---------------- galeria de guias ---------------- */
+  const cartao = (o) => `<a class="guia${o.destaque ? ' destaque' : ''}" href="${esc(o.href)}" download>
+      <div class="capa">
+        <img src="${esc(o.capa)}" alt="Capa do guia ${esc(o.titulo)}" loading="lazy" decoding="async">
+        <span class="baixar">Baixar <span>PDF · ${o.kb} KB</span></span>
+      </div>
+      <div class="corpo">
+        <h3>${esc(o.titulo)}</h3>
+        <p class="linha-num">${o.numeros}</p>
+        <span class="peso">↓ ${esc(o.acao)}</span>
+      </div>
+    </a>`;
+
   const somaCol = f => D.cidades.reduce((a, c) => a + f(c), 0);
+  $('#galeria').innerHTML =
+    cartao({
+      destaque: true, href: 'arquivos/rede-nossa-saude-campos-gerais.pdf',
+      capa: 'img/capas/capa-regiao.jpg', titulo: 'Campos Gerais · as nove cidades',
+      kb: D.regiao.pdf_kb, acao: 'Guia completo da região',
+      numeros: `<span><b>${total}</b> prestadores</span><span><b>${somaCol(c => c.hosp)}</b> hospitais</span>` +
+               `<span><b>9</b> cidades</span>`
+    }) +
+    D.cidades.map(c => cartao({
+      href: c.pdf, capa: c.capa, titulo: c.nome, kb: c.kb, acao: 'Baixar o guia da cidade',
+      numeros: `<span><b>${c.total}</b> prestadores</span>` +
+               (c.hosp ? `<span><b>${c.hosp}</b> ${c.hosp === 1 ? 'hospital' : 'hospitais'}</span>` : '') +
+               `<span><b>${c.especialidades}</b> especialidades</span>`
+    })).join('');
+
+  $('#extraPlanilha').innerHTML =
+    `Precisa filtrar e trabalhar os dados? Baixe a
+     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download>planilha completa em XLSX</a>
+     (${D.regiao.xlsx_kb} KB), com uma aba por cidade.`;
+
+  /* ---------------- tabela das cidades ---------------- */
   const cel = v => `<td class="${v ? '' : 'zero'}">${v || '—'}</td>`;
   $('#tabCidades').innerHTML =
     `<thead><tr><th>Cidade</th><th>Hospitais</th><th>Laboratórios</th><th>Imagem</th>
@@ -109,7 +148,7 @@
         <td class="tot">${total}</td><td></td>
       </tr></tfoot>`;
 
-  /* ---------------- mapa de calor dos exames ---------------- */
+  /* ---------------- mapa de calor ---------------- */
   const contaExame = (nat, cid) => D.itens.filter(i => i.nat.includes(nat) && i.c === cid).length;
   const maiorExame = Math.max(...D.exames.flatMap(n => D.ordem.map(c => contaExame(n, c))));
   const wash = n => n ? `background:rgba(var(--laranja-rgb), ${(0.10 + 0.62 * n / maiorExame).toFixed(3)})` : '';
@@ -148,7 +187,6 @@
     $('#contagem').textContent = sel.length === total
       ? total + ' prestadores nas nove cidades'
       : sel.length + ' de ' + total + ' prestadores';
-
     const grupos = new Map(D.ordem.map(c => [c, []]));
     sel.forEach(i => grupos.get(i.c).push(i));
     let h = '';
@@ -188,7 +226,6 @@
     }
     $('#lista').innerHTML = h || '<p class="vazio">Nenhum prestador encontrado com esses filtros.</p>';
   }
-
   $('#q').addEventListener('input', e => { st.q = e.target.value; render(); });
   $('#fcidade').addEventListener('change', e => { st.cidade = e.target.value; render(); });
   $('#fesp').addEventListener('change', e => { st.esp = e.target.value; render(); });
@@ -206,7 +243,7 @@
   });
   render();
 
-  /* ---------------- sobre e rodapé ---------------- */
+  /* ---------------- sobre ---------------- */
   $('#txtSobre').innerHTML = `
     <p>Este é o levantamento da rede credenciada da <strong>${esc(m.operadora)}</strong> nas nove
       cidades dos Campos Gerais atendidas pela operadora: ${esc(D.ordem.join(', '))}.</p>
@@ -221,7 +258,7 @@
       hospital, natureza de exame, clínica e especialidade médica — é essa organização que você
       encontra nos guias em PDF.</p>
     <h3>Fonte</h3>
-    <p>${esc(m.fonte)}</p>`;
+    <p>${esc(m.fonte)} Imagens de satélite: ${esc(m.satelite)}.</p>`;
 
   $('#sbQuem').textContent = m.corretor;
   $('#sbZap').href = zap;

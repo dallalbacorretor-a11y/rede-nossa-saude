@@ -37,7 +37,8 @@
 
 <nav class="navegacao"><div class="wrap">
   <a href="#atlas">Mapa</a>
-  <a href="#cidades">Cidades</a>
+  <a href="#guias">Baixar guias</a>
+  <a href="#cidades">Números</a>
   <a href="#exames">Exames</a>
   <a href="#buscar">Buscar</a>
   <a href="#sobre">Sobre</a>
@@ -46,34 +47,36 @@
 
 <section id="atlas" class="atlas"><div class="wrap atlas-grade">
   <figure class="mapa">
-    <div id="svgMapa"></div>
-    <figcaption>Cada ponto é uma cidade atendida e o tamanho acompanha o número de prestadores.
-      As linhas ligam as cidades a Ponta Grossa, que é a referência da região para internação e
-      alta complexidade. Toque num ponto para ver a cidade.</figcaption>
+    <div class="moldura-mapa" id="molduraMapa"></div>
+    <figcaption>
+      <span>Cada ponto é uma cidade atendida e o tamanho acompanha o número de prestadores. As
+        linhas ligam as cidades a Ponta Grossa, referência da região para internação e alta
+        complexidade. Toque num ponto para ver a cidade.</span>
+      <span class="credito" id="creditoSat"></span>
+    </figcaption>
   </figure>
   <div class="dossie" id="dossie"></div>
 </div></section>
 
-<section id="cidades" class="faixa-clara"><div class="wrap">
+<section id="guias" class="faixa-clara"><div class="wrap">
   <div class="cabeca">
-    <h2>As nove cidades</h2>
-    <p>Um guia em PDF por cidade, com hospitais, exames por natureza, clínicas e médicos por
-      especialidade.</p>
+    <h2>Baixe o guia da sua cidade</h2>
+    <p>Um documento por cidade, pronto para mandar no WhatsApp: hospitais, exames por natureza,
+      clínicas e médicos por especialidade. Clique na capa para baixar.</p>
   </div>
-  <div class="scroll"><table class="registro-tab" id="tabCidades"></table></div>
-  <div class="pacote">
-    <div>
-      <p class="rotulo">A região inteira</p>
-      <p>As nove cidades num documento só, e a planilha completa para trabalhar.</p>
-    </div>
-    <div class="pacote-links">
-      <a class="botao" href="arquivos/rede-nossa-saude-campos-gerais.pdf" download>Guia da região <span>PDF</span></a>
-      <a class="botao secundario" href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download>Planilha <span>XLSX</span></a>
-    </div>
-  </div>
+  <div class="galeria" id="galeria"></div>
+  <p class="extra-planilha" id="extraPlanilha"></p>
 </div></section>
 
-<section id="exames"><div class="wrap">
+<section id="cidades"><div class="wrap">
+  <div class="cabeca">
+    <h2>A rede em números</h2>
+    <p>O que cada cidade tem credenciado hoje.</p>
+  </div>
+  <div class="scroll"><table class="registro-tab" id="tabCidades"></table></div>
+</div></section>
+
+<section id="exames" class="faixa-clara"><div class="wrap">
   <div class="cabeca">
     <h2>Onde fazer cada exame</h2>
     <p>Prestadores por natureza de exame em cada cidade. Quanto mais forte a cor, mais opções.</p>
@@ -81,7 +84,7 @@
   <div class="scroll"><table class="mapa-calor" id="tabExames"></table></div>
 </div></section>
 
-<section id="buscar" class="faixa-clara"><div class="wrap">
+<section id="buscar"><div class="wrap">
   <div class="cabeca">
     <h2>Buscar na rede</h2>
     <p>Nome do prestador, especialidade, bairro ou cidade.</p>
@@ -97,7 +100,7 @@
   <div id="lista"></div>
 </div></section>
 
-<section id="sobre"><div class="wrap sobre-grade">
+<section id="sobre" class="faixa-clara"><div class="wrap sobre-grade">
   <div>
     <div class="cabeca"><h2>Sobre este material</h2></div>
     <div class="texto" id="txtSobre"></div>

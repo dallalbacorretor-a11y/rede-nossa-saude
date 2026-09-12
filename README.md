@@ -10,8 +10,8 @@ Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 
 ## O que tem
 
-- Mapa do Paraná com as nove cidades: clique numa e veja os números e os hospitais dela
-- **Um guia em PDF por cidade** para mandar pro cliente, além do PDF da região e da planilha
+- Mapa de satélite da região com as nove cidades: clique numa e veja os números e os hospitais dela
+- **Galeria de guias** — a capa de cada PDF, clique para baixar
 - Mapa de calor de onde fazer cada natureza de exame
 - Busca por prestador, especialidade, bairro ou cidade
 
@@ -28,16 +28,17 @@ Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 
 Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada em 10 de setembro de 2026 sem filtro de plano.
 
+Imagens de satélite: Esri, Maxar, Earthstar Geographics.
+
 ## Estrutura
 
 ```
 index.html   estilo.css   app.js   dados.js      (dados em window.DADOS)
+img/                 satélite da região
+img/capas/           capa de cada guia
 arquivos/            PDF da região e planilha
 arquivos/cidades/    um PDF por cidade
 _scripts/            pipeline que baixa a rede e regera tudo (ver _scripts/LEIAME.md)
 ```
-
-O contorno do Paraná é traçado a partir do mapa de cobertura da operadora por
-`_scripts/tracar_mapa.py`, e as cidades são posicionadas pelas coordenadas reais.
 
 Sem build: HTML, CSS e JS puros. GitHub Pages em `main`, pasta raiz.
