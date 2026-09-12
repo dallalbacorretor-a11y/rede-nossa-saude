@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Site da rede credenciada — atlas com imagem de satélite e galeria de guias."""
-import os, sys, json, shutil, re, math
+import os, sys, json, shutil, re, math, hashlib
+from urllib.parse import quote
 sys.stdout.reconfigure(encoding='utf-8')
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -89,7 +90,7 @@ for it in IND:
     sx, sy = no_satelite(*COORD[it['cidade']])
     cidades.append({
         'nome': it['cidade'], 'slug': it['slug'], 'kb': it['kb'],
-        'pdf': 'arquivos/cidades/rede-nossa-saude-%s.pdf' % it['slug'],
+        'pdf': 'arquivos/cidades/' + quote('Nossa Saúde - %s.pdf' % it['cidade']),
         'nome_arquivo': 'Nossa Saúde - %s.pdf' % it['cidade'],
         'capa': 'img/capas/capa-%s.jpg' % it['slug'],
         'x': sx, 'y': sy, 'lado': LADO[it['cidade']],
@@ -119,8 +120,10 @@ def _kb(rel):
 
 REGIAO = {'pdf': 'Nossa Saúde - Campos Gerais.pdf',
           'xlsx': 'Nossa Saúde - Campos Gerais.xlsx',
-          'pdf_kb': _kb('rede-nossa-saude-campos-gerais.pdf'),
-          'xlsx_kb': _kb('rede-nossa-saude-campos-gerais.xlsx')}
+          'pdf_url': 'arquivos/' + quote('Nossa Saúde - Campos Gerais.pdf'),
+          'xlsx_url': 'arquivos/' + quote('Nossa Saúde - Campos Gerais.xlsx'),
+          'pdf_kb': _kb('Nossa Saúde - Campos Gerais.pdf'),
+          'xlsx_kb': _kb('Nossa Saúde - Campos Gerais.xlsx')}
 
 PAYLOAD = {'meta': META, 'regiao': REGIAO, 'cidades': cidades, 'ordem': CIDADES, 'cats': CATS,
            'catcurta': CAT_CURTA, 'exames': EXAMES, 'itens': itens,
@@ -198,7 +201,7 @@ INDEX = r"""<!doctype html>
   <p class="extra-planilha" id="extraPlanilha"></p>
 </div></section>
 
-<section id="cidades"><div class="wrap">
+<section id="cidades" class="faixa-clara"><div class="wrap">
   <div class="cabeca">
     <h2>A rede em números</h2>
     <p>O que cada cidade tem credenciado hoje.</p>
@@ -206,7 +209,7 @@ INDEX = r"""<!doctype html>
   <div class="scroll"><table class="registro-tab" id="tabCidades"></table></div>
 </div></section>
 
-<section id="exames" class="faixa-clara"><div class="wrap">
+<section id="exames"><div class="wrap">
   <div class="cabeca">
     <h2>Onde fazer cada exame</h2>
     <p>Prestadores por natureza de exame em cada cidade. Quanto mais forte a cor, mais opções.</p>
@@ -214,7 +217,7 @@ INDEX = r"""<!doctype html>
   <div class="scroll"><table class="mapa-calor" id="tabExames"></table></div>
 </div></section>
 
-<section id="buscar"><div class="wrap">
+<section id="buscar" class="faixa-clara"><div class="wrap">
   <div class="cabeca">
     <h2>Buscar na rede</h2>
     <p>Nome do prestador, especialidade, bairro ou cidade.</p>
@@ -230,7 +233,7 @@ INDEX = r"""<!doctype html>
   <div id="lista"></div>
 </div></section>
 
-<section id="sobre" class="faixa-clara"><div class="wrap sobre-grade">
+<section id="sobre"><div class="wrap sobre-grade">
   <div>
     <div class="cabeca"><h2>Sobre este material</h2></div>
     <div class="texto" id="txtSobre"></div>
@@ -262,53 +265,54 @@ INDEX = r"""<!doctype html>
 """
 
 CSS = r""":root{
-  /* cores da marca Nossa Saude (nossasaude.com.br) — petroleo e laranja.
-     O dourado fica reservado ao selo da Mazza Broker. */
-  --tinta:#004159;
-  --tinta-2:#006285;
-  --papel:#F4F2F0;
-  --papel-2:#EAE7E3;
+  /* cores da marca Nossa Saude (nossasaude.com.br): branco, laranja/vermelho e o
+     marrom-acinzentado #4C4441 do texto. O dourado e o selo da Mazza Broker. */
+  --tinta:#38312E;
+  --tinta-2:#4C4441;
+  --papel:#FFFFFF;
+  --papel-2:#F7F4F2;
   --superficie:#FFFFFF;
-  --texto:#2A2523;
+  --texto:#2E2A28;
   --texto-2:#4C4441;
   --texto-3:#8B8580;
-  --regra:#E3E0DC;
-  --regra-forte:#C9C4BE;
+  --regra:#E6E1DD;
+  --regra-forte:#CFC8C3;
   --ouro:#9A7513;
   --ouro-cl:#C8A24A;
-  --laranja:#F07F09;
-  --laranja-rgb:240,127,9;
-  --laranja-forte:#E6411C;
-  --laranja-suave:#FDF0E0;
-  --royal:#006285;
-  --sombra:0 1px 1px rgba(0,65,89,.05), 0 6px 20px -12px rgba(0,65,89,.25);
-  --sombra-alta:0 2px 4px rgba(0,65,89,.07), 0 18px 40px -20px rgba(0,65,89,.4);
+  --laranja:#E6411C;
+  --laranja-rgb:230,65,28;
+  --laranja-forte:#C0350F;
+  --laranja-cl:#F07F09;
+  --laranja-suave:#FDEFE7;
+  --royal:#C0350F;
+  --sombra:0 1px 1px rgba(56,49,46,.05), 0 6px 20px -12px rgba(56,49,46,.28);
+  --sombra-alta:0 2px 4px rgba(56,49,46,.07), 0 18px 40px -20px rgba(56,49,46,.42);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
   --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --coluna:1180px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --tinta:#01222E; --tinta-2:#00465F;
-  --papel:#08191F; --papel-2:#0C222B; --superficie:#0F2A34;
-  --texto:#EAF1F3; --texto-2:#B4C6CC; --texto-3:#7E8E93;
-  --regra:#1B3944; --regra-forte:#2A4F5C;
+  --tinta:#241F1D; --tinta-2:#3A322F;
+  --papel:#171310; --papel-2:#1E1917; --superficie:#221D1A;
+  --texto:#F2EDE9; --texto-2:#C9BEB7; --texto-3:#94897F;
+  --regra:#332B27; --regra-forte:#4A403A;
   --ouro:#D2A63C; --ouro-cl:#E3BD5E;
-  --laranja:#F79433; --laranja-rgb:247,148,51; --laranja-forte:#F2603C;
-  --laranja-suave:#2C1B0D;
-  --royal:#5FB6D1;
+  --laranja:#FF6B3D; --laranja-rgb:255,107,61; --laranja-forte:#FF8A5C;
+  --laranja-cl:#FFA23D; --laranja-suave:#2E1810;
+  --royal:#FF8A5C;
   --sombra:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -12px rgba(0,0,0,.6);
   --sombra-alta:0 2px 4px rgba(0,0,0,.35), 0 18px 40px -20px rgba(0,0,0,.8);
 }}
 :root[data-theme="dark"]{
-  --tinta:#01222E; --tinta-2:#00465F;
-  --papel:#08191F; --papel-2:#0C222B; --superficie:#0F2A34;
-  --texto:#EAF1F3; --texto-2:#B4C6CC; --texto-3:#7E8E93;
-  --regra:#1B3944; --regra-forte:#2A4F5C;
+  --tinta:#241F1D; --tinta-2:#3A322F;
+  --papel:#171310; --papel-2:#1E1917; --superficie:#221D1A;
+  --texto:#F2EDE9; --texto-2:#C9BEB7; --texto-3:#94897F;
+  --regra:#332B27; --regra-forte:#4A403A;
   --ouro:#D2A63C; --ouro-cl:#E3BD5E;
-  --laranja:#F79433; --laranja-rgb:247,148,51; --laranja-forte:#F2603C;
-  --laranja-suave:#2C1B0D;
-  --royal:#5FB6D1;
+  --laranja:#FF6B3D; --laranja-rgb:255,107,61; --laranja-forte:#FF8A5C;
+  --laranja-cl:#FFA23D; --laranja-suave:#2E1810;
+  --royal:#FF8A5C;
   --sombra:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -12px rgba(0,0,0,.6);
   --sombra-alta:0 2px 4px rgba(0,0,0,.35), 0 18px 40px -20px rgba(0,0,0,.8);
 }
@@ -334,13 +338,14 @@ section{padding:64px 0}
 
 /* ---------- masthead ---------- */
 .masthead{background:var(--tinta);color:#fff;position:relative}
-.masthead .faixa{height:8px;background:var(--laranja);border-bottom:3px solid var(--ouro)}
+.masthead .faixa{height:8px;background:linear-gradient(90deg,var(--laranja),var(--laranja-cl));
+  border-bottom:3px solid var(--ouro)}
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding-top:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
 .marca{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .masthead .selo,.masthead .selo i{color:var(--ouro-cl)}
 .registro{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
-  color:#8FBCCC}
+  color:#BFB2AA}
 .fone{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
   border:1px solid rgba(255,255,255,.22);border-radius:2px;padding:6px 12px;white-space:nowrap}
 .fone:hover{border-color:var(--ouro-cl);color:var(--ouro-cl)}
@@ -350,8 +355,8 @@ section{padding:64px 0}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6.6vw,68px);line-height:1.02;
   letter-spacing:-.025em}
 h1 em{font-style:italic;color:var(--ouro-cl)}
-.chamada{max-width:52ch;color:#AFD1DC;font-size:17px;margin:22px 0 0}
-.carimbo{font-family:var(--mono);font-size:11px;line-height:1.7;color:#7BA5B4;margin:26px 0 0;
+.chamada{max-width:52ch;color:#D6C9C1;font-size:17px;margin:22px 0 0}
+.carimbo{font-family:var(--mono);font-size:11px;line-height:1.7;color:#9C8E86;margin:26px 0 0;
   padding-top:14px;border-top:1px solid rgba(255,255,255,.12);max-width:62ch}
 
 /* ---------- navegação ---------- */
@@ -374,25 +379,25 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .moldura-mapa img.satelite{width:100%;height:auto}
 .moldura-mapa svg.pontos{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .vinheta{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,32,45,.6) 100%)}
-.raio{stroke:#FFD79A;stroke-width:1.4;opacity:.5;fill:none;stroke-dasharray:5 6}
+  background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(38,26,20,.58) 100%)}
+.raio{stroke:#FFC9A6;stroke-width:1.4;opacity:.5;fill:none;stroke-dasharray:5 6}
 .ponto{cursor:pointer}
-.ponto .halo{fill:#F07F09;opacity:.22;transition:opacity .2s ease}
-.ponto .disco{fill:#F07F09;stroke:#fff;stroke-width:2.5;transition:fill .2s ease,stroke .2s ease}
+.ponto .halo{fill:#E6411C;opacity:.22;transition:opacity .2s ease}
+.ponto .disco{fill:#E6411C;stroke:#fff;stroke-width:2.5;transition:fill .2s ease,stroke .2s ease}
 .ponto .rotulo{font-family:var(--mono);font-size:30px;font-weight:600;fill:#fff;
-  paint-order:stroke;stroke:rgba(0,30,42,.9);stroke-width:8px;stroke-linejoin:round;
+  paint-order:stroke;stroke:rgba(30,20,15,.9);stroke-width:8px;stroke-linejoin:round;
   letter-spacing:.02em}
 .ponto:hover .halo,.ponto.ativo .halo{opacity:.4}
 .ponto.ativo .disco{fill:#fff;stroke:#E6411C;stroke-width:5}
 .ponto:focus{outline:none}
-.ponto:focus-visible .disco{stroke:#5FB6D1;stroke-width:5}
+.ponto:focus-visible .disco{stroke:#FFA23D;stroke-width:5}
 .localizador{position:absolute;right:14px;bottom:14px;width:118px;
-  background:rgba(0,42,58,.75);padding:9px 10px 7px;backdrop-filter:blur(3px)}
+  background:rgba(38,28,22,.78);padding:9px 10px 7px;backdrop-filter:blur(3px)}
 .localizador svg{width:100%;height:auto;display:block}
 .localizador .pr{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.5);stroke-width:5}
-.localizador .caixa{fill:none;stroke:#F07F09;stroke-width:12}
+.localizador .caixa{fill:none;stroke:#E6411C;stroke-width:12}
 .localizador p{font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;
-  color:#C2DBE4;margin:6px 0 0;text-align:center}
+  color:#E0D3CB;margin:6px 0 0;text-align:center}
 .mapa figcaption{display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:var(--texto-3);
   margin-top:14px;max-width:52ch;line-height:1.5}
 .mapa .credito{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
@@ -428,7 +433,7 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .botao{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
   background:var(--tinta);color:#fff;text-decoration:none;padding:14px 18px;font-weight:600;
   font-size:14.5px;border:1px solid var(--tinta);transition:background .16s ease}
-.botao span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#9EC3D1}
+.botao span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#C9B9B0}
 .botao:hover{background:var(--tinta-2);border-color:var(--tinta-2)}
 .dossie .botao{width:100%;margin-top:24px}
 
@@ -476,7 +481,7 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .registro-tab td{padding:15px 0;border-bottom:1px solid var(--regra);text-align:right;
   font-variant-numeric:tabular-nums;color:var(--texto-2)}
 .registro-tab td:first-child{text-align:left}
-.registro-tab tbody tr:hover td{background:var(--superficie)}
+.registro-tab tbody tr:hover td{background:var(--papel-2)}
 .registro-tab .cid{font-family:var(--serif);font-size:21px;color:var(--texto);
   display:block;line-height:1.15}
 .registro-tab .cid-sub{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
@@ -534,7 +539,7 @@ input[type=search]::placeholder{color:var(--texto-3)}
   text-transform:uppercase;color:var(--royal);text-decoration:none;border-bottom:1px solid currentColor}
 .verbete{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.3fr) minmax(0,1.2fr);
   gap:26px;padding:18px 0;border-bottom:1px solid var(--regra)}
-.verbete:hover{background:var(--superficie)}
+.verbete:hover{background:var(--papel-2)}
 .verbete .tipo{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--texto-3);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0}
 .verbete .tipo .marca-int{color:var(--laranja);border:1px solid currentColor;padding:1px 6px}
@@ -565,19 +570,19 @@ input[type=search]::placeholder{color:var(--texto-3)}
 .cartao-contato .selo,.cartao-contato .selo i{color:var(--ouro-cl)}
 .cartao-contato .quem{font-family:var(--serif);font-size:23px;margin:20px 0 0;line-height:1.2}
 .cartao-contato .funcao{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:#8FBCCC;margin:6px 0 22px}
+  text-transform:uppercase;color:#BFB2AA;margin:6px 0 22px}
 .cartao-contato .botao{width:100%;background:var(--ouro);border-color:var(--ouro);
   justify-content:center}
 .cartao-contato .botao:hover{background:var(--ouro-cl);border-color:var(--ouro-cl);color:var(--tinta)}
-.link-mail{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;color:#AFD1DC;
+.link-mail{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;color:#D6C9C1;
   text-decoration:none;word-break:break-all}
 .link-mail:hover{color:var(--ouro-cl)}
-.cartao-contato .mini{font-size:11.5px;color:#7BA5B4;line-height:1.55;margin:22px 0 0;
+.cartao-contato .mini{font-size:11.5px;color:#9C8E86;line-height:1.55;margin:22px 0 0;
   padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
-.rodape{background:var(--tinta);color:#8FBCCC;padding:30px 0 100px;font-size:12.5px}
+.rodape{background:var(--tinta);color:#BFB2AA;padding:30px 0 100px;font-size:12.5px}
 .rodape p{margin:0}
-.rodape .mini{font-size:11.5px;color:#5E8797;margin-top:10px;max-width:90ch;line-height:1.6}
-.rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#9EC3D1}
+.rodape .mini{font-size:11.5px;color:#8A7B73;margin-top:10px;max-width:90ch;line-height:1.6}
+.rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#C9B9B0}
 .zap{position:fixed;right:18px;bottom:18px;z-index:50;display:inline-flex;align-items:center;
   gap:9px;background:#1FA855;color:#fff;text-decoration:none;padding:12px 17px;border-radius:40px;
   box-shadow:0 6px 22px -6px rgba(0,0,0,.5);font-size:14px;font-weight:600}
@@ -717,7 +722,7 @@ APP = r"""(function () {
   const somaCol = f => D.cidades.reduce((a, c) => a + f(c), 0);
   $('#galeria').innerHTML =
     cartao({
-      destaque: true, href: 'arquivos/rede-nossa-saude-campos-gerais.pdf',
+      destaque: true, href: D.regiao.pdf_url,
       capa: 'img/capas/capa-regiao.jpg', titulo: 'Campos Gerais · as nove cidades',
       kb: D.regiao.pdf_kb, acao: 'Guia completo da região', arquivo: D.regiao.pdf,
       numeros: `<span><b>${total}</b> prestadores</span><span><b>${somaCol(c => c.hosp)}</b> hospitais</span>` +
@@ -733,7 +738,7 @@ APP = r"""(function () {
 
   $('#extraPlanilha').innerHTML =
     `Precisa filtrar e trabalhar os dados? Baixe a
-     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
+     <a href="${D.regiao.xlsx_url}" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
      (${D.regiao.xlsx_kb} KB), com uma aba por cidade.`;
 
   /* ---------------- tabela das cidades ---------------- */
@@ -943,11 +948,19 @@ def main():
     for sub, destino in guardar.items():
         shutil.move(destino, os.path.join(SITE, sub))
 
-    open(os.path.join(SITE, 'index.html'), 'w', encoding='utf-8').write(INDEX)
+    dados_js = ('window.DADOS = '
+                + json.dumps(PAYLOAD, ensure_ascii=False, separators=(',', ':')) + ';\n')
     open(os.path.join(SITE, 'estilo.css'), 'w', encoding='utf-8').write(CSS)
     open(os.path.join(SITE, 'app.js'), 'w', encoding='utf-8').write(APP)
-    open(os.path.join(SITE, 'dados.js'), 'w', encoding='utf-8').write(
-        'window.DADOS = ' + json.dumps(PAYLOAD, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    open(os.path.join(SITE, 'dados.js'), 'w', encoding='utf-8').write(dados_js)
+
+    # o navegador guarda css/js em cache; a versão no fim da URL força o recarregamento
+    ver = lambda s: hashlib.md5(s.encode('utf-8')).hexdigest()[:8]
+    indice = (INDEX
+              .replace('href="estilo.css"', 'href="estilo.css?v=%s"' % ver(CSS))
+              .replace('src="dados.js"', 'src="dados.js?v=%s"' % ver(dados_js))
+              .replace('src="app.js"', 'src="app.js?v=%s"' % ver(APP)))
+    open(os.path.join(SITE, 'index.html'), 'w', encoding='utf-8').write(indice)
     open(os.path.join(SITE, '.nojekyll'), 'w').write('')
     open(os.path.join(SITE, 'README.md'), 'w', encoding='utf-8').write(README.format(
         corretor=META['corretor'], tel=META['tel'], mail=META['mail'], total=len(itens),

@@ -10,20 +10,21 @@ ML = MR = 38
 MB = 44
 CW = PW - ML - MR
 
-# paleta da marca Nossa Saude (nossasaude.com.br): petroleo + laranja.
+# paleta da marca Nossa Saude (nossasaude.com.br): branco, laranja/vermelho
+# e o marrom-acinzentado #4C4441 do texto. Sem azul.
 # O selo dourado continua sendo a assinatura da Mazza Broker.
-AZUL_TOPO = HexColor('#F07F09')     # faixa de topo — laranja da operadora
-NAVY = HexColor('#004159')          # petroleo escuro
-NAVY_MED = HexColor('#006285')      # petroleo claro
-NAVY_CL = HexColor('#8FBCCC')
+AZUL_TOPO = HexColor('#E6411C')     # faixa de topo — vermelho-laranja da marca
+NAVY = HexColor('#332D2B')          # marrom escuro (fundo das capas e barras)
+NAVY_MED = HexColor('#4C4441')
+NAVY_CL = HexColor('#C9A08F')
 OURO = HexColor('#9A7513')
 OURO_CL = HexColor('#C8A24A')
-LARANJA = HexColor('#E6411C')
-ALT = HexColor('#F5F8F9')
+LARANJA = HexColor('#F07F09')
+ALT = HexColor('#FAF7F5')
 CINZA = HexColor('#8B8580')
 CINZA_ESC = HexColor('#4C4441')
 TXT = HexColor('#2A2523')
-LINHA = HexColor('#E3E0DC')
+LINHA = HexColor('#E6E1DD')
 
 SER = 'Times-Roman'
 SERB = 'Times-Bold'
@@ -107,9 +108,9 @@ class Folha:
         c.setFillColor(AZUL_TOPO); c.rect(0, PH - 13, PW, 13, stroke=0, fill=1)
         c.setFillColor(OURO); c.rect(0, PH - 17, PW, 4, stroke=0, fill=1)
 
-        self._circulo(PW * 0.60, PH * 0.66, 9, HexColor('#2C7B96'), 1.0)
-        self._circulo(PW * 0.93, PH * 0.24, 19, HexColor('#1B5C77'), 1.2)
-        self._circulo(PW * 0.86, PH * 0.79, 5, HexColor('#2C7B96'), 0.9)
+        self._circulo(PW * 0.60, PH * 0.66, 9, HexColor('#6E5F59'), 1.0)
+        self._circulo(PW * 0.93, PH * 0.24, 19, HexColor('#574B46'), 1.2)
+        self._circulo(PW * 0.86, PH * 0.79, 5, HexColor('#6E5F59'), 0.9)
 
         x = ML + 46
         y = PH * 0.66
@@ -122,17 +123,17 @@ class Folha:
         c.setFillColor(OURO_CL); c.setFont(SERI, 32)
         c.drawString(x, y - 78, italico)
 
-        c.setStrokeColor(HexColor('#4E8DA3')); c.setLineWidth(0.9)
+        c.setStrokeColor(HexColor('#8A7A72')); c.setLineWidth(0.9)
         c.line(x, y - 100, x + 224, y - 100)
 
-        c.setFillColor(HexColor('#9EC3D1')); c.setFont(SAN, 8.4)
+        c.setFillColor(HexColor('#C4B5AC')); c.setFont(SAN, 8.4)
         for i, ln in enumerate(wrap(fonte_txt, SAN, 8.4, CW * 0.55)):
             c.drawString(x, y - 122 - i * 11.5, ln)
 
         self.tag_mazza(x, 120, 34)
         c.setFillColor(white); c.setFont(SAN, 9)
         c.drawString(x, 100, contato[0])
-        c.setFillColor(HexColor('#9EC3D1')); c.setFont(SAN, 8.6)
+        c.setFillColor(HexColor('#C4B5AC')); c.setFont(SAN, 8.6)
         c.drawString(x, 84, contato[1])
         c.drawString(x + 200, 84, contato[2])
         c.showPage()
@@ -291,7 +292,7 @@ class Folha:
         self.espaco(76)
         c = self.c
         alt = 30 + 11.5 * len(wrap(txt, SAN, 8.4, CW - 46))
-        c.setFillColor(HexColor('#F2F7F8')); c.rect(ML, self.y - alt, CW, alt, stroke=0, fill=1)
+        c.setFillColor(HexColor('#FAF6F3')); c.rect(ML, self.y - alt, CW, alt, stroke=0, fill=1)
         c.setFillColor(OURO); c.rect(ML, self.y - alt, 3.4, alt, stroke=0, fill=1)
         c.setFillColor(NAVY); c.setFont(SANB, 9)
         c.drawString(ML + 16, self.y - 18, titulo.upper())

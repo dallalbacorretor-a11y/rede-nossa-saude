@@ -285,7 +285,7 @@ if __name__ == '__main__':
         os.makedirs(dest, exist_ok=True)
         for it in indice:
             shutil.copy2(os.path.join(P_CID, it['arquivo']),
-                         os.path.join(dest, 'rede-nossa-saude-%s.pdf' % it['slug']))
-        shutil.copy2(p, os.path.join(SITE_ARQ, 'rede-nossa-saude-campos-gerais.pdf'))
+                         os.path.join(dest, it['arquivo']))
+        shutil.copy2(p, os.path.join(SITE_ARQ, os.path.basename(p)))
     json.dump(indice, open(os.path.join(AQUI, 'indice_cidades.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)

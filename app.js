@@ -107,7 +107,7 @@
   const somaCol = f => D.cidades.reduce((a, c) => a + f(c), 0);
   $('#galeria').innerHTML =
     cartao({
-      destaque: true, href: 'arquivos/rede-nossa-saude-campos-gerais.pdf',
+      destaque: true, href: D.regiao.pdf_url,
       capa: 'img/capas/capa-regiao.jpg', titulo: 'Campos Gerais · as nove cidades',
       kb: D.regiao.pdf_kb, acao: 'Guia completo da região', arquivo: D.regiao.pdf,
       numeros: `<span><b>${total}</b> prestadores</span><span><b>${somaCol(c => c.hosp)}</b> hospitais</span>` +
@@ -123,7 +123,7 @@
 
   $('#extraPlanilha').innerHTML =
     `Precisa filtrar e trabalhar os dados? Baixe a
-     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
+     <a href="${D.regiao.xlsx_url}" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
      (${D.regiao.xlsx_kb} KB), com uma aba por cidade.`;
 
   /* ---------------- tabela das cidades ---------------- */
