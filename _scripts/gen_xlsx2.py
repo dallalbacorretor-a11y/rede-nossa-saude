@@ -14,11 +14,11 @@ os.makedirs(P01, exist_ok=True)
 D = json.load(open(os.path.join(AQUI, 'dados_unico.json'), encoding='utf-8'))
 ITENS, CIDADES, EXAMES = D['itens'], D['cidades'], D['exames']
 
-NAVY = 'FF0D2A4F'
-OURO = 'FF9A7513'
-CINZA = 'FF89909C'
-ALT = 'FFF7F8FB'
-BORDA = 'FFE2E6EC'
+NAVY = 'FF004159'   # petroleo da Nossa Saude
+OURO = 'FFF07F09'   # laranja da Nossa Saude
+CINZA = 'FF8B8580'
+ALT = 'FFF5F8F9'
+BORDA = 'FFE3E0DC'
 CATS = ['Hospitais e Pronto-Socorro', 'Clínicas e Centros Médicos',
         'Laboratórios e Imagem', 'Profissionais (médicos e demais)']
 CAT_CURTA = {CATS[0]: 'Hospitais', CATS[1]: 'Clínicas', CATS[2]: 'Labs e Imagem',
@@ -178,7 +178,7 @@ for cid in CIDADES:
 for velho in os.listdir(P01):
     if velho.endswith('.xlsx'):
         os.remove(os.path.join(P01, velho))
-out = os.path.join(P01, 'REDE NOSSA SAUDE - CAMPOS GERAIS.xlsx')
+out = os.path.join(P01, 'Nossa Saúde - Campos Gerais.xlsx')
 wb.save(out)
 print('OK', out, len(todos), 'prestadores')
 

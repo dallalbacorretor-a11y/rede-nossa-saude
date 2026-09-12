@@ -90,6 +90,7 @@ for it in IND:
     cidades.append({
         'nome': it['cidade'], 'slug': it['slug'], 'kb': it['kb'],
         'pdf': 'arquivos/cidades/rede-nossa-saude-%s.pdf' % it['slug'],
+        'nome_arquivo': 'Nossa Saúde - %s.pdf' % it['cidade'],
         'capa': 'img/capas/capa-%s.jpg' % it['slug'],
         'x': sx, 'y': sy, 'lado': LADO[it['cidade']],
         'ix': MAPA['cidades'][it['cidade']][0], 'iy': MAPA['cidades'][it['cidade']][1],
@@ -116,7 +117,9 @@ def _kb(rel):
     return round(os.path.getsize(caminho) / 1024) if os.path.exists(caminho) else 0
 
 
-REGIAO = {'pdf_kb': _kb('rede-nossa-saude-campos-gerais.pdf'),
+REGIAO = {'pdf': 'Nossa Saúde - Campos Gerais.pdf',
+          'xlsx': 'Nossa Saúde - Campos Gerais.xlsx',
+          'pdf_kb': _kb('rede-nossa-saude-campos-gerais.pdf'),
           'xlsx_kb': _kb('rede-nossa-saude-campos-gerais.xlsx')}
 
 PAYLOAD = {'meta': META, 'regiao': REGIAO, 'cidades': cidades, 'ordem': CIDADES, 'cats': CATS,
@@ -259,48 +262,53 @@ INDEX = r"""<!doctype html>
 """
 
 CSS = r""":root{
-  --tinta:#0B2545;
-  --tinta-2:#16365E;
-  --papel:#F1F3F7;
-  --papel-2:#E7EBF2;
+  /* cores da marca Nossa Saude (nossasaude.com.br) — petroleo e laranja.
+     O dourado fica reservado ao selo da Mazza Broker. */
+  --tinta:#004159;
+  --tinta-2:#006285;
+  --papel:#F4F2F0;
+  --papel-2:#EAE7E3;
   --superficie:#FFFFFF;
-  --texto:#152437;
-  --texto-2:#4B5D75;
-  --texto-3:#7A8CA3;
-  --regra:#D5DCE6;
-  --regra-forte:#B9C4D2;
-  --ouro:#A67C0E;
-  --ouro-cl:#C79A2A;
-  --laranja:#E2661F;
-  --laranja-rgb:226,102,31;
-  --laranja-suave:#FBEDE4;
-  --royal:#2733C4;
-  --sombra:0 1px 1px rgba(11,37,69,.04), 0 6px 20px -12px rgba(11,37,69,.22);
-  --sombra-alta:0 2px 4px rgba(11,37,69,.06), 0 18px 40px -20px rgba(11,37,69,.35);
+  --texto:#2A2523;
+  --texto-2:#4C4441;
+  --texto-3:#8B8580;
+  --regra:#E3E0DC;
+  --regra-forte:#C9C4BE;
+  --ouro:#9A7513;
+  --ouro-cl:#C8A24A;
+  --laranja:#F07F09;
+  --laranja-rgb:240,127,9;
+  --laranja-forte:#E6411C;
+  --laranja-suave:#FDF0E0;
+  --royal:#006285;
+  --sombra:0 1px 1px rgba(0,65,89,.05), 0 6px 20px -12px rgba(0,65,89,.25);
+  --sombra-alta:0 2px 4px rgba(0,65,89,.07), 0 18px 40px -20px rgba(0,65,89,.4);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
   --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --coluna:1180px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --tinta:#07111F; --tinta-2:#0F2440;
-  --papel:#0A1524; --papel-2:#0E1B2D; --superficie:#101E33;
-  --texto:#E7EDF6; --texto-2:#AFC0D6; --texto-3:#7C8CA3;
-  --regra:#1E3050; --regra-forte:#2C426A;
+  --tinta:#01222E; --tinta-2:#00465F;
+  --papel:#08191F; --papel-2:#0C222B; --superficie:#0F2A34;
+  --texto:#EAF1F3; --texto-2:#B4C6CC; --texto-3:#7E8E93;
+  --regra:#1B3944; --regra-forte:#2A4F5C;
   --ouro:#D2A63C; --ouro-cl:#E3BD5E;
-  --laranja:#F0813F; --laranja-rgb:240,129,63; --laranja-suave:#2A1A11;
-  --royal:#7C86F5;
+  --laranja:#F79433; --laranja-rgb:247,148,51; --laranja-forte:#F2603C;
+  --laranja-suave:#2C1B0D;
+  --royal:#5FB6D1;
   --sombra:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -12px rgba(0,0,0,.6);
   --sombra-alta:0 2px 4px rgba(0,0,0,.35), 0 18px 40px -20px rgba(0,0,0,.8);
 }}
 :root[data-theme="dark"]{
-  --tinta:#07111F; --tinta-2:#0F2440;
-  --papel:#0A1524; --papel-2:#0E1B2D; --superficie:#101E33;
-  --texto:#E7EDF6; --texto-2:#AFC0D6; --texto-3:#7C8CA3;
-  --regra:#1E3050; --regra-forte:#2C426A;
+  --tinta:#01222E; --tinta-2:#00465F;
+  --papel:#08191F; --papel-2:#0C222B; --superficie:#0F2A34;
+  --texto:#EAF1F3; --texto-2:#B4C6CC; --texto-3:#7E8E93;
+  --regra:#1B3944; --regra-forte:#2A4F5C;
   --ouro:#D2A63C; --ouro-cl:#E3BD5E;
-  --laranja:#F0813F; --laranja-rgb:240,129,63; --laranja-suave:#2A1A11;
-  --royal:#7C86F5;
+  --laranja:#F79433; --laranja-rgb:247,148,51; --laranja-forte:#F2603C;
+  --laranja-suave:#2C1B0D;
+  --royal:#5FB6D1;
   --sombra:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -12px rgba(0,0,0,.6);
   --sombra-alta:0 2px 4px rgba(0,0,0,.35), 0 18px 40px -20px rgba(0,0,0,.8);
 }
@@ -326,13 +334,13 @@ section{padding:64px 0}
 
 /* ---------- masthead ---------- */
 .masthead{background:var(--tinta);color:#fff;position:relative}
-.masthead .faixa{height:5px;background:linear-gradient(90deg,var(--royal) 0 62%,var(--ouro) 62% 100%)}
+.masthead .faixa{height:8px;background:var(--laranja);border-bottom:3px solid var(--ouro)}
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding-top:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
 .marca{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .masthead .selo,.masthead .selo i{color:var(--ouro-cl)}
 .registro{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
-  color:#8FA6C4}
+  color:#8FBCCC}
 .fone{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
   border:1px solid rgba(255,255,255,.22);border-radius:2px;padding:6px 12px;white-space:nowrap}
 .fone:hover{border-color:var(--ouro-cl);color:var(--ouro-cl)}
@@ -342,8 +350,8 @@ section{padding:64px 0}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6.6vw,68px);line-height:1.02;
   letter-spacing:-.025em}
 h1 em{font-style:italic;color:var(--ouro-cl)}
-.chamada{max-width:52ch;color:#B7C7DC;font-size:17px;margin:22px 0 0}
-.carimbo{font-family:var(--mono);font-size:11px;line-height:1.7;color:#7E93AF;margin:26px 0 0;
+.chamada{max-width:52ch;color:#AFD1DC;font-size:17px;margin:22px 0 0}
+.carimbo{font-family:var(--mono);font-size:11px;line-height:1.7;color:#7BA5B4;margin:26px 0 0;
   padding-top:14px;border-top:1px solid rgba(255,255,255,.12);max-width:62ch}
 
 /* ---------- navegação ---------- */
@@ -366,25 +374,25 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .moldura-mapa img.satelite{width:100%;height:auto}
 .moldura-mapa svg.pontos{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .vinheta{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(4,18,36,.55) 100%)}
+  background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,32,45,.6) 100%)}
 .raio{stroke:#FFD79A;stroke-width:1.4;opacity:.5;fill:none;stroke-dasharray:5 6}
 .ponto{cursor:pointer}
-.ponto .halo{fill:#E2661F;opacity:.22;transition:opacity .2s ease}
-.ponto .disco{fill:#E2661F;stroke:#fff;stroke-width:2.5;transition:fill .2s ease,stroke .2s ease}
+.ponto .halo{fill:#F07F09;opacity:.22;transition:opacity .2s ease}
+.ponto .disco{fill:#F07F09;stroke:#fff;stroke-width:2.5;transition:fill .2s ease,stroke .2s ease}
 .ponto .rotulo{font-family:var(--mono);font-size:30px;font-weight:600;fill:#fff;
-  paint-order:stroke;stroke:rgba(4,18,36,.9);stroke-width:8px;stroke-linejoin:round;
+  paint-order:stroke;stroke:rgba(0,30,42,.9);stroke-width:8px;stroke-linejoin:round;
   letter-spacing:.02em}
 .ponto:hover .halo,.ponto.ativo .halo{opacity:.4}
-.ponto.ativo .disco{fill:#fff;stroke:#E2661F;stroke-width:5}
+.ponto.ativo .disco{fill:#fff;stroke:#E6411C;stroke-width:5}
 .ponto:focus{outline:none}
-.ponto:focus-visible .disco{stroke:#7C86F5;stroke-width:5}
+.ponto:focus-visible .disco{stroke:#5FB6D1;stroke-width:5}
 .localizador{position:absolute;right:14px;bottom:14px;width:118px;
-  background:rgba(6,20,38,.72);padding:9px 10px 7px;backdrop-filter:blur(3px)}
+  background:rgba(0,42,58,.75);padding:9px 10px 7px;backdrop-filter:blur(3px)}
 .localizador svg{width:100%;height:auto;display:block}
 .localizador .pr{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.5);stroke-width:5}
-.localizador .caixa{fill:none;stroke:#E2661F;stroke-width:12}
+.localizador .caixa{fill:none;stroke:#F07F09;stroke-width:12}
 .localizador p{font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;
-  color:#C4D3E6;margin:6px 0 0;text-align:center}
+  color:#C2DBE4;margin:6px 0 0;text-align:center}
 .mapa figcaption{display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:var(--texto-3);
   margin-top:14px;max-width:52ch;line-height:1.5}
 .mapa .credito{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
@@ -420,8 +428,8 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .botao{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
   background:var(--tinta);color:#fff;text-decoration:none;padding:14px 18px;font-weight:600;
   font-size:14.5px;border:1px solid var(--tinta);transition:background .16s ease}
-.botao span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#93AACB}
-.botao:hover{background:var(--royal);border-color:var(--royal)}
+.botao span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#9EC3D1}
+.botao:hover{background:var(--tinta-2);border-color:var(--tinta-2)}
 .dossie .botao{width:100%;margin-top:24px}
 
 /* ---------- cabeçalhos ---------- */
@@ -439,7 +447,7 @@ h1 em{font-style:italic;color:var(--ouro-cl)}
 .guia .capa{position:relative;background:var(--tinta);line-height:0}
 .guia .capa img{width:100%;height:auto}
 .guia .baixar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;
-  justify-content:space-between;gap:8px;background:var(--ouro);color:#fff;
+  justify-content:space-between;gap:8px;background:var(--laranja-forte);color:#fff;
   font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   padding:8px 12px;transform:translateY(100%);transition:transform .18s ease}
 .guia .baixar span{opacity:.78}
@@ -557,19 +565,19 @@ input[type=search]::placeholder{color:var(--texto-3)}
 .cartao-contato .selo,.cartao-contato .selo i{color:var(--ouro-cl)}
 .cartao-contato .quem{font-family:var(--serif);font-size:23px;margin:20px 0 0;line-height:1.2}
 .cartao-contato .funcao{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:#8FA6C4;margin:6px 0 22px}
+  text-transform:uppercase;color:#8FBCCC;margin:6px 0 22px}
 .cartao-contato .botao{width:100%;background:var(--ouro);border-color:var(--ouro);
   justify-content:center}
 .cartao-contato .botao:hover{background:var(--ouro-cl);border-color:var(--ouro-cl);color:var(--tinta)}
-.link-mail{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;color:#B7C7DC;
+.link-mail{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;color:#AFD1DC;
   text-decoration:none;word-break:break-all}
 .link-mail:hover{color:var(--ouro-cl)}
-.cartao-contato .mini{font-size:11.5px;color:#7E93AF;line-height:1.55;margin:22px 0 0;
+.cartao-contato .mini{font-size:11.5px;color:#7BA5B4;line-height:1.55;margin:22px 0 0;
   padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
-.rodape{background:var(--tinta);color:#8FA6C4;padding:30px 0 100px;font-size:12.5px}
+.rodape{background:var(--tinta);color:#8FBCCC;padding:30px 0 100px;font-size:12.5px}
 .rodape p{margin:0}
-.rodape .mini{font-size:11.5px;color:#6C82A0;margin-top:10px;max-width:90ch;line-height:1.6}
-.rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#93AACB}
+.rodape .mini{font-size:11.5px;color:#5E8797;margin-top:10px;max-width:90ch;line-height:1.6}
+.rodape #rdRegistro{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#9EC3D1}
 .zap{position:fixed;right:18px;bottom:18px;z-index:50;display:inline-flex;align-items:center;
   gap:9px;background:#1FA855;color:#fff;text-decoration:none;padding:12px 17px;border-radius:40px;
   box-shadow:0 6px 22px -6px rgba(0,0,0,.5);font-size:14px;font-weight:600}
@@ -683,7 +691,7 @@ APP = r"""(function () {
         <div><b>${c.total}</b><span>No total</span></div>
       </div>
       ${hosp}
-      <a class="botao" href="${esc(c.pdf)}" download>Baixar o guia de ${esc(c.nome)} <span>PDF · ${c.kb} KB</span></a>`;
+      <a class="botao" href="${esc(c.pdf)}" download="${esc(c.nome_arquivo)}">Baixar o guia de ${esc(c.nome)} <span>PDF · ${c.kb} KB</span></a>`;
   }
   document.querySelectorAll('.ponto').forEach(p => {
     p.addEventListener('click', () => abrirCidade(p.dataset.cidade));
@@ -694,7 +702,7 @@ APP = r"""(function () {
   abrirCidade('Ponta Grossa');
 
   /* ---------------- galeria de guias ---------------- */
-  const cartao = (o) => `<a class="guia${o.destaque ? ' destaque' : ''}" href="${esc(o.href)}" download>
+  const cartao = (o) => `<a class="guia${o.destaque ? ' destaque' : ''}" href="${esc(o.href)}" download="${esc(o.arquivo)}">
       <div class="capa">
         <img src="${esc(o.capa)}" alt="Capa do guia ${esc(o.titulo)}" loading="lazy" decoding="async">
         <span class="baixar">Baixar <span>PDF · ${o.kb} KB</span></span>
@@ -711,12 +719,13 @@ APP = r"""(function () {
     cartao({
       destaque: true, href: 'arquivos/rede-nossa-saude-campos-gerais.pdf',
       capa: 'img/capas/capa-regiao.jpg', titulo: 'Campos Gerais · as nove cidades',
-      kb: D.regiao.pdf_kb, acao: 'Guia completo da região',
+      kb: D.regiao.pdf_kb, acao: 'Guia completo da região', arquivo: D.regiao.pdf,
       numeros: `<span><b>${total}</b> prestadores</span><span><b>${somaCol(c => c.hosp)}</b> hospitais</span>` +
                `<span><b>9</b> cidades</span>`
     }) +
     D.cidades.map(c => cartao({
       href: c.pdf, capa: c.capa, titulo: c.nome, kb: c.kb, acao: 'Baixar o guia da cidade',
+      arquivo: c.nome_arquivo,
       numeros: `<span><b>${c.total}</b> prestadores</span>` +
                (c.hosp ? `<span><b>${c.hosp}</b> ${c.hosp === 1 ? 'hospital' : 'hospitais'}</span>` : '') +
                `<span><b>${c.especialidades}</b> especialidades</span>`
@@ -724,7 +733,7 @@ APP = r"""(function () {
 
   $('#extraPlanilha').innerHTML =
     `Precisa filtrar e trabalhar os dados? Baixe a
-     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download>planilha completa em XLSX</a>
+     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
      (${D.regiao.xlsx_kb} KB), com uma aba por cidade.`;
 
   /* ---------------- tabela das cidades ---------------- */
@@ -740,7 +749,7 @@ APP = r"""(function () {
         <td class="esconde-mobile${c.clin ? '' : ' zero'}">${c.clin || '—'}</td>
         <td class="esconde-mobile${c.prof ? '' : ' zero'}">${c.prof || '—'}</td>
         <td class="tot">${c.total}</td>
-        <td><a class="baixa" href="${esc(c.pdf)}" download>baixar</a></td>
+        <td><a class="baixa" href="${esc(c.pdf)}" download="${esc(c.nome_arquivo)}">baixar</a></td>
       </tr>`).join('') +
     `</tbody><tfoot><tr>
         <td><span class="cid">Nove cidades</span></td>
@@ -799,7 +808,7 @@ APP = r"""(function () {
       const cid = porCidade(c);
       h += `<section class="cidade-bloco"><header><h3>${esc(c)}</h3>
               <span class="qtd">${plural(lst.length, 'prestador', 'prestadores')}</span>
-              <a class="baixa" href="${esc(cid.pdf)}" download>guia em PDF</a></header>`;
+              <a class="baixa" href="${esc(cid.pdf)}" download="${esc(cid.nome_arquivo)}">guia em PDF</a></header>`;
       for (const i of lst) {
         const mapa = i.end.length
           ? `<a href="https://maps.google.com/?q=${encodeURIComponent(i.end[0] + ' ' + i.c + ' PR')}" target="_blank" rel="noopener">ver no mapa</a>`

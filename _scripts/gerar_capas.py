@@ -28,13 +28,13 @@ def capa(pdf, destino, largura=760):
 
 total = 0
 for it in IND:
-    src = os.path.join(P_CID, 'Rede Nossa Saude - %s.pdf' % it['cidade'])
+    src = os.path.join(P_CID, 'Nossa Saúde - %s.pdf' % it['cidade'])
     dst = os.path.join(IMG, 'capa-%s.jpg' % it['slug'])
     n = capa(src, dst)
     total += n
     print('%-16s %5d KB' % (it['cidade'], n // 1024))
 
-reg = os.path.join(P02, 'Rede Nossa Saude - Campos Gerais (9 cidades).pdf')
+reg = os.path.join(P02, 'Nossa Saúde - Campos Gerais.pdf')
 n = capa(reg, os.path.join(IMG, 'capa-regiao.jpg'))
 total += n
 print('%-16s %5d KB' % ('REGIÃO', n // 1024))

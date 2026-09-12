@@ -81,7 +81,7 @@
         <div><b>${c.total}</b><span>No total</span></div>
       </div>
       ${hosp}
-      <a class="botao" href="${esc(c.pdf)}" download>Baixar o guia de ${esc(c.nome)} <span>PDF · ${c.kb} KB</span></a>`;
+      <a class="botao" href="${esc(c.pdf)}" download="${esc(c.nome_arquivo)}">Baixar o guia de ${esc(c.nome)} <span>PDF · ${c.kb} KB</span></a>`;
   }
   document.querySelectorAll('.ponto').forEach(p => {
     p.addEventListener('click', () => abrirCidade(p.dataset.cidade));
@@ -92,7 +92,7 @@
   abrirCidade('Ponta Grossa');
 
   /* ---------------- galeria de guias ---------------- */
-  const cartao = (o) => `<a class="guia${o.destaque ? ' destaque' : ''}" href="${esc(o.href)}" download>
+  const cartao = (o) => `<a class="guia${o.destaque ? ' destaque' : ''}" href="${esc(o.href)}" download="${esc(o.arquivo)}">
       <div class="capa">
         <img src="${esc(o.capa)}" alt="Capa do guia ${esc(o.titulo)}" loading="lazy" decoding="async">
         <span class="baixar">Baixar <span>PDF · ${o.kb} KB</span></span>
@@ -109,12 +109,13 @@
     cartao({
       destaque: true, href: 'arquivos/rede-nossa-saude-campos-gerais.pdf',
       capa: 'img/capas/capa-regiao.jpg', titulo: 'Campos Gerais · as nove cidades',
-      kb: D.regiao.pdf_kb, acao: 'Guia completo da região',
+      kb: D.regiao.pdf_kb, acao: 'Guia completo da região', arquivo: D.regiao.pdf,
       numeros: `<span><b>${total}</b> prestadores</span><span><b>${somaCol(c => c.hosp)}</b> hospitais</span>` +
                `<span><b>9</b> cidades</span>`
     }) +
     D.cidades.map(c => cartao({
       href: c.pdf, capa: c.capa, titulo: c.nome, kb: c.kb, acao: 'Baixar o guia da cidade',
+      arquivo: c.nome_arquivo,
       numeros: `<span><b>${c.total}</b> prestadores</span>` +
                (c.hosp ? `<span><b>${c.hosp}</b> ${c.hosp === 1 ? 'hospital' : 'hospitais'}</span>` : '') +
                `<span><b>${c.especialidades}</b> especialidades</span>`
@@ -122,7 +123,7 @@
 
   $('#extraPlanilha').innerHTML =
     `Precisa filtrar e trabalhar os dados? Baixe a
-     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download>planilha completa em XLSX</a>
+     <a href="arquivos/rede-nossa-saude-campos-gerais.xlsx" download="${D.regiao.xlsx}">planilha completa em XLSX</a>
      (${D.regiao.xlsx_kb} KB), com uma aba por cidade.`;
 
   /* ---------------- tabela das cidades ---------------- */
@@ -138,7 +139,7 @@
         <td class="esconde-mobile${c.clin ? '' : ' zero'}">${c.clin || '—'}</td>
         <td class="esconde-mobile${c.prof ? '' : ' zero'}">${c.prof || '—'}</td>
         <td class="tot">${c.total}</td>
-        <td><a class="baixa" href="${esc(c.pdf)}" download>baixar</a></td>
+        <td><a class="baixa" href="${esc(c.pdf)}" download="${esc(c.nome_arquivo)}">baixar</a></td>
       </tr>`).join('') +
     `</tbody><tfoot><tr>
         <td><span class="cid">Nove cidades</span></td>
@@ -197,7 +198,7 @@
       const cid = porCidade(c);
       h += `<section class="cidade-bloco"><header><h3>${esc(c)}</h3>
               <span class="qtd">${plural(lst.length, 'prestador', 'prestadores')}</span>
-              <a class="baixa" href="${esc(cid.pdf)}" download>guia em PDF</a></header>`;
+              <a class="baixa" href="${esc(cid.pdf)}" download="${esc(cid.nome_arquivo)}">guia em PDF</a></header>`;
       for (const i of lst) {
         const mapa = i.end.length
           ? `<a href="https://maps.google.com/?q=${encodeURIComponent(i.end[0] + ' ' + i.c + ' PR')}" target="_blank" rel="noopener">ver no mapa</a>`

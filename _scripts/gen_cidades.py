@@ -205,7 +205,7 @@ def sec_final(f, escopo):
 # ---------------------------------------------------------------- documentos
 def pdf_cidade(cid):
     lst = [r for r in ITENS if r['cidade'] == cid]
-    nome = 'Rede Nossa Saude - %s.pdf' % cid
+    nome = 'Nossa Saúde - %s.pdf' % cid
     path = os.path.join(P_CID, nome)
     f = Folha(path, 'Rede credenciada Nossa Saúde — %s' % cid,
               'Rede credenciada Nossa Saúde  —  %s' % cid)
@@ -222,7 +222,7 @@ def pdf_cidade(cid):
 
 
 def pdf_regiao():
-    nome = 'Rede Nossa Saude - Campos Gerais (9 cidades).pdf'
+    nome = 'Nossa Saúde - Campos Gerais.pdf'
     path = os.path.join(P02, nome)
     f = Folha(path, 'Rede credenciada Nossa Saúde — Campos Gerais',
               'Rede credenciada Nossa Saúde  —  Campos Gerais')
@@ -273,7 +273,7 @@ if __name__ == '__main__':
     indice = []
     for cid in CIDADES:
         p, n = pdf_cidade(cid)
-        indice.append({'cidade': cid, 'arquivo': 'Rede Nossa Saude - %s.pdf' % cid,
+        indice.append({'cidade': cid, 'arquivo': 'Nossa Saúde - %s.pdf' % cid,
                        'slug': slug(cid), 'n': n, 'kb': round(os.path.getsize(p) / 1024)})
         print('%-16s %4d prestadores  %6d bytes' % (cid, n, os.path.getsize(p)))
     p, n = pdf_regiao()
