@@ -19,13 +19,10 @@ A corretora **Mazza Broker** é fixa (está em `corretor.py`) e não muda.
 
 No site publicado dá para trocar sem rodar nada: **Meus dados** (na barra de navegação ou no cartão
 de contato) guarda os dados no navegador e gera um link `?c=...` para mandar a outro corretor.
-**Os PDFs acompanham**: no momento do download o site reescreve a assinatura dentro do arquivo,
-usando `assinaturas.json` (mapa de onde cada dado foi impresso, gerado junto com os PDFs) e a
-biblioteca pdf-lib. Se o navegador não conseguir carregar a biblioteca, o download cai no arquivo
-original, com o nome de quem gerou.
+**Os PDFs acompanham**: a página gera o PDF na hora, já com o nome de quem está usando.
 
-O `corretor.json` continua sendo o caminho para mudar de vez — inclusive nos arquivos que ficam no
-computador, fora do site.
+O `corretor.json` vale para os arquivos gerados pelos scripts (planilha, resumo e os PDFs que
+ficam no computador).
 
 
 Rodar dentro desta pasta `_scripts`. Precisa de `requests`, `pdfplumber`, `openpyxl`, `reportlab`
@@ -38,18 +35,19 @@ python scrape.py "" TODOS   # 1 PDF oficial por cidade, sem filtro de plano  -> 
 python build_unico.py       # parseia os PDFs                                -> dados_unico.json
 python gen_cidades.py       # 9 PDFs de cidade + o PDF da região             -> 02 - COMPARATIVOS + site
 python gen_xlsx2.py         # a planilha                                     -> 01 - REDE CREDENCIADA + site
-python tracar_mapa.py       # contorno do PR a partir do mapa da operadora   -> mapa_pr.json
-python baixar_satelite.py   # mosaico de satelite da regiao (Esri)           -> site/img
-python gerar_capas.py       # capa de cada guia em JPG                       -> site/img/capas
-python gen_site4.py         # o site estatico                                -> ./site
 python gen_resumo2.py       # RESUMO.md
+
+# a pagina publicada (padrao da casa, igual Amil e Parana Clinicas):
+cd padrao
+python dados_ns.py          # dados_unico.json -> dados/dados_ns.json
+python montar_site.py       # base + dados -> saida/index.html
 ```
 
-Depois copiar `site/` para a raiz do repositório e dar `git push` — o GitHub Pages republica sozinho.
+Depois copiar `padrao/saida/index.html` para a raiz do repositório e dar `git push` — o GitHub
+Pages republica sozinho.
 
-**Ordem importa:** `gen_site4.py` recria a pasta `site/` preservando `site/arquivos/`. Se rodar do
-zero, rode `gen_site4.py` primeiro e depois `gen_cidades.py` / `gen_xlsx2.py`, que copiam os
-arquivos para dentro do site.
+A página é o mesmo aplicativo da Amil e da Paraná Clínicas; o PDF por cidade sai dela, na hora,
+já assinado por quem está usando. Ver `padrao/LEIAME.md`.
 
 ## Fluxo opcional (conferir rede por rede)
 
@@ -108,9 +106,7 @@ Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso
 | `build_unico.py` | monta `dados_unico.json` (rede única) |
 | `pdfamil.py` | motor de layout dos PDFs (padrão visual da corretora) |
 | `gen_cidades.py` | gera os PDFs por cidade e o da região |
-| `gen_xlsx2.py` / `gen_site4.py` / `gen_resumo2.py` | planilha, site e resumo |
-| `baixar_satelite.py` | baixa os tiles do Esri World Imagery e monta a imagem da regiao |
-| `gerar_capas.py` | rasteriza a capa de cada PDF para a galeria do site |
-| `tracar_mapa.py` | traca o contorno do Parana do mapa da operadora -> `mapa_pr.json` |
+| `gen_xlsx2.py` / `gen_resumo2.py` | planilha e resumo |
+| `padrao/` | a pagina publicada, no template da casa (ver `padrao/LEIAME.md`) |
 | `corretor.py` / `corretor.json` | quem assina o material (a corretora e fixa) |
 | `map_planos.py`, `scrape_all.py`, `scrape_cg2.py`, `build_data2.py` | trilha rede-a-rede |
