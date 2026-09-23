@@ -1,4 +1,4 @@
-# Pipeline — rede credenciada Nossa Saúde (Campos Gerais)
+# Pipeline — rede credenciada Nossa Saúde (Campos Gerais + Curitiba/RMC/Paranaguá)
 
 ## Trocar o nome do corretor
 
@@ -39,9 +39,25 @@ python gen_resumo2.py       # RESUMO.md
 
 # a pagina publicada (padrao da casa, igual Amil e Parana Clinicas):
 cd padrao
-python dados_ns.py          # dados_unico.json -> dados/dados_ns.json
+python dados_ns.py          # dados_unico.json + dados_cwb.json -> dados/dados_ns.json
 python montar_site.py       # base + dados -> saida/index.html
 ```
+
+## Segunda região — Curitiba, RMC e Paranaguá
+
+Mesmo caminho, outra pasta de PDFs. Só entra no site: os PDFs por cidade dessa região saem da
+própria página, na hora.
+
+```bash
+python scrape_cwb.py        # 1 PDF oficial por cidade (16 cidades)  -> pdfs_cwb/
+python build_cwb.py         # parseia                                -> dados_cwb.json
+cd padrao && python dados_ns.py && python montar_site.py
+```
+
+As cidades da RMC atendidas foram conferidas no PDF do Paraná inteiro — fora Curitiba e São José
+dos Pinhais, a maioria tem de 1 a 13 prestadores. Para incluir mais uma cidade (o litoral, por
+exemplo), acrescente em `scrape_cwb.py` (`CIDADES`), em `build_cwb.py` (`CIDADES` e `ORDEM`) e a
+sede do município em `padrao/dados_ns.py` (`COORD`).
 
 Depois copiar `padrao/saida/index.html` para a raiz do repositório e dar `git push` — o GitHub
 Pages republica sozinho.
@@ -103,7 +119,8 @@ Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso
 | `scrape.py` | sessão no site da operadora + download do PDF oficial |
 | `parse.py` | lê o PDF oficial e devolve os prestadores estruturados |
 | `textutil.py` | caixa alta da operadora → Título Com Acentos |
-| `build_unico.py` | monta `dados_unico.json` (rede única) |
+| `build_unico.py` | monta `dados_unico.json` (rede única, Campos Gerais) |
+| `scrape_cwb.py` / `build_cwb.py` | a mesma coleta para Curitiba, RMC e Paranaguá -> `dados_cwb.json` |
 | `pdfamil.py` | motor de layout dos PDFs (padrão visual da corretora) |
 | `gen_cidades.py` | gera os PDFs por cidade e o da região |
 | `gen_xlsx2.py` / `gen_resumo2.py` | planilha e resumo |

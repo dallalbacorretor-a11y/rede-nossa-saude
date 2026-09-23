@@ -75,7 +75,7 @@ head = head.replace("rgba(214,177,85,.16)", "rgba(230,150,60,.18)")
 head = head.replace("#16233a", "#241f1d")
 
 head = troca(head, "<title>Rede Amil Paraná, Santa Catarina e São Paulo</title>",
-             "<title>Rede credenciada Nossa Saúde — Campos Gerais</title>")
+             "<title>Rede credenciada Nossa Saúde — Paraná</title>")
 head = troca(head,
              '<h1>Rede credenciada <em>Amil</em> — <span id="tituloEstado">Paraná, '
              'Santa Catarina e São Paulo</span></h1>',
@@ -133,12 +133,15 @@ app = troca(app,
 
 # mapa: a rede e so os Campos Gerais - o retangulo do Parana inteiro
 # jogaria tudo num canto da tela.
-lats = [p["xy"][0] for p in dados["PR"]["prestadores"] if p["xy"][0] is not None]
-lngs = [p["xy"][1] for p in dados["PR"]["prestadores"] if p["xy"][1] is not None]
 m = 0.06
+caixas = []
+for _ch, _reg in dados.items():
+    _la = [p["xy"][0] for p in _reg["prestadores"] if p["xy"][0] is not None]
+    _lo = [p["xy"][1] for p in _reg["prestadores"] if p["xy"][1] is not None]
+    caixas.append("%s: { lat: [%.3f, %.3f], lng: [%.3f, %.3f] }," %
+                  (_ch, min(_la) - m, max(_la) + m, min(_lo) - m, max(_lo) + m))
 app = troca(app, "PR: { lat: [-26.72, -22.51], lng: [-54.62, -48.02] },",
-            "PR: { lat: [%.3f, %.3f], lng: [%.3f, %.3f] }," %
-            (min(lats) - m, max(lats) + m, min(lngs) - m, max(lngs) + m))
+            "\n    ".join(caixas))
 
 app = troca(app, '"rede-amil-pr-"', '"rede-parana-clinicas-"')
 app = troca(app, '"Rede que a Amil devolve para "',
@@ -452,7 +455,8 @@ for _de, _para in (('tipoDe(p) === "Hospitais"', '/^Hospitais/.test(tipoDe(p) ||
     app = app.replace(_de, _para)
 
 # =============================================================== 3) o PDF
-lib = troca(lib, 'window.ORDEM_UF=["PR", "SC", "SP"];', 'window.ORDEM_UF=["PR"];')
+lib = troca(lib, 'window.ORDEM_UF=["PR", "SC", "SP"];',
+            'window.ORDEM_UF=' + json.dumps(list(dados)) + ';')
 lib = troca(lib, 'var NAVY = "#0d2a4f", NAVY_MEIO = "#20456f", OURO = "#9a7513",',
             'var NAVY = "#332d2b", NAVY_MEIO = "#4c4441", OURO = "#9a7513",')
 lib = troca(lib, 'var COR_LINHA = { "PME/PJ": "#2733c4", "Adesao": "#7c2f6d",\n'
@@ -477,7 +481,7 @@ if "Amil" in app or "Amil" in lib.split("window.FONTES")[0]:
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma
 # todos os planos numa rede so - ela compararia o plano com ele mesmo.
-if len(dados["PR"]["produtos"]) < 2:
+if max(len(r["produtos"]) for r in dados.values()) < 2:
     head = troca(head,
                  '<button type="button" class="aba" data-aba="entre">Entre planos</button>',
                  '<button type="button" class="aba" data-aba="entre" id="abaEntre"'

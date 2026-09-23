@@ -1,8 +1,13 @@
-# Rede credenciada Nossa Saúde — Campos Gerais
+# Rede credenciada Nossa Saúde — Paraná
 
-Página da rede credenciada da **Nossa Saúde** nas 9 cidades dos Campos Gerais / PR:
-Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí, Prudentópolis e
-Piraí do Sul.
+Página da rede credenciada da **Nossa Saúde** em duas regiões, com um botão para alternar entre
+elas:
+
+- **Campos Gerais** — Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí,
+  Prudentópolis e Piraí do Sul.
+- **Curitiba, RMC e Paranaguá** — Curitiba, São José dos Pinhais, Paranaguá, Araucária, Fazenda Rio
+  Grande, Campo Largo, Pinhais, Colombo, Tijucas do Sul, Campina Grande do Sul, Lapa, Rio Negro,
+  Piraquara, Agudos do Sul, Balsa Nova e Doutor Ulysses.
 
 **No ar em:** https://dallalbacorretor-a11y.github.io/rede-nossa-saude/
 
@@ -16,25 +21,29 @@ operadora. Vem tudo junto de lá:
 
 - abas **Visão geral · Rede completa** (a de "Entre planos" some aqui: o material soma todos os
   planos numa rede só, então ela compararia o plano com ele mesmo)
+- o seletor de região no topo — o mesmo mecanismo que na Amil alterna PR / SC / SP
 - mapa de bolhas por cidade, filtros por cidade, categoria, especialidade e bairro
 - **PDF gerado na hora pela própria página**, já assinado por quem está usando
 - **Meus dados**: cada corretor assina o próprio material; a corretora Mazza Broker é fixa
 
 ## Números
 
-| | |
-|---|---|
-| Prestadores | 328 |
-| Cidades | 9 |
-| Hospitais | 9 |
-| Consulta | 10/09/2026 |
+| | Campos Gerais | Curitiba, RMC e Paranaguá |
+|---|---|---|
+| Prestadores | 328 | 372 |
+| Cidades | 9 | 16 |
+| Hospitais | 9 | 23 |
+| Consulta | 10/09/2026 | 23/09/2026 |
+
+Os hospitais da região de Curitiba incluem os que a própria operadora classifica como *Hospital
+Especializado* (clínicas de olhos, por exemplo), porque é assim que eles saem na rede oficial.
 
 > A rede é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da
 > Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano
 > específico.
 
-Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada em
-10 de setembro de 2026 sem filtro de plano.
+Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada sem filtro de
+plano nas datas acima.
 
 ## Estrutura
 

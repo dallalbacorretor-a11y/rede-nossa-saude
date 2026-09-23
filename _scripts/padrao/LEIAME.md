@@ -12,7 +12,7 @@ base/amil_app.js       a aplicação
 ## Como gerar
 
 ```bash
-python dados_ns.py      # dados_unico.json -> dados/dados_ns.json (formato do app)
+python dados_ns.py      # dados_unico.json + dados_cwb.json -> dados/dados_ns.json (formato do app)
 python montar_site.py   # base + dados -> saida/index.html
 ```
 
@@ -30,19 +30,21 @@ adaptar.py    etapa 1 — paleta, título, região
 adaptar2.py   etapa 2 — um produto só, categorias da Nossa Saúde nos quadros e seções
 adaptar3.py   etapa 3 — textos, cores do PDF, remove o "direcionamento interno" (não existe aqui)
 adaptar4.py   etapa 4 — esconde a aba "Entre planos" quando só há um produto
+adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORDEM_UF pelos dados
 ```
 
-Rodando as quatro em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as cinco em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py
 ```
 
 ## O formato que o app espera
 
-`window.DADOS_UF = {"PR": {...}}`, com:
+`window.DADOS_UF = {"CG": {...}, "CWB": {...}}`, uma chave por região — o app mostra um botão por
+chave (na Amil as chaves são PR, SC e SP). Cada região tem:
 
 | campo | o que é |
 |---|---|
@@ -53,7 +55,9 @@ python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4
 | `centros` | `{"BAIRRO\|CIDADE": [lat, lon, quantos]}` — alimenta o "Perto de" |
 | `prestadores` | `n, c, cid, cr, b, e, t, mail, acess, eq, p, pp, dir, cat, cats, esp, pc, s, xy` |
 
-`dados_ns.py` monta isso a partir do `dados_unico.json` do fluxo normal.
+`dados_ns.py` monta isso a partir do `dados_unico.json` (Campos Gerais) e do `dados_cwb.json`
+(Curitiba, RMC e Paranaguá). Para acrescentar uma região, basta coletar os PDFs, gerar o JSON e
+somar uma linha em `REGIOES` — mais a data em `GERADO_EM` e a sede de cada cidade nova em `COORD`.
 
 ## O que é diferente aqui
 
@@ -62,5 +66,5 @@ python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4
 - **Sem direcionamento interno.** A Nossa Saúde não publica hospital liberado só por
   encaminhamento; o "D" no lugar do visto foi removido.
 - **Coordenadas por cidade.** A operadora não publica endereço geocodificado, então cada prestador
-  recebe o centro da própria cidade — o mapa fica com uma bolha por cidade, que é a granularidade
-  certa para nove cidades.
+  recebe a sede do próprio município (IBGE) — o mapa fica com uma bolha por cidade, que é a
+  granularidade certa para esse número de cidades. A caixa do mapa é calculada por região.
