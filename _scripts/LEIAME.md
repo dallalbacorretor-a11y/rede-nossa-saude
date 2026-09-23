@@ -51,7 +51,26 @@ própria página, na hora.
 ```bash
 python scrape_cwb.py        # 1 PDF oficial por cidade (16 cidades)  -> pdfs_cwb/
 python build_cwb.py         # parseia                                -> dados_cwb.json
+python obs.py               # campo "Observação" da listagem HTML     -> obs_cwb.json
 cd padrao && python dados_ns.py && python montar_site.py
+```
+
+### O campo "Observação" (encaminhamento, horário, faixa etária)
+
+O **PDF oficial não traz** esse campo — ele só aparece na listagem em HTML
+(`listaRedeCredenciada.php`), uma observação por especialidade. É lá que está o
+"Somente por encaminhamento", que é como a operadora marca o prestador de acesso por
+direcionamento: em Curitiba, Pilar, Cruz Vermelha, INC, Pequeno Príncipe, Menino Deus,
+Erasto Gaertner e Erastinho.
+
+A paginação daquela listagem é estado de sessão (o `pg=` da URL não move nada), então
+`obs.py` consulta **um prestador por vez**, pelo nome exato que saiu no PDF. `notas.py`
+separa a restrição que vale para qualquer plano da que vale só para o **Vida Care / Rede
+Ametista** — só a primeira vira direcionamento, senão um terço da rede sairia marcada.
+
+```bash
+python obs.py        # Curitiba e região -> obs_cwb.json
+python obs.py cg     # Campos Gerais     -> obs_cg.json
 ```
 
 As cidades da RMC atendidas foram conferidas no PDF do Paraná inteiro — fora Curitiba e São José
@@ -121,6 +140,7 @@ Conselhos variam bastante (CRM, CRP, CREFITO, CREFONO, CRO, CRN...) — por isso
 | `textutil.py` | caixa alta da operadora → Título Com Acentos |
 | `build_unico.py` | monta `dados_unico.json` (rede única, Campos Gerais) |
 | `scrape_cwb.py` / `build_cwb.py` | a mesma coleta para Curitiba, RMC e Paranaguá -> `dados_cwb.json` |
+| `obs.py` / `notas.py` | o campo "Observação" da listagem HTML (encaminhamento, horário, idade) |
 | `pdfamil.py` | motor de layout dos PDFs (padrão visual da corretora) |
 | `gen_cidades.py` | gera os PDFs por cidade e o da região |
 | `gen_xlsx2.py` / `gen_resumo2.py` | planilha e resumo |

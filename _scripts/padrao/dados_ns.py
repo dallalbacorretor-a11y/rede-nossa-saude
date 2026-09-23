@@ -96,6 +96,19 @@ def categorias_do(item):
     return sorted(fora, key=CATEGORIAS.index)
 
 
+_NOTAS = None
+
+
+def _notas():
+    """As observações da operadora, indexadas por CNPJ/conselho."""
+    global _NOTAS
+    if _NOTAS is None:
+        sys.path.insert(0, PAI)
+        import notas
+        _NOTAS = (notas, notas.carrega('obs_cg.json', 'obs_cwb.json'))
+    return _NOTAS
+
+
 _NAT = None
 
 
@@ -122,13 +135,19 @@ def por_categoria(item, cats):
 
 def monta(regiao):
     base = json.load(io.open(os.path.join(PAI, regiao['origem']), encoding='utf-8'))
+    mod, mapa = _notas()
     prestadores, centros = [], {}
+    dirigidos = 0
     for i in base['itens']:
         cidade = i['cidade']
         lat, lon = COORD[cidade]
         cats = categorias_do(i)
         bairros = [b for b in dict.fromkeys(e['bairro'] for e in i['enderecos']) if b]
         ends = [e for e in dict.fromkeys(e['logradouro'] for e in i['enderecos']) if e]
+        # "Somente por encaminhamento" só existe na listagem em HTML da
+        # operadora; o PDF de impressão não traz esse campo.
+        direc, obs = mod.do_prestador(mapa, i['cnpj'], i['conselho'])
+        dirigidos += 1 if direc else 0
         tels = []
         for e in i['enderecos']:
             for t in re.split(r'\s*/\s*', e.get('tel') or ''):
@@ -139,7 +158,8 @@ def monta(regiao):
             'n': maiusc(i['nome_exib']),
             'c': i['cnpj'] or i['conselho'],
             'cid': [maiusc(cidade)], 'cr': [maiusc(cidade)],
-            'pp': {maiusc(cidade): ['ns']}, 'p': ['ns'], 'dir': [],
+            'pp': {maiusc(cidade): ['ns']}, 'p': ['ns'],
+            'dir': ['ns'] if direc else [],
             'b': [maiusc(b) for b in bairros],
             'e': [maiusc(e) for e in ends],
             't': tels, 'mail': [], 'acess': False,
@@ -147,12 +167,17 @@ def monta(regiao):
             'cat': cats[0], 'cats': cats,
             'esp': [maiusc(e) for e in i['esp_exib']],
             'pc': {c: [maiusc(e) for e in v] for c, v in por_categoria(i, cats).items()},
-            's': [], 'xy': [lat, lon],
+            # `s` é o selo curto (vai no site e no PDF); `obs` é o texto
+            # da operadora, que só o site mostra ao passar o cursor.
+            's': ['ENCAMINHAMENTO'] if direc else [],
+            'obs': obs if direc else [],
+            'xy': [lat, lon],
         })
         chave = 'CENTRO|' + maiusc(cidade)
         centros.setdefault(chave, [lat, lon, 0])
         centros[chave][2] += 1
 
+    print('%-28s %3d por encaminhamento' % ('', dirigidos))
     return {
         'gerado_em': GERADO_EM[regiao['chave']], 'uf': regiao['chave'],
         'estado': regiao['nome'], 'nota': '',

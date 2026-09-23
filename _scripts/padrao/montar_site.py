@@ -158,6 +158,57 @@ app = troca(app,
 app = app.replace("Confirme no portal da Amil", "Confirme no portal da Nossa Saúde")
 app = troca(app, '("Amil " + nA + " x " + nB + " - " + onde + ".pdf")',
             '("Nossa Saude " + nA + " x " + nB + " - " + onde + ".pdf")')
+# ------------------------------------------------- direcionamento interno
+# Prestador que a operadora só libera por encaminhamento. Marcar com D, e
+# não com o visto, é o que evita prometer acesso livre (vem do campo
+# "Observação" da listagem oficial; ver notas.py).
+app = troca(app, '''             (tem ? "&#10003;" : "") + "</td>";''',
+            '''             (tem
+               ? ((p.dir || []).indexOf(c.codigo) >= 0
+                   ? '<abbr class="dir" title="A operadora só libera este '
+                     + 'prestador por encaminhamento — o acesso não é '
+                     + 'livre. Passe o cursor no selo ao lado do nome '
+                     + 'para ler a observação da operadora.">D</abbr>'
+                   : "&#10003;")
+               : "") + "</td>";''')
+head = troca(head, ".equipe{cursor:help;border-bottom:1px dotted currentColor}",
+             ".equipe{cursor:help;border-bottom:1px dotted currentColor}" +
+             "\n.prod .dir{font:700 11px/1 inherit;text-decoration:none;" +
+             "cursor:help;border:1px solid currentColor;border-radius:3px;" +
+             "padding:0 3px}")
+head = troca(head,
+             "o plano específico do cliente.</p>",
+             "o plano específico do cliente. <b>D</b> na coluna do plano é "
+             "<b>direcionamento interno</b>: o prestador atende, mas por "
+             "encaminhamento da operadora, não por acesso livre.</p>")
+
+# no PDF, o mesmo D no lugar do visto
+lib = troca(lib,
+            '''          if (tem) {
+            // circulo em volta do visto, como no material impresso
+            p.circulo(x + cols[ci].l / 2, topo + 1.2, 6.2, corPr, true, 0.9);
+            visto(p, x + cols[ci].l / 2, topo + 0.2, corPr);
+          } else {''',
+            '''          if (tem) {
+            // circulo em volta do visto, como no material impresso
+            p.circulo(x + cols[ci].l / 2, topo + 1.2, 6.2, corPr, true, 0.9);
+            if ((item.dir || []).indexOf(pr.codigo) >= 0) {
+              // direcionamento interno: D no lugar do visto
+              p.texto(x + cols[ci].l / 2 - p.larguraTexto("D", "sansB", 7) / 2,
+                      topo - 1.3, "D", "sansB", 7, corPr);
+            } else {
+              visto(p, x + cols[ci].l / 2, topo + 0.2, corPr);
+            }
+          } else {''')
+
+# o selo ao lado do nome: no app da Amil `s` é acreditação (ONA), aqui é
+# o aviso de encaminhamento — então o cartão do hospital para de dizer
+# "ACRED." e a dica do selo passa a mostrar o texto da operadora.
+lib = troca(lib, '"ACRED.", "sansB", 6.6, OURO);',
+            '"ENCAM.", "sansB", 6.6, OURO);')
+app = troca(app, 'esc(p.s.join(", "))',
+            'esc((p.obs || p.s).join(" · "))')
+
 # o nome do arquivo e o que o cliente ve na conversa: operadora e recorte
 app = troca(app,
             '''var nome = "Rede Amil " +
@@ -180,7 +231,9 @@ app = troca(app,
             '      "usa a rede do PME/PJ correspondente. " +',
             'var aviso = "Este material soma todos os planos da Nossa Saúde na " +\n'
             '      "região: se o prestador está aqui, ele é credenciado da operadora " +\n'
-            '      "naquela cidade por algum plano. " +')
+            '      "naquela cidade por algum plano. O D no lugar do visto marca " +\n'
+            '      "direcionamento interno: a operadora só libera aquele prestador " +\n'
+            '      "por encaminhamento. " +')
 app = troca(app, '"da Amil apresentava na data da capa e não substitui a consulta ao "',
             '"da Nossa Saúde apresentava na data da capa e não substitui a consulta ao "')
 app = troca(app, '"operadora. Este documento é o retrato do que a busca avançada oficial "',
@@ -480,7 +533,9 @@ lib = troca(lib, 'var COR_LINHA = { "PME/PJ": "#2733c4", "Adesao": "#7c2f6d",\n'
 lib = troca(lib, '"Rede Credenciada Amil"', '"Rede Credenciada Nossa Saúde"')
 lib = troca(lib, '"Levantado na busca avançada oficial da Amil em "',
             '"Levantado na rede credenciada oficial da Nossa Saúde em "')
-lib = troca(lib, '"Rede credenciada Amil " +', '"Rede credenciada Nossa Saúde " +')
+# o produto ja se chama "Nossa Saude": repetir a operadora antes dele
+# deixava o rodape com "Rede credenciada Nossa Saude Nossa Saude todos os planos"
+lib = troca(lib, '"Rede credenciada Amil " +', '"Rede credenciada " +')
 lib = lib.replace('RISCO = "#e4e9f0", ZEBRA = "#f7f9fc"',
                   'RISCO = "#e6e1dd", ZEBRA = "#fdf9f6"')
 lib = lib.replace('"#cfe0f5"', '"#f7ddcb"').replace('"#9fb8d8"', '"#e0b193"')

@@ -25,6 +25,9 @@ operadora. Vem tudo junto de lá:
 - mapa de bolhas por cidade, filtros por cidade, categoria, especialidade e bairro
 - **PDF gerado na hora pela própria página**, já assinado por quem está usando
 - **Meus dados**: cada corretor assina o próprio material; a corretora Mazza Broker é fixa
+- **Direcionamento interno**: quem a operadora só libera por encaminhamento aparece com o selo
+  ENCAMINHAMENTO e um **D** no lugar do visto — em Curitiba são Pilar, Cruz Vermelha, INC,
+  Pequeno Príncipe, Menino Deus, Erasto Gaertner e Erastinho, entre outros
 
 ## Números
 
@@ -37,6 +40,7 @@ operadora. Vem tudo junto de lá:
 
 Os hospitais da região de Curitiba incluem os que a própria operadora classifica como *Hospital
 Especializado* (clínicas de olhos, por exemplo), porque é assim que eles saem na rede oficial.
+Dos 23, **7 são de acesso por encaminhamento** e estão marcados como tal.
 
 > A rede é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da
 > Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano

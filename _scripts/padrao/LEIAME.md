@@ -32,14 +32,15 @@ adaptar3.py   etapa 3 — textos, cores do PDF, remove o "direcionamento interno
 adaptar4.py   etapa 4 — esconde a aba "Entre planos" quando só há um produto
 adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORDEM_UF pelos dados
 adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf"
+adaptar7.py   etapa 7 — direcionamento interno: o "D" e o selo de encaminhamento
 ```
 
-Rodando as seis em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as sete em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py
 ```
 
 ## O formato que o app espera
@@ -64,8 +65,11 @@ somar uma linha em `REGIOES` — mais a data em `GERADO_EM` e a sede de cada cid
 
 - **Um produto só.** O material soma todos os planos da operadora, então `produtos` tem um item e a
   aba "Entre planos" fica escondida.
-- **Sem direcionamento interno.** A Nossa Saúde não publica hospital liberado só por
-  encaminhamento; o "D" no lugar do visto foi removido.
+- **Direcionamento interno vem de outra fonte.** O PDF oficial não traz o campo
+  "Observação"; ele só existe na listagem em HTML (`obs.py` colhe, `notas.py` separa o que
+  vale para todo mundo do que vale só para o plano Vida Care / Rede Ametista). Quem tem
+  restrição geral recebe `dir` e o selo "ENCAMINHAMENTO"; o texto da operadora vai em `obs`,
+  que a dica do selo mostra. Nos Campos Gerais não há nenhum; em Curitiba são 18.
 - **Coordenadas por cidade.** A operadora não publica endereço geocodificado, então cada prestador
   recebe a sede do próprio município (IBGE) — o mapa fica com uma bolha por cidade, que é a
   granularidade certa para esse número de cidades. A caixa do mapa é calculada por região.

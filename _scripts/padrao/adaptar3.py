@@ -76,7 +76,9 @@ sub("""lib = troca(lib, '"Levantado na busca avançada oficial da Amil em "',
     """lib = troca(lib, '"Levantado na busca avançada oficial da Amil em "',
             '"Levantado na rede credenciada oficial da Nossa Saúde em "')""")
 sub("""lib = troca(lib, '"Rede credenciada Amil " +', '"Rede credenciada Paraná Clínicas " +')""",
-    """lib = troca(lib, '"Rede credenciada Amil " +', '"Rede credenciada Nossa Saúde " +')""")
+    """# o produto ja se chama "Nossa Saude": repetir a operadora antes dele
+# deixava o rodape com "Rede credenciada Nossa Saude Nossa Saude todos os planos"
+lib = troca(lib, '"Rede credenciada Amil " +', '"Rede credenciada " +')""")
 sub("""lib = lib.replace('RISCO = "#e4e9f0", ZEBRA = "#f7f9fc"',
                   'RISCO = "#eee2e5", ZEBRA = "#fdf9fa"')""",
     """lib = lib.replace('RISCO = "#e4e9f0", ZEBRA = "#f7f9fc"',
