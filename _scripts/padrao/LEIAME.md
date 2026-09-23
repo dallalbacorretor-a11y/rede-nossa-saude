@@ -12,7 +12,7 @@ base/amil_app.js       a aplicação
 ## Como gerar
 
 ```bash
-python dados_ns.py      # dados_unico.json + dados_cwb.json -> dados/dados_ns.json (formato do app)
+python dados_ns.py      # dados_vl.json -> dados/dados_ns.json (formato do app)
 python montar_site.py   # base + dados -> saida/index.html
 ```
 
@@ -33,20 +33,22 @@ adaptar4.py   etapa 4 — esconde a aba "Entre planos" quando só há um produto
 adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORDEM_UF pelos dados
 adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf"
 adaptar7.py   etapa 7 — direcionamento interno: o "D" e o selo de encaminhamento
+adaptar8.py   etapa 8 — o material passa a ser de um plano só, o Vida Leve
 ```
 
-Rodando as sete em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as oito em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py && python adaptar8.py
 ```
 
 ## O formato que o app espera
 
-`window.DADOS_UF = {"CG": {...}, "CWB": {...}}`, uma chave por região — o app mostra um botão por
-chave (na Amil as chaves são PR, SC e SP). Cada região tem:
+`window.DADOS_UF = {"VL": {...}}`, uma chave por região — o app mostra um botão por chave quando
+há mais de uma (na Amil são PR, SC e SP). Hoje há uma só, então o seletor nem aparece. Cada
+região tem:
 
 | campo | o que é |
 |---|---|
@@ -57,19 +59,19 @@ chave (na Amil as chaves são PR, SC e SP). Cada região tem:
 | `centros` | `{"BAIRRO\|CIDADE": [lat, lon, quantos]}` — alimenta o "Perto de" |
 | `prestadores` | `n, c, cid, cr, b, e, t, mail, acess, eq, p, pp, dir, cat, cats, esp, pc, s, xy` |
 
-`dados_ns.py` monta isso a partir do `dados_unico.json` (Campos Gerais) e do `dados_cwb.json`
-(Curitiba, RMC e Paranaguá). Para acrescentar uma região, basta coletar os PDFs, gerar o JSON e
-somar uma linha em `REGIOES` — mais a data em `GERADO_EM` e a sede de cada cidade nova em `COORD`.
+`dados_ns.py` monta isso a partir do `dados_vl.json`. Para acrescentar uma região, basta coletar
+os PDFs, gerar o JSON e somar uma linha em `REGIOES` — mais a data em `GERADO_EM` e a sede de
+cada cidade nova em `COORD`.
 
 ## O que é diferente aqui
 
-- **Um produto só.** O material soma todos os planos da operadora, então `produtos` tem um item e a
-  aba "Entre planos" fica escondida.
+- **Um produto só.** O material é do plano **Vida Leve** (Rede Laranja), que é o que a corretora
+  comercializa, então `produtos` tem um item e a aba "Entre planos" fica escondida.
 - **Direcionamento interno vem de outra fonte.** O PDF oficial não traz o campo
   "Observação"; ele só existe na listagem em HTML (`obs.py` colhe, `notas.py` separa o que
   vale para todo mundo do que vale só para o plano Vida Care / Rede Ametista). Quem tem
   restrição geral recebe `dir` e o selo "ENCAMINHAMENTO"; o texto da operadora vai em `obs`,
-  que a dica do selo mostra. Nos Campos Gerais não há nenhum; em Curitiba são 18.
+  que a dica do selo mostra. São 18 na rede do Vida Leve.
 - **Coordenadas por cidade.** A operadora não publica endereço geocodificado, então cada prestador
   recebe a sede do próprio município (IBGE) — o mapa fica com uma bolha por cidade, que é a
   granularidade certa para esse número de cidades. A caixa do mapa é calculada por região.

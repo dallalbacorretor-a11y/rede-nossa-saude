@@ -68,7 +68,7 @@ def main(pasta, saida, espera=0.12):
     tudo = json.load(io.open(saida, encoding='utf-8')) if os.path.exists(saida) else {}
     s = sess()
     for f in sorted(os.listdir(pasta)):
-        if not f.startswith('TODOS__'):
+        if '__' not in f or not f.endswith('.pdf'):
             continue
         cidade = f[:-4].split('__')[1].replace('_', ' ')
         if cidade in tudo:
@@ -108,7 +108,7 @@ def main(pasta, saida, espera=0.12):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'cg':
-        main('pdfs', 'obs_cg.json')
-    else:
-        main('pdfs_cwb', 'obs_cwb.json')
+    alvo = sys.argv[1] if len(sys.argv) > 1 else 'vl'
+    main(*{'cg': ('pdfs', 'obs_cg.json'),
+           'cwb': ('pdfs_cwb', 'obs_cwb.json'),
+           'vl': ('pdfs_vl', 'obs_vl.json')}[alvo])

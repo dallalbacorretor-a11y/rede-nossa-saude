@@ -15,11 +15,12 @@ PAI = os.path.dirname(AQUI)
 SAIDA = os.path.join(AQUI, 'dados', 'dados_ns.json')
 sys.stdout.reconfigure(encoding='utf-8')
 
-GERADO_EM = {'CG': '10/09/2026', 'CWB': '23/09/2026'}
+GERADO_EM = {'VL': '23/09/2026'}
 
+# A corretora comercializa o Vida Leve, que usa uma rede só (a REDE LARANJA) e
+# não chega aos Campos Gerais — por isso o material tem uma região só.
 REGIOES = [
-    {'chave': 'CG', 'nome': 'Campos Gerais', 'origem': 'dados_unico.json'},
-    {'chave': 'CWB', 'nome': 'Curitiba, RMC e Paranaguá', 'origem': 'dados_cwb.json'},
+    {'chave': 'VL', 'nome': 'Curitiba, RMC e Litoral', 'origem': 'dados_vl.json'},
 ]
 
 # Sede dos municípios (IBGE), para o mapa de bolhas e o "Perto de".
@@ -31,6 +32,9 @@ COORD = {
     'Carambeí': (-24.915, -50.098), 'Prudentópolis': (-25.213, -50.978),
     'Piraí do Sul': (-24.526, -49.945),
     # Curitiba, RMC e litoral
+    'Antonina': (-25.4289, -48.7119), 'Morretes': (-25.4769, -48.8342),
+    'Guaratuba': (-25.8819, -48.5750), 'Matinhos': (-25.8175, -48.5428),
+    'Pontal do Paraná': (-25.6722, -48.5111), 'Campo Magro': (-25.3697, -49.4517),
     'Curitiba': (-25.4284, -49.2733), 'São José dos Pinhais': (-25.5305, -49.2064),
     'Araucária': (-25.5936, -49.4103), 'Fazenda Rio Grande': (-25.6625, -49.3075),
     'Campo Largo': (-25.4589, -49.5278), 'Pinhais': (-25.4447, -49.1925),
@@ -60,9 +64,9 @@ CAT_PROF = 'Profissionais (médicos e demais)'
 CAT_CLIN = 'Clínicas e Centros Médicos'
 
 PRODUTOS = [{
-    'codigo': 'ns', 'rotulo': 'Nossa Saúde', 'acomodacao': 'todos os planos',
+    'codigo': 'vl', 'rotulo': 'Vida Leve', 'acomodacao': 'Rede Laranja',
     'linha': 'Nossa Saúde', 'cor': '#E6411C', 'ans': '',
-    'nome': 'Nossa Saúde — todos os planos',
+    'nome': 'Nossa Saúde — Vida Leve',
 }]
 
 
@@ -105,7 +109,7 @@ def _notas():
     if _NOTAS is None:
         sys.path.insert(0, PAI)
         import notas
-        _NOTAS = (notas, notas.carrega('obs_cg.json', 'obs_cwb.json'))
+        _NOTAS = (notas, notas.carrega('obs_vl.json'))
     return _NOTAS
 
 
@@ -158,8 +162,8 @@ def monta(regiao):
             'n': maiusc(i['nome_exib']),
             'c': i['cnpj'] or i['conselho'],
             'cid': [maiusc(cidade)], 'cr': [maiusc(cidade)],
-            'pp': {maiusc(cidade): ['ns']}, 'p': ['ns'],
-            'dir': ['ns'] if direc else [],
+            'pp': {maiusc(cidade): ['vl']}, 'p': ['vl'],
+            'dir': ['vl'] if direc else [],
             'b': [maiusc(b) for b in bairros],
             'e': [maiusc(e) for e in ends],
             't': tels, 'mail': [], 'acess': False,

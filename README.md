@@ -1,53 +1,54 @@
-# Rede credenciada Nossa Saúde — Paraná
+# Rede credenciada Nossa Saúde — Vida Leve
 
-Página da rede credenciada da **Nossa Saúde** em duas regiões, com um botão para alternar entre
-elas:
-
-- **Campos Gerais** — Ponta Grossa, Telêmaco Borba, Jaguariaíva, Castro, Irati, Palmeira, Carambeí,
-  Prudentópolis e Piraí do Sul.
-- **Curitiba, RMC e Paranaguá** — Curitiba, São José dos Pinhais, Paranaguá, Araucária, Fazenda Rio
-  Grande, Campo Largo, Pinhais, Colombo, Tijucas do Sul, Campina Grande do Sul, Lapa, Rio Negro,
-  Piraquara, Agudos do Sul, Balsa Nova e Doutor Ulysses.
+Página da rede credenciada do plano **Vida Leve** da Nossa Saúde, que é o que a corretora
+comercializa. Todos os Vida Leve — individual, empresarial e por adesão, e também o Vida Leve
+Litoral — usam **uma rede só, a Rede Laranja**.
 
 **No ar em:** https://dallalbacorretor-a11y.github.io/rede-nossa-saude/
 
 Publicado por **Mazza Broker** — Alan Vinicius Dall Alba · (41) 99547-6715 ·
 alan.vinicius@mazzabroker.com.br
 
+## Onde o Vida Leve tem rede
+
+Curitiba, região metropolitana e litoral — 18 cidades:
+
+Curitiba, São José dos Pinhais, Paranaguá, Araucária, Fazenda Rio Grande, Campo Largo, Pinhais,
+Colombo, Tijucas do Sul, Campina Grande do Sul, Piraquara, Agudos do Sul, Balsa Nova, Antonina,
+Morretes, Guaratuba, Matinhos e Pontal do Paraná.
+
+**Nos Campos Gerais o Vida Leve não tem rede credenciada.** Lá a operadora atende pelas redes
+Azul e Coral, de outros planos. O estudo dos Campos Gerais, com todos os planos somados, está no
+histórico do repositório (até o commit `78e5ae1`).
+
+## Números
+
+| | |
+|---|---|
+| Prestadores | 361 |
+| Cidades | 18 |
+| Hospitais | 22 |
+| Por encaminhamento | 18 |
+| Consulta | 23/09/2026 |
+
+Os hospitais incluem os que a própria operadora classifica como *Hospital Especializado*
+(clínicas de olhos, por exemplo), porque é assim que eles saem na rede oficial.
+
 ## Mesmo padrão da Amil e da Paraná Clínicas
 
 A página é o **mesmo aplicativo** dos outros dois estudos da corretora, recolorido para a marca da
-operadora. Vem tudo junto de lá:
+operadora:
 
-- abas **Visão geral · Rede completa** (a de "Entre planos" some aqui: o material soma todos os
-  planos numa rede só, então ela compararia o plano com ele mesmo)
-- o seletor de região no topo — o mesmo mecanismo que na Amil alterna PR / SC / SP
+- abas **Visão geral · Rede completa**
 - mapa de bolhas por cidade, filtros por cidade, categoria, especialidade e bairro
 - **PDF gerado na hora pela própria página**, já assinado por quem está usando
 - **Meus dados**: cada corretor assina o próprio material; a corretora Mazza Broker é fixa
 - **Direcionamento interno**: quem a operadora só libera por encaminhamento aparece com o selo
-  ENCAMINHAMENTO e um **D** no lugar do visto — em Curitiba são Pilar, Cruz Vermelha, INC,
-  Pequeno Príncipe, Menino Deus, Erasto Gaertner e Erastinho, entre outros
+  ENCAMINHAMENTO e um **D** no lugar do visto — Pilar, Cruz Vermelha, INC, Pequeno Príncipe,
+  Menino Deus, Erasto Gaertner e Erastinho, entre outros
 
-## Números
-
-| | Campos Gerais | Curitiba, RMC e Paranaguá |
-|---|---|---|
-| Prestadores | 328 | 372 |
-| Cidades | 9 | 16 |
-| Hospitais | 9 | 23 |
-| Consulta | 10/09/2026 | 23/09/2026 |
-
-Os hospitais da região de Curitiba incluem os que a própria operadora classifica como *Hospital
-Especializado* (clínicas de olhos, por exemplo), porque é assim que eles saem na rede oficial.
-Dos 23, **7 são de acesso por encaminhamento** e estão marcados como tal.
-
-> A rede é definida e alterada exclusivamente pela operadora. Esta lista soma todos os planos da
-> Nossa Saúde — antes de contratar, confirme no portal da operadora se o prestador atende o plano
-> específico.
-
-Rede credenciada oficial da operadora, em prestador.nossasaude.com.br, consultada sem filtro de
-plano nas datas acima.
+> A rede é definida e alterada exclusivamente pela operadora. Esta lista é o retrato da data
+> acima — antes de contratar, confirme no portal da operadora.
 
 ## Estrutura
 

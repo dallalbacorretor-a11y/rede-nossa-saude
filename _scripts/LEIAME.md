@@ -1,4 +1,4 @@
-# Pipeline — rede credenciada Nossa Saúde (Campos Gerais + Curitiba/RMC/Paranaguá)
+# Pipeline — rede credenciada Nossa Saúde (plano Vida Leve)
 
 ## Trocar o nome do corretor
 
@@ -43,7 +43,27 @@ python dados_ns.py          # dados_unico.json + dados_cwb.json -> dados/dados_n
 python montar_site.py       # base + dados -> saida/index.html
 ```
 
-## Segunda região — Curitiba, RMC e Paranaguá
+## O material publicado: plano Vida Leve
+
+A corretora comercializa o **Vida Leve**. Todos os planos com esse nome — individual,
+empresarial, por adesão e o Vida Leve Litoral — usam **uma rede só, a REDE LARANJA**
+(código `68287168`), então basta filtrar por um plano representativo:
+`VL1001 - VIDA LEVE - Individual Familiar`, código `20338136`.
+
+Filtrar por `plano` traz um pouco mais que filtrar por `tipoRede` (em Curitiba, 235 contra 233).
+
+```bash
+python scrape_vl.py         # 1 PDF oficial por cidade, filtrado no plano  -> pdfs_vl/
+python build_vl.py          # parseia; cidade sem rede cai fora sozinha    -> dados_vl.json
+python obs.py vl            # campo "Observação" da listagem HTML          -> obs_vl.json
+cd padrao && python dados_ns.py && python montar_site.py
+```
+
+**O Vida Leve não tem rede nos Campos Gerais.** Lá a operadora atende pelas redes Azul e Coral,
+de outros planos — por isso o material publicado cobre só Curitiba, a região metropolitana e o
+litoral (18 cidades, 361 prestadores).
+
+## Levantamentos anteriores (todos os planos somados)
 
 Mesmo caminho, outra pasta de PDFs. Só entra no site: os PDFs por cidade dessa região saem da
 própria página, na hora.
