@@ -1230,7 +1230,7 @@ tr.mais span{color:var(--tinta-fraca);font-size:12px;margin-right:12px}
     Esta página é o retrato da data indicada no topo —
     <strong>confirme no portal da Nossa Saúde antes de contratar.</strong></span>
   <span class="assina" id="assinaRodape"></span>
-  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 23/09/2026 10:06</span>
+  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 23/09/2026 10:16</span>
 </div>
 
 
@@ -3602,7 +3602,8 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
     var produto = produtos[0];
     var lista = filtrar();
     var bruto = apelidoCidade();
-    var rotuloCidade = bruto.replace(/(^|\s)(\S)(\S*)/g, function (m, a, b, c) {
+    var rotuloCidade = bruto !== bruto.toUpperCase() ? bruto
+      : bruto.replace(/(^|\s)(\S)(\S*)/g, function (m, a, b, c) {
       return a + b.toUpperCase() + c.toLowerCase();
     }).replace(/\bE\b/g, "e");
     var nomes = produtos.map(function (p) {
@@ -3790,12 +3791,7 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
       });
 
     var bytes = rel.pdf.gerar();
-    var nome = "Rede Nossa Saude " +
-               (comparativo
-                 ? (nomes.length <= 3 ? nomes.join(" x ")
-                                      : nomes.length + " planos")
-                 : nomes[0]) +
-               " - " + rotuloCidade + ".pdf";
+    var nome = "Nossa Saúde - " + rotuloCidade + ".pdf";
     entregarBinario(nome.replace(/\//g, "-"), bytes);
   }
 

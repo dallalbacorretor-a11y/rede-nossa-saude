@@ -31,14 +31,15 @@ adaptar2.py   etapa 2 — um produto só, categorias da Nossa Saúde nos quadros
 adaptar3.py   etapa 3 — textos, cores do PDF, remove o "direcionamento interno" (não existe aqui)
 adaptar4.py   etapa 4 — esconde a aba "Entre planos" quando só há um produto
 adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORDEM_UF pelos dados
+adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf"
 ```
 
-Rodando as cinco em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as seis em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py
 ```
 
 ## O formato que o app espera

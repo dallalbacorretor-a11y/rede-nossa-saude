@@ -158,7 +158,22 @@ app = troca(app,
 app = app.replace("Confirme no portal da Amil", "Confirme no portal da Nossa Saúde")
 app = troca(app, '("Amil " + nA + " x " + nB + " - " + onde + ".pdf")',
             '("Nossa Saude " + nA + " x " + nB + " - " + onde + ".pdf")')
-app = troca(app, 'var nome = "Rede Amil " +', 'var nome = "Rede Nossa Saude " +')
+# o nome do arquivo e o que o cliente ve na conversa: operadora e recorte
+app = troca(app,
+            '''var nome = "Rede Amil " +
+               (comparativo
+                 ? (nomes.length <= 3 ? nomes.join(" x ")
+                                      : nomes.length + " planos")
+                 : nomes[0]) +
+               " - " + rotuloCidade + ".pdf";''',
+            '''var nome = "Nossa Saúde - " + rotuloCidade + ".pdf";''')
+
+# a cidade vem em caixa alta da operadora e precisa virar Título; o nome da
+# região já vem certo e não pode virar "Curitiba, Rmc e Paranaguá"
+app = troca(app,
+            '''var rotuloCidade = bruto.replace(''',
+            '''var rotuloCidade = bruto !== bruto.toUpperCase() ? bruto
+      : bruto.replace(''')
 app = troca(app,
             'var aviso = "Cada plano deste material representa uma rede: enfermaria e " +\n'
             '      "apartamento compartilham a mesma rede credenciada, e a linha de Adesão " +\n'
