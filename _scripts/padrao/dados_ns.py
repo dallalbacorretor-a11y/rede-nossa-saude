@@ -15,12 +15,18 @@ PAI = os.path.dirname(AQUI)
 SAIDA = os.path.join(AQUI, 'dados', 'dados_ns.json')
 sys.stdout.reconfigure(encoding='utf-8')
 
-GERADO_EM = {'VL': '23/09/2026'}
+GERADO_EM = {'VL': '23/09/2026', 'CG': '01/10/2026'}
 
-# A corretora comercializa o Vida Leve, que usa uma rede só (a REDE LARANJA) e
-# não chega aos Campos Gerais — por isso o material tem uma região só.
+# Um plano por região: é o que a operadora vende em cada uma. O Vida Leve (Rede
+# Laranja) não tem rede nos Campos Gerais, e o Vida Nova CG (Rede Coral CG) não
+# sai de lá — por isso cada região traz o seu, e não a soma de tudo.
 REGIOES = [
-    {'chave': 'VL', 'nome': 'Curitiba, RMC e Litoral', 'origem': 'dados_vl.json'},
+    {'chave': 'VL', 'nome': 'Curitiba, RMC e Litoral', 'origem': 'dados_vl.json',
+     'produto': {'codigo': 'vl', 'rotulo': 'Vida Leve', 'acomodacao': 'Rede Laranja',
+                 'nome': 'Nossa Saúde — Vida Leve'}},
+    {'chave': 'CG', 'nome': 'Campos Gerais', 'origem': 'dados_vncg.json',
+     'produto': {'codigo': 'vn', 'rotulo': 'Vida Nova CG', 'acomodacao': 'Rede Coral CG',
+                 'nome': 'Nossa Saúde — Vida Nova CG'}},
 ]
 
 # Sede dos municípios (IBGE), para o mapa de bolhas e o "Perto de".
@@ -63,11 +69,11 @@ DE_NATUREZA = {
 CAT_PROF = 'Profissionais (médicos e demais)'
 CAT_CLIN = 'Clínicas e Centros Médicos'
 
-PRODUTOS = [{
-    'codigo': 'vl', 'rotulo': 'Vida Leve', 'acomodacao': 'Rede Laranja',
-    'linha': 'Nossa Saúde', 'cor': '#E6411C', 'ans': '',
-    'nome': 'Nossa Saúde — Vida Leve',
-}]
+def produtos_de(regiao):
+    """A lista de produtos da região — sempre um só, o plano daquela praça."""
+    p = dict(regiao['produto'])
+    p.update({'linha': 'Nossa Saúde', 'cor': '#E6411C', 'ans': ''})
+    return [p]
 
 
 def maiusc(s):
@@ -109,7 +115,7 @@ def _notas():
     if _NOTAS is None:
         sys.path.insert(0, PAI)
         import notas
-        _NOTAS = (notas, notas.carrega('obs_vl.json'))
+        _NOTAS = (notas, notas.carrega('obs_vl.json', 'obs_cg.json'))
     return _NOTAS
 
 
@@ -140,6 +146,7 @@ def por_categoria(item, cats):
 def monta(regiao):
     base = json.load(io.open(os.path.join(PAI, regiao['origem']), encoding='utf-8'))
     mod, mapa = _notas()
+    cod = regiao['produto']['codigo']
     prestadores, centros = [], {}
     dirigidos = 0
     for i in base['itens']:
@@ -162,8 +169,8 @@ def monta(regiao):
             'n': maiusc(i['nome_exib']),
             'c': i['cnpj'] or i['conselho'],
             'cid': [maiusc(cidade)], 'cr': [maiusc(cidade)],
-            'pp': {maiusc(cidade): ['vl']}, 'p': ['vl'],
-            'dir': ['vl'] if direc else [],
+            'pp': {maiusc(cidade): [cod]}, 'p': [cod],
+            'dir': [cod] if direc else [],
             'b': [maiusc(b) for b in bairros],
             'e': [maiusc(e) for e in ends],
             't': tels, 'mail': [], 'acess': False,
@@ -185,7 +192,7 @@ def monta(regiao):
     return {
         'gerado_em': GERADO_EM[regiao['chave']], 'uf': regiao['chave'],
         'estado': regiao['nome'], 'nota': '',
-        'produtos': PRODUTOS, 'categorias': CATEGORIAS, 'catsExame': CATS_EXAME,
+        'produtos': produtos_de(regiao), 'categorias': CATEGORIAS, 'catsExame': CATS_EXAME,
         'centros': centros, 'prestadores': prestadores,
     }, base['cidades']
 

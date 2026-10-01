@@ -1,4 +1,4 @@
-# Pipeline — rede credenciada Nossa Saúde (plano Vida Leve)
+# Pipeline — rede credenciada Nossa Saúde (Vida Leve e Vida Nova CG)
 
 ## Trocar o nome do corretor
 
@@ -59,9 +59,27 @@ python obs.py vl            # campo "Observação" da listagem HTML          -> 
 cd padrao && python dados_ns.py && python montar_site.py
 ```
 
-**O Vida Leve não tem rede nos Campos Gerais.** Lá a operadora atende pelas redes Azul e Coral,
-de outros planos — por isso o material publicado cobre só Curitiba, a região metropolitana e o
-litoral (18 cidades, 361 prestadores).
+**O Vida Leve não tem rede nos Campos Gerais.** Lá a operadora vende o **Vida Nova CG**, que usa
+a REDE CORAL CG (`379593581`, 12 planos) e não sai dos Campos Gerais. Por isso o material tem uma
+região por plano, e não a soma dos dois.
+
+```bash
+python build_vncg.py        # 9 cidades, plano VNCGA2301 (413168400)  -> dados_vncg.json
+```
+
+Os PDFs do Vida Nova CG saem do mesmo `scrape.py` com `plano=413168400`; as observações dos
+Campos Gerais já estão em `obs_cg.json`, levantadas sobre a rede inteira (superconjunto).
+
+### Quais planos atendem cada praça
+
+`planos_redes.json` tem o mapa plano → rede dos 328 planos. Resumo do que interessa:
+
+| Rede | Planos | Onde |
+|---|---|---|
+| LARANJA | Vida Leve (60) | Curitiba, RMC e litoral |
+| CORAL CG | Vida Nova CG (12) | Campos Gerais |
+| CORAL | Vida Nova e adaptados (69) | — |
+| AZUL | Lumen, Millenium, Capita, Laborium (66) | — |
 
 ## Levantamentos anteriores (todos os planos somados)
 

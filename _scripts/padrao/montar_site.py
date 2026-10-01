@@ -75,12 +75,12 @@ head = head.replace("rgba(214,177,85,.16)", "rgba(230,150,60,.18)")
 head = head.replace("#16233a", "#241f1d")
 
 head = troca(head, "<title>Rede Amil Paraná, Santa Catarina e São Paulo</title>",
-             "<title>Rede credenciada Nossa Saúde Vida Leve</title>")
+             "<title>Rede credenciada Nossa Saúde — Paraná</title>")
 head = troca(head,
              '<h1>Rede credenciada <em>Amil</em> — <span id="tituloEstado">Paraná, '
              'Santa Catarina e São Paulo</span></h1>',
-             '<h1>Rede credenciada <em>Nossa Saúde</em> <b>Vida Leve</b> — '
-             '<span id="tituloEstado">Curitiba, RMC e Litoral</span></h1>')
+             '<h1>Rede credenciada <em>Nossa Saúde</em> — '
+             '<span id="tituloEstado">Campos Gerais</span></h1>')
 
 # "Rede de (praça)" nao existe aqui: a busca da Nossa Saude e por cidade.
 head = troca(head, '<span class="rotulo">Rede de (praça)</span>',
@@ -100,10 +100,11 @@ head = troca(head,
              '     enfermaria e apartamento (QC e QP) compartilham a mesma rede, e a linha\n'
              '     de <b>Adesão</b> usa a rede do PME/PJ correspondente — Adesão Prata está\n'
              '     dentro de Prata, Adesão Ouro dentro de Ouro, e assim por diante.</p>',
-             '<p class="nota-familia">Esta é a rede do plano <b>Vida Leve</b> da Nossa '
-             'Saúde — a Rede Laranja, a mesma no individual, no empresarial e na adesão. '
-             'Os outros planos da operadora usam outra rede, e nos Campos Gerais o Vida Leve '
-             'não tem rede credenciada. Confirme no portal da operadora antes de contratar.</p>')
+             '<p class="nota-familia">Cada região tem aqui <b>o plano que a operadora '
+             'vende nela</b>, com a rede daquele plano: <b>Vida Leve</b> (Rede Laranja) em '
+             'Curitiba, região metropolitana e litoral; <b>Vida Nova CG</b> (Rede Coral CG) '
+             'nos Campos Gerais. Um não atende a praça do outro, e os demais planos da Nossa '
+             'Saúde usam outras redes — confirme no portal da operadora antes de contratar.</p>')
 
 head = head.replace("portal da Amil", "portal da Nossa Saúde")
 # Carimbo da versão publicada. O GitHub Pages serve a página com dez minutos de
@@ -151,10 +152,10 @@ app = troca(app,
             '        "Rede completa para ver cidade por cidade."',
             '". Use a aba Rede completa para ver prestador por prestador."')
 app = app.replace("Levantado na busca avançada oficial da Amil.",
-                  "Levantado na rede credenciada oficial da Nossa Saúde, no plano Vida Leve.")
+                  "Levantado na rede credenciada oficial da Nossa Saúde, no plano da capa.")
 app = troca(app,
             '"Amil devolveu na data da capa, para os planos "',
-            '"a Nossa Saúde devolveu na data da capa para o plano Vida Leve "')
+            '"a Nossa Saúde devolveu na data da capa para este plano "')
 app = app.replace("Confirme no portal da Amil", "Confirme no portal da Nossa Saúde")
 app = troca(app, '("Amil " + nA + " x " + nB + " - " + onde + ".pdf")',
             '("Nossa Saude " + nA + " x " + nB + " - " + onde + ".pdf")')
@@ -217,7 +218,7 @@ app = troca(app,
                                       : nomes.length + " planos")
                  : nomes[0]) +
                " - " + rotuloCidade + ".pdf";''',
-            '''var nome = "Nossa Saúde Vida Leve - " + rotuloCidade + ".pdf";''')
+            '''var nome = "Nossa Saúde " + produto.rotulo + " - " + rotuloCidade + ".pdf";''')
 
 # a cidade vem em caixa alta da operadora e precisa virar Título; o nome da
 # região já vem certo e não pode virar "Curitiba, Rmc e Paranaguá"
@@ -229,9 +230,9 @@ app = troca(app,
             'var aviso = "Cada plano deste material representa uma rede: enfermaria e " +\n'
             '      "apartamento compartilham a mesma rede credenciada, e a linha de Adesão " +\n'
             '      "usa a rede do PME/PJ correspondente. " +',
-            'var aviso = "Esta é a rede do plano Vida Leve da Nossa Saúde — a Rede " +\n'
-            '      "Laranja, a mesma no individual, no empresarial e na adesão. Os " +\n'
-            '      "outros planos da operadora usam outra rede. O D no lugar do visto marca " +\n'
+            'var aviso = "Esta é a rede do plano da capa, e só dela: os outros " +\n'
+            '      "planos da Nossa Saúde usam outra rede credenciada, e o plano de " +\n'
+            '      "uma praça não atende a praça da outra. O D no lugar do visto marca " +\n'
             '      "direcionamento interno: a operadora só libera aquele prestador " +\n'
             '      "por encaminhamento. " +')
 app = troca(app, '"da Amil apresentava na data da capa e não substitui a consulta ao "',

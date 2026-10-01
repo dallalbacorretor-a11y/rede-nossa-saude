@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-"""Etapa 8: o material passa a ser de um plano só — o VIDA LEVE.
+"""Etapa 8: um plano por região, e não a soma de todos.
 
-Até aqui a página somava todos os planos da operadora. A corretora comercializa
-o **Vida Leve**, que usa uma rede só (a REDE LARANJA) e tem um recorte
-geográfico próprio: Curitiba, região metropolitana e litoral — nos Campos
-Gerais esse plano não tem rede nenhuma.
+Até aqui a página somava todos os planos da operadora. A corretora vende um
+plano em cada praça, e cada um usa uma rede diferente:
 
-Então some tudo que dizia "somando todos os planos": o material agora responde
-"o que o Vida Leve cobre", que é a pergunta que o cliente faz.
+    Curitiba, RMC e litoral   Vida Leve     Rede Laranja
+    Campos Gerais             Vida Nova CG  Rede Coral CG
+
+Nenhum dos dois alcança a região do outro, então somar os planos criava uma
+rede que nenhum cliente tem. Aqui some tudo que dizia "somando todos os
+planos" e o material passa a responder "o que este plano cobre", que é a
+pergunta que o cliente faz. O nome do plano vem do dado, não do texto — o app
+troca de região sem recarregar.
 """
 import io, os, sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -25,24 +29,16 @@ def sub(de, para, vezes=1):
     n += vezes
 
 
-# o nome do plano no título, que é a primeira coisa que o cliente lê
-sub("""             '<h1>Rede credenciada <em>Nossa Saúde</em> — '
-             '<span id="tituloEstado">Campos Gerais</span></h1>')""",
-    """             '<h1>Rede credenciada <em>Nossa Saúde</em> <b>Vida Leve</b> — '
-             '<span id="tituloEstado">Curitiba, RMC e Litoral</span></h1>')""")
-
-sub('             "<title>Rede credenciada Nossa Saúde — Paraná</title>")',
-    '             "<title>Rede credenciada Nossa Saúde Vida Leve</title>")')
-
 # a nota acima dos cartões
 sub("""             '<p class="nota-familia">Este material soma <b>todos os planos</b> da Nossa '
              'Saúde na região: se o prestador está aqui, ele é credenciado da operadora '
              'naquela cidade por algum plano. Confirme no portal da operadora se ele atende '
              'o plano específico do cliente.</p>')""",
-    """             '<p class="nota-familia">Esta é a rede do plano <b>Vida Leve</b> da Nossa '
-             'Saúde — a Rede Laranja, a mesma no individual, no empresarial e na adesão. '
-             'Os outros planos da operadora usam outra rede, e nos Campos Gerais o Vida Leve '
-             'não tem rede credenciada. Confirme no portal da operadora antes de contratar.</p>')""")
+    """             '<p class="nota-familia">Cada região tem aqui <b>o plano que a operadora '
+             'vende nela</b>, com a rede daquele plano: <b>Vida Leve</b> (Rede Laranja) em '
+             'Curitiba, região metropolitana e litoral; <b>Vida Nova CG</b> (Rede Coral CG) '
+             'nos Campos Gerais. Um não atende a praça do outro, e os demais planos da Nossa '
+             'Saúde usam outras redes — confirme no portal da operadora antes de contratar.</p>')""")
 
 # a etapa 7 pendura a legenda do "D" no fim dessa nota — o texto mudou
 sub('\n'.join([
@@ -57,22 +53,22 @@ sub('\n'.join([
 sub('                  "Levantado na rede credenciada oficial da Nossa Saúde, '
     'somando todos os planos.")',
     '                  "Levantado na rede credenciada oficial da Nossa Saúde, '
-    'no plano Vida Leve.")')
+    'no plano da capa.")')
 
 sub("""            '"a Nossa Saúde devolveu na data da capa, somando todos os planos "')""",
-    """            '"a Nossa Saúde devolveu na data da capa para o plano Vida Leve "')""")
+    """            '"a Nossa Saúde devolveu na data da capa para este plano "')""")
 
 # o aviso do PDF
 sub("""            'var aviso = "Este material soma todos os planos da Nossa Saúde na " +\\n'
             '      "região: se o prestador está aqui, ele é credenciado da operadora " +\\n'
             '      "naquela cidade por algum plano. O D no lugar do visto marca " +\\n'""",
-    """            'var aviso = "Esta é a rede do plano Vida Leve da Nossa Saúde — a Rede " +\\n'
-            '      "Laranja, a mesma no individual, no empresarial e na adesão. Os " +\\n'
-            '      "outros planos da operadora usam outra rede. O D no lugar do visto marca " +\\n'""")
+    """            'var aviso = "Esta é a rede do plano da capa, e só dela: os outros " +\\n'
+            '      "planos da Nossa Saúde usam outra rede credenciada, e o plano de " +\\n'
+            '      "uma praça não atende a praça da outra. O D no lugar do visto marca " +\\n'""")
 
-# e o nome do arquivo passa a dizer o plano
+# e o nome do arquivo diz o plano da região
 sub("""            '''var nome = "Nossa Saúde - " + rotuloCidade + ".pdf";''')""",
-    """            '''var nome = "Nossa Saúde Vida Leve - " + rotuloCidade + ".pdf";''')""")
+    """            '''var nome = "Nossa Saúde " + produto.rotulo + " - " + rotuloCidade + ".pdf";''')""")
 
 io.open(ALVO, 'w', encoding='utf-8').write(t)
 print('etapa 8: %d trocas' % n)

@@ -33,7 +33,7 @@ adaptar4.py   etapa 4 — esconde a aba "Entre planos" quando só há um produto
 adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORDEM_UF pelos dados
 adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf"
 adaptar7.py   etapa 7 — direcionamento interno: o "D" e o selo de encaminhamento
-adaptar8.py   etapa 8 — o material passa a ser de um plano só, o Vida Leve
+adaptar8.py   etapa 8 — um plano por região (Vida Leve / Vida Nova CG)
 ```
 
 Rodando as oito em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
@@ -46,9 +46,8 @@ python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4
 
 ## O formato que o app espera
 
-`window.DADOS_UF = {"VL": {...}}`, uma chave por região — o app mostra um botão por chave quando
-há mais de uma (na Amil são PR, SC e SP). Hoje há uma só, então o seletor nem aparece. Cada
-região tem:
+`window.DADOS_UF = {"VL": {...}, "CG": {...}}`, uma chave por região — o app mostra um botão por chave quando
+há mais de uma (na Amil são PR, SC e SP). Cada região tem:
 
 | campo | o que é |
 |---|---|
@@ -59,19 +58,21 @@ região tem:
 | `centros` | `{"BAIRRO\|CIDADE": [lat, lon, quantos]}` — alimenta o "Perto de" |
 | `prestadores` | `n, c, cid, cr, b, e, t, mail, acess, eq, p, pp, dir, cat, cats, esp, pc, s, xy` |
 
-`dados_ns.py` monta isso a partir do `dados_vl.json`. Para acrescentar uma região, basta coletar
+`dados_ns.py` monta isso a partir do `dados_vl.json` e do `dados_vncg.json`, e cada
+região traz o **seu** produto (o plano vendido naquela praça) em `REGIOES`. Para acrescentar uma região, basta coletar
 os PDFs, gerar o JSON e somar uma linha em `REGIOES` — mais a data em `GERADO_EM` e a sede de
 cada cidade nova em `COORD`.
 
 ## O que é diferente aqui
 
-- **Um produto só.** O material é do plano **Vida Leve** (Rede Laranja), que é o que a corretora
-  comercializa, então `produtos` tem um item e a aba "Entre planos" fica escondida.
+- **Um produto por região.** Cada praça tem o plano que a operadora vende nela — Vida Leve
+  (Rede Laranja) em Curitiba e região, Vida Nova CG (Rede Coral CG) nos Campos Gerais. Como
+  `produtos` tem um item só em cada região, a aba "Entre planos" fica escondida.
 - **Direcionamento interno vem de outra fonte.** O PDF oficial não traz o campo
   "Observação"; ele só existe na listagem em HTML (`obs.py` colhe, `notas.py` separa o que
   vale para todo mundo do que vale só para o plano Vida Care / Rede Ametista). Quem tem
   restrição geral recebe `dir` e o selo "ENCAMINHAMENTO"; o texto da operadora vai em `obs`,
-  que a dica do selo mostra. São 18 na rede do Vida Leve.
+  que a dica do selo mostra. São 18 no Vida Leve e nenhum no Vida Nova CG.
 - **Coordenadas por cidade.** A operadora não publica endereço geocodificado, então cada prestador
   recebe a sede do próprio município (IBGE) — o mapa fica com uma bolha por cidade, que é a
   granularidade certa para esse número de cidades. A caixa do mapa é calculada por região.
