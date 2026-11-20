@@ -34,14 +34,15 @@ adaptar5.py   etapa 5 — duas regiões: título, caixa do mapa por região, ORD
 adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf"
 adaptar7.py   etapa 7 — direcionamento interno: o "D" e o selo de encaminhamento
 adaptar8.py   etapa 8 — um plano por região (Vida Leve / Vida Nova CG)
+adaptar9.py   etapa 9 — correções da auditoria de 20/11/2026 (data da capa do PDF e outras)
 ```
 
-Rodando as oito em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as nove em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py && python adaptar8.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py && python adaptar8.py && python adaptar9.py
 ```
 
 ## O formato que o app espera

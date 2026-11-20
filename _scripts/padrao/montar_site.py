@@ -548,6 +548,30 @@ if "Amil" in app or "Amil" in lib.split("window.FONTES")[0]:
     sobrou = set(re.findall(r".{40}Amil.{40}", app))
     print("AVISO: ainda ha mencoes a Amil no app (provavelmente comentarios):", len(sobrou))
 
+# ========================================= 3b) correcoes da auditoria
+# Etapa 9 (adaptar9.py), auditoria de 20/11/2026.
+
+# A capa do PDF dizia "Levantado ... em <hoje>": a data em que o PDF era
+# montado, nao a da coleta - e o aviso "retrato da data da capa" depende
+# dela. A capa passa a usar o gerado_em da regiao que esta na tela.
+lib = troca(lib, "var p = this.pdf, hoje = new Date(), o = this.o;",
+            "var p = this.pdf, o = this.o;\n"
+            "    // data da COLETA da regiao (gerado_em, dd/mm/aaaa), nunca a do dia\n"
+            "    var coleta = String(o.dataColeta || (window.DADOS || {}).gerado_em || \"\")\n"
+            "      .split(\"/\");\n"
+            "    var temColeta = coleta.length === 3 && coleta[1] >= 1 && coleta[1] <= 12;")
+lib = troca(lib,
+            '"Levantado na rede credenciada oficial da Nossa Saúde em " + hoje.getDate() +\n'
+            '            " de " + MESES[hoje.getMonth()] + " de " + hoje.getFullYear(),',
+            '"Levantado na rede credenciada oficial da Nossa Saúde" + (temColeta\n'
+            '              ? " em " + Number(coleta[0]) + " de " + MESES[coleta[1] - 1] +\n'
+            '                " de " + coleta[2]\n'
+            '              : ""),')
+app = troca(app, "var rel = new window.Relatorio(window.FONTES, {",
+            "var rel = new window.Relatorio(window.FONTES, {\n"
+            "      dataColeta: D.gerado_em,   // a capa diz quando a rede foi levantada",
+            2)
+
 # ============================================================== 4) monta
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma

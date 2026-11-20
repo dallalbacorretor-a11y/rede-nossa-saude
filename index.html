@@ -1231,7 +1231,7 @@ tr.mais span{color:var(--tinta-fraca);font-size:12px;margin-right:12px}
     Esta página é o retrato da data indicada no topo —
     <strong>confirme no portal da Nossa Saúde antes de contratar.</strong></span>
   <span class="assina" id="assinaRodape"></span>
-  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 01/10/2026 15:31</span>
+  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 20/11/2026 14:57</span>
 </div>
 
 
@@ -1636,7 +1636,11 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
   };
 
   Relatorio.prototype.capa = function () {
-    var p = this.pdf, hoje = new Date(), o = this.o;
+    var p = this.pdf, o = this.o;
+    // data da COLETA da regiao (gerado_em, dd/mm/aaaa), nunca a do dia
+    var coleta = String(o.dataColeta || (window.DADOS || {}).gerado_em || "")
+      .split("/");
+    var temColeta = coleta.length === 3 && coleta[1] >= 1 && coleta[1] <= 12;
     p.novaPagina();
     p.retangulo(0, 0, L, A, NAVY);
     // longe do titulo, que chega a ~65% da largura
@@ -1665,8 +1669,10 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
       recuo = linhasP.length * 15 + 4;
     }
     p.texto(30 * MM, A - 121 * MM - recuo,
-            "Levantado na rede credenciada oficial da Nossa Saúde em " + hoje.getDate() +
-            " de " + MESES[hoje.getMonth()] + " de " + hoje.getFullYear(),
+            "Levantado na rede credenciada oficial da Nossa Saúde" + (temColeta
+              ? " em " + Number(coleta[0]) + " de " + MESES[coleta[1] - 1] +
+                " de " + coleta[2]
+              : ""),
             "sans", 9.5, "#e0b193");
 
     selo(p, 30 * MM, 26 * MM, 44, (o.corretor || {}).corretora);
@@ -3400,6 +3406,7 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
 
     var aux = window.RelatorioAux;
     var rel = new window.Relatorio(window.FONTES, {
+      dataColeta: D.gerado_em,   // a capa diz quando a rede foi levantada
       produto: nA + "  para  " + nB,
       semCidadeNaCapa: false,
       cidade: onde,
@@ -3625,6 +3632,7 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
     });
     var aux = window.RelatorioAux;
     var rel = new window.Relatorio(window.FONTES, {
+      dataColeta: D.gerado_em,   // a capa diz quando a rede foi levantada
       /* Com um produto o PDF e a rede daquele plano; com varios ele vira
          comparativo e a capa precisa dizer isso. */
       produto: comparativo
