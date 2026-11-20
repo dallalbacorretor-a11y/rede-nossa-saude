@@ -592,6 +592,12 @@ app = troca(app,
 head = troca(head, ".botoes{display:flex;gap:8px}",
              ".botoes{display:flex;flex-wrap:wrap;gap:8px}")
 
+# Todos os sites em dallalbacorretor-a11y.github.io dividem o mesmo
+# localStorage, e "mazza.corretor.v1" e a chave do app base (Amil e Parana
+# Clinicas): um site sobrescrevia o "Meus dados" do outro. Chave so desta.
+app = troca(app, 'var CHAVE_CORRETOR = "mazza.corretor.v1";',
+            'var CHAVE_CORRETOR = "mzb_nossasaude_corretor_v1";  // github.io e compartilhado')
+
 # ============================================================== 4) monta
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma
