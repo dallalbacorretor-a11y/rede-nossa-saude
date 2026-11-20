@@ -587,6 +587,11 @@ app = troca(app,
     entregar("rede-nossa-saude-" + slug(D.estado || D.uf) + "-" +
              slug(ondeCsv) + ".csv", csv);""")
 
+# No celular (375 px) "Gerar PDF - escolha um produto" + CSV + Limpar nao
+# cabiam numa linha (todo botao e nowrap) e a pagina rolava para o lado.
+head = troca(head, ".botoes{display:flex;gap:8px}",
+             ".botoes{display:flex;flex-wrap:wrap;gap:8px}")
+
 # ============================================================== 4) monta
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma

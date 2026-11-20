@@ -66,7 +66,14 @@ app = troca(app,
              slug(ondeCsv) + ".csv", csv);""")
 ''')
 
-MARCA ='# ============================================================== 4) monta\n'
+# 3) celular: os botoes de Acoes quebram linha
+BLOCOS.append(r'''# No celular (375 px) "Gerar PDF - escolha um produto" + CSV + Limpar nao
+# cabiam numa linha (todo botao e nowrap) e a pagina rolava para o lado.
+head = troca(head, ".botoes{display:flex;gap:8px}",
+             ".botoes{display:flex;flex-wrap:wrap;gap:8px}")
+''')
+
+MARCA = '# ============================================================== 4) monta\n'
 sub(MARCA, '\n'.join(BLOCOS) + '\n' + MARCA)
 
 io.open(ALVO, 'w', encoding='utf-8').write(t)
