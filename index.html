@@ -1231,7 +1231,7 @@ tr.mais span{color:var(--tinta-fraca);font-size:12px;margin-right:12px}
     Esta página é o retrato da data indicada no topo —
     <strong>confirme no portal da Nossa Saúde antes de contratar.</strong></span>
   <span class="assina" id="assinaRodape"></span>
-  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 20/11/2026 14:57</span>
+  <span class="versao" title="Se esta data estiver atrasada, recarregue a página segurando Shift">versão 20/11/2026 14:58</span>
 </div>
 
 
@@ -2899,8 +2899,14 @@ window.CORRETOR={"nome": "Alan Vinicius Dall Alba", "corretora": "Mazza Broker",
         .map(asp).join(";");
     });
     var csv = "﻿" + [cab.map(asp).join(";")].concat(linhas).join("\r\n");
-    entregar("rede-parana-clinicas-" + apelidoCidade().toLowerCase()
-      .replace(/\s+/g, "-") + ".csv", csv);
+    var slug = function (s) {
+      return semAcento(s).toLowerCase().replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    };
+    var ondeCsv = (temEscolha("cidr") || temEscolha("cid"))
+      ? apelidoCidade() : "todas as cidades";
+    entregar("rede-nossa-saude-" + slug(D.estado || D.uf) + "-" +
+             slug(ondeCsv) + ".csv", csv);
   }
 
 

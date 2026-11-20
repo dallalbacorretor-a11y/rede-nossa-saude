@@ -572,6 +572,21 @@ app = troca(app, "var rel = new window.Relatorio(window.FONTES, {",
             "      dataColeta: D.gerado_em,   // a capa diz quando a rede foi levantada",
             2)
 
+# O CSV saia como "rede-parana-clinicas-<cidade>.csv" (sobra do modelo da
+# Parana Clinicas). Agora: rede-nossa-saude-<regiao>-<cidade>.csv, sem acento
+# nem espaco; sem cidade filtrada, "todas-as-cidades".
+app = troca(app,
+            r"""    entregar("rede-parana-clinicas-" + apelidoCidade().toLowerCase()
+      .replace(/\s+/g, "-") + ".csv", csv);""",
+            r"""    var slug = function (s) {
+      return semAcento(s).toLowerCase().replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    };
+    var ondeCsv = (temEscolha("cidr") || temEscolha("cid"))
+      ? apelidoCidade() : "todas as cidades";
+    entregar("rede-nossa-saude-" + slug(D.estado || D.uf) + "-" +
+             slug(ondeCsv) + ".csv", csv);""")
+
 # ============================================================== 4) monta
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma

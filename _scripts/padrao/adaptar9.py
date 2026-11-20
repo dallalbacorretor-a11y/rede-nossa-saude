@@ -49,7 +49,24 @@ app = troca(app, "var rel = new window.Relatorio(window.FONTES, {",
             2)
 ''')
 
-MARCA = '# ============================================================== 4) monta\n'
+# 2) o nome do CSV
+BLOCOS.append(r'''# O CSV saia como "rede-parana-clinicas-<cidade>.csv" (sobra do modelo da
+# Parana Clinicas). Agora: rede-nossa-saude-<regiao>-<cidade>.csv, sem acento
+# nem espaco; sem cidade filtrada, "todas-as-cidades".
+app = troca(app,
+            r"""    entregar("rede-parana-clinicas-" + apelidoCidade().toLowerCase()
+      .replace(/\s+/g, "-") + ".csv", csv);""",
+            r"""    var slug = function (s) {
+      return semAcento(s).toLowerCase().replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    };
+    var ondeCsv = (temEscolha("cidr") || temEscolha("cid"))
+      ? apelidoCidade() : "todas as cidades";
+    entregar("rede-nossa-saude-" + slug(D.estado || D.uf) + "-" +
+             slug(ondeCsv) + ".csv", csv);""")
+''')
+
+MARCA ='# ============================================================== 4) monta\n'
 sub(MARCA, '\n'.join(BLOCOS) + '\n' + MARCA)
 
 io.open(ALVO, 'w', encoding='utf-8').write(t)
