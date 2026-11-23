@@ -5,9 +5,15 @@ em `base/` (três arquivos, copiados do estudo da Amil) e é adaptado por `monta
 
 ```
 base/amil_head.html    CSS + marcação (até antes dos <script>)
-base/amil_lib.js       fontes e o gerador de PDF
+base/amil_lib.js       ORDEM_UF/CORRETOR e o motor de PDF antigo (a etapa 10 o corta)
 base/amil_app.js       a aplicação
+pdf_nossa_saude.js     a descrição do PDF (capa, "Como ler", blocos) para o pdf-rede.js
 ```
+
+O PDF sai no **padrão Central de Rede**, o mesmo da Amil, do Bradesco e da SulAmérica:
+`pdf-rede.js`, `pdfmake.min.js` e `fontes-pdf.js`, na raiz do repositório, ao lado do
+`index.html`. Os três vêm **sem alteração** do rede-amil (main 683e187) — atualizou lá, copie
+de novo. O `pdf-rede.js` só carrega o pdfmake e as fontes no primeiro PDF.
 
 ## Como gerar
 
@@ -35,14 +41,15 @@ adaptar6.py   etapa 6 — o nome do PDF: "Nossa Saúde - <cidade ou região>.pdf
 adaptar7.py   etapa 7 — direcionamento interno: o "D" e o selo de encaminhamento
 adaptar8.py   etapa 8 — um plano por região (Vida Leve / Vida Nova CG)
 adaptar9.py   etapa 9 — correções da auditoria de 20/11/2026 (data da capa do PDF e outras)
+adaptar10.py  etapa 10 — PDF no padrão Central de Rede (pdf-rede.js); sai o motor antigo
 ```
 
-Rodando as nove em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
+Rodando as dez em ordem, sai o `montar_site.py`. Toda troca passa por `troca()` / `sub()`, que
 estoura se o texto original não existir mais — se a Amil mudar o app base, a adaptação falha alto
 em vez de sair torta.
 
 ```bash
-python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py && python adaptar8.py && python adaptar9.py
+python adaptar.py && python adaptar2.py && python adaptar3.py && python adaptar4.py && python adaptar5.py && python adaptar6.py && python adaptar7.py && python adaptar8.py && python adaptar9.py && python adaptar10.py
 ```
 
 ## O formato que o app espera

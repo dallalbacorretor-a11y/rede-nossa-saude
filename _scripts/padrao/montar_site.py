@@ -598,6 +598,40 @@ head = troca(head, ".botoes{display:flex;gap:8px}",
 app = troca(app, 'var CHAVE_CORRETOR = "mazza.corretor.v1";',
             'var CHAVE_CORRETOR = "mzb_nossasaude_corretor_v1";  // github.io e compartilhado')
 
+# ===================================== 3c) PDF no padrao Central de Rede
+# Etapa 10 (adaptar10.py). O PDF sai pelo pdf-rede.js (pdfmake), o gerador da
+# Amil, do Bradesco e da SulAmerica: o motor antigo (PDFWeb + Relatorio)
+# cortava bairro e especialidades com "..." e embutia Segoe UI e Constantia.
+# pdf-rede.js, pdfmake.min.js e fontes-pdf.js ficam na raiz do site, copiados
+# sem alteracao do rede-amil; a pagina so descreve o documento.
+def recorta(txt, de, ate, novo):
+    """Troca o trecho [de, ate). Os dois marcadores existem uma vez so."""
+    global trocas
+    if txt.count(de) != 1 or txt.count(ate) != 1 or txt.index(ate) <= txt.index(de):
+        raise SystemExit("recorta: esperava um %r antes de um %r" % (de[:60], ate[:60]))
+    trocas += 1
+    return txt[:txt.index(de)] + novo + txt[txt.index(ate):]
+
+
+# a descricao do documento entra no lugar do motor antigo
+app = recorta(app, "  function gerarPDFEntre() {\n", "  function montarSelects() {\n", "")
+app = recorta(app, "  function gerarPDF() {\n", "  /* Zera todo filtro escolhido.",
+              L(os.path.join(_local.AQUI, "pdf_nossa_saude.js")))
+# PDFWeb, Relatorio e as fontes da Microsoft saem do lib (a linha das fontes
+# ja foi tirada do base/amil_lib.js; se voltar numa copia nova, sai aqui)
+if "window.FONTES=" in lib:
+    lib = recorta(lib, "window.FONTES=", "window.CORRETOR=", "")
+_corte = lib.index("/* pdf_web.js")
+if "global.Relatorio = Relatorio;" not in lib[_corte:]:
+    raise SystemExit("o motor antigo (Relatorio) mudou de lugar")
+lib = lib[:_corte]
+trocas += 1
+# o gerador e externo: o pdf-rede.js carrega pdfmake e fontes no primeiro PDF
+head = head + '<script src="pdf-rede.js"></script>\n'
+for _resto in ("Relatorio", "PDFWeb", "window.FONTES", "entregarBinario"):
+    if _resto in app or _resto in lib:
+        raise SystemExit("sobrou referencia ao motor antigo: " + _resto)
+
 # ============================================================== 4) monta
 # ------------------------------------------------ produto unico: sem comparativo
 # A aba "Entre planos" existe para confrontar duas redes. Aqui o material soma

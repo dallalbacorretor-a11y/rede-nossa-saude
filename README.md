@@ -34,8 +34,9 @@ operadora:
 
 - abas **Visão geral · Rede completa**
 - mapa de bolhas por cidade, filtros por cidade, categoria, especialidade e bairro
-- **PDF gerado na hora pela própria página**, já assinado por quem está usando, um por região ou
-  por cidade: `Nossa Saúde Vida Leve - Curitiba.pdf`
+- **PDF gerado na hora pela própria página**, no padrão Central de Rede (o mesmo da Amil, do
+  Bradesco e da SulAmérica), já assinado por quem está usando, um por região ou por cidade:
+  `Rede Nossa Saude - Vida Nova CG - Ponta Grossa-PR.pdf`
 - **Meus dados**: cada corretor assina o próprio material; a corretora Mazza Broker é fixa
 - **Direcionamento interno**: quem a operadora só libera por encaminhamento aparece com o selo
   ENCAMINHAMENTO e um **D** no lugar do visto — no Vida Leve são 18, entre eles Pilar, Cruz
@@ -52,6 +53,9 @@ Os hospitais incluem os que a própria operadora classifica como *Hospital Espec
 
 ```
 index.html              a página inteira (CSS, app e dados num arquivo só)
+pdf-rede.js             gerador do PDF (padrão Central de Rede), igual ao do rede-amil
+pdfmake.min.js          pdfmake, carregado só no primeiro PDF
+fontes-pdf.js           IBM Plex Sans e Newsreader para o PDF
 _scripts/               coleta e preparo dos dados (ver _scripts/LEIAME.md)
 _scripts/padrao/        o template da casa e a adaptação para a Nossa Saúde
 ```
